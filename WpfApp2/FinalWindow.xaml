@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp2.FinalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="FinalWindow" Height="500" Width="950">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="410" Margin="10,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png"/>
+        <Image HorizontalAlignment="Left" Height="410" Margin="530,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="668,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="134" FontWeight="Bold" FontSize="30"><Run Text="I"/><Run Language="ja-jp" Text=" Solved"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="198" FontWeight="Bold" FontSize="30"><Run Language="ja-jp" Text="You Gave Me"/><Run Text=":"/></TextBlock>
+
+    </Grid>
+</Window>
