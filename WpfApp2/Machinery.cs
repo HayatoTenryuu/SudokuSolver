@@ -776,13 +776,19 @@ namespace WpfApp2
                                     {
                                         switch (i)                        // Important box number depends on i and j.
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 0;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 3;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 6;
                                                 break;
                                             default:
@@ -801,13 +807,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 0;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 3;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 6;
                                                 break;
                                             default:
@@ -826,13 +838,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 0;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 3;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 6;
                                                 break;
                                             default:
@@ -851,13 +869,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 1;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 4;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 7;
                                                 break;
                                             default:
@@ -876,13 +900,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 1;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 4;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 7;
                                                 break;
                                             default:
@@ -901,13 +931,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 1;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 4;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 7;
                                                 break;
                                             default:
@@ -926,13 +962,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 2;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 5;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 8;
                                                 break;
                                             default:
@@ -951,13 +993,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 2;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 5;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 8;
                                                 break;
                                             default:
@@ -976,13 +1024,19 @@ namespace WpfApp2
                                     {
                                         switch (i)
                                         {
-                                            case (0 | 1 | 2):
+                                            case 0:
+                                            case 1:
+                                            case 2:
                                                 important_box = 2;
                                                 break;
-                                            case (3 | 4 | 5):
+                                            case 3:
+                                            case 4:
+                                            case 5:
                                                 important_box = 5;
                                                 break;
-                                            case (6 | 7 | 8):
+                                            case 6:
+                                            case 7:
+                                            case 8:
                                                 important_box = 8;
                                                 break;
                                             default:
