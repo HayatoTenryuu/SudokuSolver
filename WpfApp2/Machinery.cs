@@ -767,7 +767,7 @@ namespace WpfApp2
                             switch (j + 1)
                             {
                                 case 1:
-                                    important_col = 1;
+                                    important_col = 0;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))       // Skip this zero if we've looked at it before.
                                     {
                                         break;
@@ -777,13 +777,13 @@ namespace WpfApp2
                                         switch (i)                        // Important box number depends on i and j.
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 1;
+                                                important_box = 0;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 4;
+                                                important_box = 3;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 7;
+                                                important_box = 6;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -792,6 +792,31 @@ namespace WpfApp2
                                         break;
                                     }
                                 case 2:
+                                    important_col = 1;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 0;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 3;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 6;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 3:
                                     important_col = 2;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -802,13 +827,13 @@ namespace WpfApp2
                                         switch (i)
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 1;
+                                                important_box = 0;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 4;
+                                                important_box = 3;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 7;
+                                                important_box = 6;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -816,7 +841,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 3:
+                                case 4:
                                     important_col = 3;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -841,7 +866,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 4:
+                                case 5:
                                     important_col = 4;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -852,13 +877,13 @@ namespace WpfApp2
                                         switch (i)
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 2;
+                                                important_box = 1;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 5;
+                                                important_box = 4;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 8;
+                                                important_box = 7;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -866,7 +891,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 5:
+                                case 6:
                                     important_col = 5;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -877,13 +902,13 @@ namespace WpfApp2
                                         switch (i)
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 2;
+                                                important_box = 1;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 5;
+                                                important_box = 4;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 8;
+                                                important_box = 7;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -891,7 +916,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 6:
+                                case 7:
                                     important_col = 6;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -916,7 +941,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 7:
+                                case 8:
                                     important_col = 7;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -927,13 +952,13 @@ namespace WpfApp2
                                         switch (i)
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 3;
+                                                important_box = 2;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 6;
+                                                important_box = 5;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 9;
+                                                important_box = 8;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -941,7 +966,7 @@ namespace WpfApp2
                                         }
                                         break;
                                     }
-                                case 8:
+                                case 9:
                                     important_col = 8;
                                     if ((important_row <= skiprow) && (important_col <= skipcol))
                                     {
@@ -952,38 +977,13 @@ namespace WpfApp2
                                         switch (i)
                                         {
                                             case (0 | 1 | 2):
-                                                important_box = 3;
+                                                important_box = 2;
                                                 break;
                                             case (3 | 4 | 5):
-                                                important_box = 6;
+                                                important_box = 5;
                                                 break;
                                             case (6 | 7 | 8):
-                                                important_box = 9;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 9:
-                                    important_col = 9;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case (0 | 1 | 2):
-                                                important_box = 3;
-                                                break;
-                                            case (3 | 4 | 5):
-                                                important_box = 6;
-                                                break;
-                                            case (6 | 7 | 8):
-                                                important_box = 9;
+                                                important_box = 8;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
