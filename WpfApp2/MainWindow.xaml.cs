@@ -502,11 +502,11 @@ namespace WpfApp2
                     boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
                 }
 
-                checker = (Machine.has_zeros(rowset.getrows(1)) || Machine.has_zeros(rowset.getrows(2)) ||
-                           Machine.has_zeros(rowset.getrows(3)) || Machine.has_zeros(rowset.getrows(4)) ||
-                           Machine.has_zeros(rowset.getrows(5)) || Machine.has_zeros(rowset.getrows(6)) ||
-                           Machine.has_zeros(rowset.getrows(7)) || Machine.has_zeros(rowset.getrows(8)) ||
-                           Machine.has_zeros(rowset.getrows(9)));
+                checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
+                           Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
+                           Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
+                           Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
+                           Machine.has_zeros(rowset.getrows(8)));
             }
             while (checker);
 
