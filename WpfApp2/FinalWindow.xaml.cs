@@ -19,9 +19,14 @@ namespace WpfApp2
     /// </summary>
     public partial class FinalWindow : Window
     {
-        public FinalWindow()
+        public FinalWindow(Machinery.Rows alpha, Machinery.Rows omega)
         {
             InitializeComponent();
+
+            int[][] OG_Matrix = alpha.getmatrix();
+            int[][] new_Matrix = omega.getmatrix();
+
+            R11_OG.Text = OG_Matrix[0][0].ToString();
         }
     }
 }

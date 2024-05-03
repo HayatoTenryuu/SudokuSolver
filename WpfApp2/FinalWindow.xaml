@@ -11,6 +11,7 @@
         <Image HorizontalAlignment="Left" Height="410" Margin="530,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="668,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="134" FontWeight="Bold" FontSize="30"><Run Text="I"/><Run Language="ja-jp" Text=" Solved"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="198" FontWeight="Bold" FontSize="30"><Run Language="ja-jp" Text="You Gave Me"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="R11_OG" HorizontalAlignment="Left" Margin="43,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

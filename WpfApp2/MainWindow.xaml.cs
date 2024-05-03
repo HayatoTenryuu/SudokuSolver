@@ -304,7 +304,7 @@ namespace WpfApp2
             ((TextBox)sender).Text = "";
         }
 
-        private void Solve_Button_Click(object sender, RoutedEventArgs e)
+        public void Solve_Button_Click(object sender, RoutedEventArgs e)
         {
 
             /* --------------------------------
@@ -329,7 +329,7 @@ namespace WpfApp2
                         Int32.TryParse(R17.Text, out rando) ? Int32.Parse(R17.Text) : 0,
                         Int32.TryParse(R18.Text, out rando) ? Int32.Parse(R18.Text) : 0,
                         Int32.TryParse(R19.Text, out rando) ? Int32.Parse(R19.Text) : 0];
-            rowset.setrows(1,ra1);
+            rowset.setrows(0,ra1);
 
             int[] ra2 = [Int32.TryParse(R21.Text, out rando) ? Int32.Parse(R21.Text) : 0,
                         Int32.TryParse(R22.Text, out rando) ? Int32.Parse(R22.Text) : 0,
@@ -340,7 +340,7 @@ namespace WpfApp2
                         Int32.TryParse(R27.Text, out rando) ? Int32.Parse(R27.Text) : 0,
                         Int32.TryParse(R28.Text, out rando) ? Int32.Parse(R28.Text) : 0,
                         Int32.TryParse(R29.Text, out rando) ? Int32.Parse(R29.Text) : 0];
-            rowset.setrows(2, ra2);
+            rowset.setrows(1, ra2);
 
             int[] ra3 = [Int32.TryParse(R31.Text, out rando) ? Int32.Parse(R31.Text) : 0,
                         Int32.TryParse(R32.Text, out rando) ? Int32.Parse(R32.Text) : 0,
@@ -351,7 +351,7 @@ namespace WpfApp2
                         Int32.TryParse(R37.Text, out rando) ? Int32.Parse(R37.Text) : 0,
                         Int32.TryParse(R38.Text, out rando) ? Int32.Parse(R38.Text) : 0,
                         Int32.TryParse(R39.Text, out rando) ? Int32.Parse(R39.Text) : 0];
-            rowset.setrows(3, ra3);
+            rowset.setrows(2, ra3);
 
             int[] ra4 = [Int32.TryParse(R41.Text, out rando) ? Int32.Parse(R41.Text) : 0,
                         Int32.TryParse(R42.Text, out rando) ? Int32.Parse(R42.Text) : 0,
@@ -362,7 +362,7 @@ namespace WpfApp2
                         Int32.TryParse(R47.Text, out rando) ? Int32.Parse(R47.Text) : 0,
                         Int32.TryParse(R48.Text, out rando) ? Int32.Parse(R48.Text) : 0,
                         Int32.TryParse(R49.Text, out rando) ? Int32.Parse(R49.Text) : 0];
-            rowset.setrows(4, ra4);
+            rowset.setrows(3, ra4);
 
             int[] ra5 = [Int32.TryParse(R51.Text, out rando) ? Int32.Parse(R51.Text) : 0,
                         Int32.TryParse(R52.Text, out rando) ? Int32.Parse(R52.Text) : 0,
@@ -373,7 +373,7 @@ namespace WpfApp2
                         Int32.TryParse(R57.Text, out rando) ? Int32.Parse(R57.Text) : 0,
                         Int32.TryParse(R58.Text, out rando) ? Int32.Parse(R58.Text) : 0,
                         Int32.TryParse(R59.Text, out rando) ? Int32.Parse(R59.Text) : 0];
-            rowset.setrows(5, ra5);
+            rowset.setrows(4, ra5);
 
             int[] ra6 = [Int32.TryParse(R61.Text, out rando) ? Int32.Parse(R61.Text) : 0,
                         Int32.TryParse(R62.Text, out rando) ? Int32.Parse(R62.Text) : 0,
@@ -384,7 +384,7 @@ namespace WpfApp2
                         Int32.TryParse(R67.Text, out rando) ? Int32.Parse(R67.Text) : 0,
                         Int32.TryParse(R68.Text, out rando) ? Int32.Parse(R68.Text) : 0,
                         Int32.TryParse(R69.Text, out rando) ? Int32.Parse(R69.Text) : 0];
-            rowset.setrows(6, ra6);
+            rowset.setrows(5, ra6);
 
             int[] ra7 = [Int32.TryParse(R71.Text, out rando) ? Int32.Parse(R71.Text) : 0,
                         Int32.TryParse(R72.Text, out rando) ? Int32.Parse(R72.Text) : 0,
@@ -395,7 +395,7 @@ namespace WpfApp2
                         Int32.TryParse(R77.Text, out rando) ? Int32.Parse(R77.Text) : 0,
                         Int32.TryParse(R78.Text, out rando) ? Int32.Parse(R78.Text) : 0,
                         Int32.TryParse(R79.Text, out rando) ? Int32.Parse(R79.Text) : 0];
-            rowset.setrows(7, ra7);
+            rowset.setrows(6, ra7);
 
             int[] ra8 = [Int32.TryParse(R81.Text, out rando) ? Int32.Parse(R81.Text) : 0,
                         Int32.TryParse(R82.Text, out rando) ? Int32.Parse(R82.Text) : 0,
@@ -406,7 +406,7 @@ namespace WpfApp2
                         Int32.TryParse(R87.Text, out rando) ? Int32.Parse(R87.Text) : 0,
                         Int32.TryParse(R88.Text, out rando) ? Int32.Parse(R88.Text) : 0,
                         Int32.TryParse(R89.Text, out rando) ? Int32.Parse(R89.Text) : 0];
-            rowset.setrows(8, ra8);
+            rowset.setrows(7, ra8);
 
             int[] ra9 = [Int32.TryParse(R91.Text, out rando) ? Int32.Parse(R91.Text) : 0,
                         Int32.TryParse(R92.Text, out rando) ? Int32.Parse(R92.Text) : 0,
@@ -417,7 +417,7 @@ namespace WpfApp2
                         Int32.TryParse(R97.Text, out rando) ? Int32.Parse(R97.Text) : 0,
                         Int32.TryParse(R98.Text, out rando) ? Int32.Parse(R98.Text) : 0,
                         Int32.TryParse(R99.Text, out rando) ? Int32.Parse(R99.Text) : 0];
-            rowset.setrows(9, ra9);
+            rowset.setrows(8, ra9);
 
 
             /*--------------------------------------------
@@ -437,81 +437,83 @@ namespace WpfApp2
             Machinery.Rows original_rowset = new Machinery.Rows();
             original_rowset = Machine.cols_to_rows(original_rowset, colset.getmatrix());
 
-            /*-------------------------------
-             * Step 4: Try to Solve the Rows.
-             ------------------------------*/
+            /*---------------------------------------
+             * Step 4: Try to Solve with Basic Rules.
+             ---------------------------------------*/
 
             bool a = false;
-            int b = 0;
+            bool b = false;
+            bool c = false;
+            int x = 0;
+            int y = 0;
+            int z = 0;
 
-            for (int i = 1; i < 10; i++)
+            /*----------------------------------------------
+             * Step 5: Try to Solve with Intermediate Rules.
+             ---------------------------------------------*/
+            
+            bool checker = false;
+
+            do
             {
-                (a, b) = Machine.basic_value_insert(rowset.getrows(i));
-                if (a == true)
+                for (int i = 0; i < 9; i++)
                 {
-                    break;
+                    (a, x) = Machine.basic_value_insert(rowset.getrows(i));
+                    if (a == true)
+                    {
+                        colset = Machine.rows_to_cols(colset, rowset.getmatrix());
+                        boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
+                        break;
+                    }
                 }
-            }
 
-            switch (a)
-            {
-                case true:
-                    MessageBox.Show("t_row is " + b);
-                    break;
-                default:
-                    MessageBox.Show("f");
-                    break;
-            }
-
-            /*----------------------------------
-             * Step 5: Try to Solve the Columns.
-             ---------------------------------*/
-
-            for (int i = 1; i < 10; i++)
-            {
-                (a, b) = Machine.basic_value_insert(colset.getcols(i));
-                if (a == true)
+                for (int i = 0; i < 9; i++)
                 {
-                    break;
+                    (b, y) = Machine.basic_value_insert(colset.getcols(i));
+                    if (b == true)
+                    {
+                        boxset = Machine.cols_to_boxs(boxset, colset.getmatrix());
+                        rowset = Machine.cols_to_rows(rowset, colset.getmatrix());
+                        break;
+                    }
                 }
-            }
 
-            switch (a)
-            {
-                case true:
-                    MessageBox.Show("t_col is " + b);
-                    break;
-                default:
-                    MessageBox.Show("f");
-                    break;
-            }
-
-            /*---------------------------------
-             * Step 6: Try to Solve the Boxes.
-             --------------------------------*/
-
-            for (int i = 1; i < 10; i++)
-            {
-                (a, b) = Machine.basic_value_insert(boxset.getboxs(i));
-                if (a == true)
+                for (int i = 0; i < 9; i++)
                 {
-                    break;
+                    (c, z) = Machine.basic_value_insert(boxset.getboxs(i));
+                    if (c == true)
+                    {
+                        rowset = Machine.boxs_to_rows(rowset, boxset.getmatrix());
+                        colset = Machine.boxs_to_cols(colset, boxset.getmatrix());
+                        break;
+                    }
                 }
-            }
 
-            switch (a)
-            {
-                case true:
-                    MessageBox.Show("t_box is " + b);
-                    break;
-                default:
-                    MessageBox.Show("f");
-                    break;
-            }
+                (bool act, int[][] return_matrix) = Machine.intermediate_value_insert(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
 
-            /*----------------------------
-             * Step 7: Iterate Until Done.
-             ---------------------------*/
+                for (int i = 0; i < 9; i++)
+                {
+                    rowset.setrows(i, return_matrix[i]);
+                }
+
+                if (act == true)
+                {
+                    colset = Machine.rows_to_cols(colset, rowset.getmatrix());
+                    boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
+                }
+
+                checker = (Machine.has_zeros(rowset.getrows(1)) || Machine.has_zeros(rowset.getrows(2)) ||
+                           Machine.has_zeros(rowset.getrows(3)) || Machine.has_zeros(rowset.getrows(4)) ||
+                           Machine.has_zeros(rowset.getrows(5)) || Machine.has_zeros(rowset.getrows(6)) ||
+                           Machine.has_zeros(rowset.getrows(7)) || Machine.has_zeros(rowset.getrows(8)) ||
+                           Machine.has_zeros(rowset.getrows(9)));
+            }
+            while (checker);
+
+            MessageBox.Show("All Done!");
+
+            FinalWindow ending = new FinalWindow(original_rowset, rowset);
+
         }
     }
 }

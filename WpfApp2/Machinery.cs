@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace WpfApp2
             public void setrows(int row_num, int[] row_with_num)
                     {          
                         int i = 0;
-                        switch (row_num)
+                        switch (row_num+1)
                         {
                             case 1:
                                 while (i < 9)
@@ -102,7 +103,7 @@ namespace WpfApp2
                     }
             public int[] getrows(int row_num)
             {                                 
-                switch (row_num)
+                switch (row_num+1)
                 {
                     case 1:
                         return row1;
@@ -145,6 +146,22 @@ namespace WpfApp2
                 int[][] matrix = { row1, row2, row3, row4, row5, row6, row7, row8, row9 };
                 return matrix;
             }
+            public bool has_number(int number, int[] row_with_number) 
+            {
+                for (int i = 0; i < 9; i++) 
+                { 
+                    if (number == row_with_number[i])
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                return false;
+            }
         };
 
         public class Cols
@@ -163,7 +180,7 @@ namespace WpfApp2
             public void setcols(int col_num, int[] col_with_num)
             {                                                           
                 int i = 0;
-                switch (col_num)
+                switch (col_num+1)
                 {
                     case 1:
                         while (i < 9)
@@ -235,7 +252,7 @@ namespace WpfApp2
             }
             public int[] getcols(int col_num)
             {                                 
-                switch (col_num)
+                switch (col_num+1)
                 {
                     case 1:
                         return col1;
@@ -278,6 +295,22 @@ namespace WpfApp2
                 int[][] matrix = { col1, col2, col3, col4, col5, col6, col7, col8, col9 };
                 return matrix;
             }
+            public bool has_number(int number, int[] col_with_number)
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    if (number == col_with_number[i])
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                return false;
+            }
         };
 
         public class Boxs
@@ -296,7 +329,7 @@ namespace WpfApp2
             public void setboxs(int box_num, int[] box_with_num)
             {           
                 int i = 0;
-                switch (box_num)
+                switch (box_num+1)
                 {
                     case 1:
                         while (i < 9)
@@ -368,7 +401,7 @@ namespace WpfApp2
             }
             public int[] getboxs(int box_num)
             {                                 
-                switch (box_num)
+                switch (box_num+1)
                 {
                     case 1:
                         return box1;
@@ -411,6 +444,22 @@ namespace WpfApp2
                 int[][] matrix = { box1, box2, box3, box4, box5, box6, box7, box8, box9 };
                 return matrix;
             }
+            public bool has_number(int number, int[] box_with_number)
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    if (number == box_with_number[i])
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                return false;
+            }
         };
 
         /*------------------------------------------------------------------------------------------------------------------------*/
@@ -429,15 +478,15 @@ namespace WpfApp2
             int[] newcol8 = { row_matrix[0][7], row_matrix[1][7], row_matrix[2][7], row_matrix[3][7], row_matrix[4][7], row_matrix[5][7], row_matrix[6][7], row_matrix[7][7], row_matrix[8][7] };
             int[] newcol9 = { row_matrix[0][8], row_matrix[1][8], row_matrix[2][8], row_matrix[3][8], row_matrix[4][8], row_matrix[5][8], row_matrix[6][8], row_matrix[7][8], row_matrix[8][8] };
 
-            pcol.setcols(1, newcol1);
-            pcol.setcols(2, newcol2);
-            pcol.setcols(3, newcol3);
-            pcol.setcols(4, newcol4);
-            pcol.setcols(5, newcol5);
-            pcol.setcols(6, newcol6);
-            pcol.setcols(7, newcol7);
-            pcol.setcols(8, newcol8);
-            pcol.setcols(9, newcol9);
+            pcol.setcols(0, newcol1);
+            pcol.setcols(1, newcol2);
+            pcol.setcols(2, newcol3);
+            pcol.setcols(3, newcol4);
+            pcol.setcols(4, newcol5);
+            pcol.setcols(5, newcol6);
+            pcol.setcols(6, newcol7);
+            pcol.setcols(7, newcol8);
+            pcol.setcols(8, newcol9);
 
             return pcol;
         }
@@ -454,15 +503,15 @@ namespace WpfApp2
             int[] newbox8 = { row_matrix[6][3], row_matrix[6][4], row_matrix[6][5], row_matrix[7][3], row_matrix[7][4], row_matrix[7][5], row_matrix[8][3], row_matrix[8][4], row_matrix[8][5] };
             int[] newbox9 = { row_matrix[6][6], row_matrix[6][7], row_matrix[6][8], row_matrix[7][6], row_matrix[7][7], row_matrix[7][8], row_matrix[8][6], row_matrix[8][7], row_matrix[8][8] };
 
-            pbox.setboxs(1, newbox1);
-            pbox.setboxs(2, newbox2);
-            pbox.setboxs(3, newbox3);
-            pbox.setboxs(4, newbox4);
-            pbox.setboxs(5, newbox5);
-            pbox.setboxs(6, newbox6);
-            pbox.setboxs(7, newbox7);
-            pbox.setboxs(8, newbox8);
-            pbox.setboxs(9, newbox9);
+            pbox.setboxs(0, newbox1);
+            pbox.setboxs(1, newbox2);
+            pbox.setboxs(2, newbox3);
+            pbox.setboxs(3, newbox4);
+            pbox.setboxs(4, newbox5);
+            pbox.setboxs(5, newbox6);
+            pbox.setboxs(6, newbox7);
+            pbox.setboxs(7, newbox8);
+            pbox.setboxs(8, newbox9);
 
             return pbox;
         }
@@ -479,15 +528,15 @@ namespace WpfApp2
             int[] newrow8 = { col_matrix[0][7], col_matrix[1][7], col_matrix[2][7], col_matrix[3][7], col_matrix[4][7], col_matrix[5][7], col_matrix[6][7], col_matrix[7][7], col_matrix[8][7] };
             int[] newrow9 = { col_matrix[0][8], col_matrix[1][8], col_matrix[2][8], col_matrix[3][8], col_matrix[4][8], col_matrix[5][8], col_matrix[6][8], col_matrix[7][8], col_matrix[8][8] };
 
-            prow.setrows(1, newrow1);
-            prow.setrows(2, newrow2);
-            prow.setrows(3, newrow3);
-            prow.setrows(4, newrow4);
-            prow.setrows(5, newrow5);
-            prow.setrows(6, newrow6);
-            prow.setrows(7, newrow7);
-            prow.setrows(8, newrow8);
-            prow.setrows(9, newrow9);
+            prow.setrows(0, newrow1);
+            prow.setrows(1, newrow2);
+            prow.setrows(2, newrow3);
+            prow.setrows(3, newrow4);
+            prow.setrows(4, newrow5);
+            prow.setrows(5, newrow6);
+            prow.setrows(6, newrow7);
+            prow.setrows(7, newrow8);
+            prow.setrows(8, newrow9);
 
             return prow;
         }
@@ -504,15 +553,15 @@ namespace WpfApp2
             int[] newbox8 = { col_matrix[3][6], col_matrix[4][6], col_matrix[5][6], col_matrix[3][7], col_matrix[4][7], col_matrix[5][7], col_matrix[3][8], col_matrix[4][8], col_matrix[5][8] };
             int[] newbox9 = { col_matrix[6][6], col_matrix[7][6], col_matrix[8][6], col_matrix[6][7], col_matrix[7][7], col_matrix[8][7], col_matrix[6][8], col_matrix[7][8], col_matrix[8][8] };
 
-            pbox.setboxs(1, newbox1);
-            pbox.setboxs(2, newbox2);
-            pbox.setboxs(3, newbox3);
-            pbox.setboxs(4, newbox4);
-            pbox.setboxs(5, newbox5);
-            pbox.setboxs(6, newbox6);
-            pbox.setboxs(7, newbox7);
-            pbox.setboxs(8, newbox8);
-            pbox.setboxs(9, newbox9);
+            pbox.setboxs(0, newbox1);
+            pbox.setboxs(1, newbox2);
+            pbox.setboxs(2, newbox3);
+            pbox.setboxs(3, newbox4);
+            pbox.setboxs(4, newbox5);
+            pbox.setboxs(5, newbox6);
+            pbox.setboxs(6, newbox7);
+            pbox.setboxs(7, newbox8);
+            pbox.setboxs(8, newbox9);
 
             return pbox;
         }
@@ -529,15 +578,15 @@ namespace WpfApp2
             int[] newrow8 = { box_matrix[6][3], box_matrix[6][4], box_matrix[6][5], box_matrix[7][3], box_matrix[7][4], box_matrix[7][5], box_matrix[8][3], box_matrix[8][4], box_matrix[8][5] };
             int[] newrow9 = { box_matrix[6][6], box_matrix[6][7], box_matrix[6][8], box_matrix[7][6], box_matrix[7][7], box_matrix[7][8], box_matrix[8][6], box_matrix[8][7], box_matrix[8][8] };
 
-            prow.setrows(1, newrow1);
-            prow.setrows(2, newrow2);
-            prow.setrows(3, newrow3);
-            prow.setrows(4, newrow4);
-            prow.setrows(5, newrow5);
-            prow.setrows(6, newrow6);
-            prow.setrows(7, newrow7);
-            prow.setrows(8, newrow8);
-            prow.setrows(9, newrow9);
+            prow.setrows(0, newrow1);
+            prow.setrows(1, newrow2);
+            prow.setrows(2, newrow3);
+            prow.setrows(3, newrow4);
+            prow.setrows(4, newrow5);
+            prow.setrows(5, newrow6);
+            prow.setrows(6, newrow7);
+            prow.setrows(7, newrow8);
+            prow.setrows(8, newrow9);
 
             return prow;
         }
@@ -554,15 +603,15 @@ namespace WpfApp2
             int[] newcol8 = { box_matrix[2][1], box_matrix[2][4], box_matrix[2][7], box_matrix[5][1], box_matrix[5][4], box_matrix[5][7], box_matrix[8][1], box_matrix[8][4], box_matrix[8][7] };
             int[] newcol9 = { box_matrix[2][2], box_matrix[2][5], box_matrix[2][8], box_matrix[5][2], box_matrix[5][5], box_matrix[5][8], box_matrix[8][2], box_matrix[8][5], box_matrix[8][8] };
 
-            pcol.setcols(1, newcol1);
-            pcol.setcols(2, newcol2);
-            pcol.setcols(3, newcol3);
-            pcol.setcols(4, newcol4);
-            pcol.setcols(5, newcol5);
-            pcol.setcols(6, newcol6);
-            pcol.setcols(7, newcol7);
-            pcol.setcols(8, newcol8);
-            pcol.setcols(9, newcol9);
+            pcol.setcols(0, newcol1);
+            pcol.setcols(1, newcol2);
+            pcol.setcols(2, newcol3);
+            pcol.setcols(3, newcol4);
+            pcol.setcols(4, newcol5);
+            pcol.setcols(5, newcol6);
+            pcol.setcols(6, newcol7);
+            pcol.setcols(7, newcol8);
+            pcol.setcols(8, newcol9);
 
             return pcol;
         }
@@ -602,10 +651,9 @@ namespace WpfApp2
 
         public (bool, int) basic_value_insert(int[] vect)
         {
-            int place = 0;
-
             if ((has_zeros(vect) != false) && (count_zeros(vect) == 1))
             {
+                int place = 0;
                 int summa = vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8];
 
                 for (int a = 0; a < 9; a++)
@@ -637,11 +685,371 @@ namespace WpfApp2
             }
             else
             {
-                MessageBox.Show("Something is wonky with the replacement algorithm.\n");
+                MessageBox.Show("Something is wonky with the basic replacement algorithm.\n");
                 return (false, 0);
             }
 
         }
 
+        public (bool, int) row_checking(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox, int box_num)
+        {
+            // We need to know if a spot can be a one, a two, etc.
+            bool one = false;                   
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?, etc")
+            one = (fakerow.has_number(1, fakerow.getrows(row_num)) || fakecol.has_number(1, fakecol.getcols(col_num)) || fakebox.has_number(1, fakebox.getboxs(box_num)));
+            two = (fakerow.has_number(2, fakerow.getrows(row_num)) || fakecol.has_number(2, fakecol.getcols(col_num)) || fakebox.has_number(2, fakebox.getboxs(box_num)));
+            three = (fakerow.has_number(3, fakerow.getrows(row_num)) || fakecol.has_number(3, fakecol.getcols(col_num)) || fakebox.has_number(3, fakebox.getboxs(box_num)));
+            four = (fakerow.has_number(4, fakerow.getrows(row_num)) || fakecol.has_number(4, fakecol.getcols(col_num)) || fakebox.has_number(4, fakebox.getboxs(box_num)));
+            five = (fakerow.has_number(5, fakerow.getrows(row_num)) || fakecol.has_number(5, fakecol.getcols(col_num)) || fakebox.has_number(5, fakebox.getboxs(box_num)));
+            six = (fakerow.has_number(6, fakerow.getrows(row_num)) || fakecol.has_number(6, fakecol.getcols(col_num)) || fakebox.has_number(6, fakebox.getboxs(box_num)));
+            seven = (fakerow.has_number(7, fakerow.getrows(row_num)) || fakecol.has_number(7, fakecol.getcols(col_num)) || fakebox.has_number(7, fakebox.getboxs(box_num)));
+            eight = (fakerow.has_number(8, fakerow.getrows(row_num)) || fakecol.has_number(8, fakecol.getcols(col_num)) || fakebox.has_number(8, fakebox.getboxs(box_num)));
+            nine = (fakerow.has_number(9, fakerow.getrows(row_num)) || fakecol.has_number(9, fakecol.getcols(col_num)) || fakebox.has_number(9, fakebox.getboxs(box_num)));
+
+            // Identify if only one number is possible. ("Can this spot only be a 1? Can it only be a two? etc").
+            // If multiple or none are possible, each new bool we create ends up false.
+            bool a = (!one && (two && three && four && five && six && seven && eight && nine));
+            bool b = (!two && (one && three && four && five && six && seven && eight && nine));
+            bool c = (!three && (one && two && four && five && six && seven && eight && nine));
+            bool d = (!four && (one && two && three && five && six && seven && eight && nine));
+            bool e = (!five && (one && two && three && four && six && seven && eight && nine));
+            bool f = (!six && (one && two && three && four && five && seven && eight && nine));
+            bool g = (!seven && (one && two && three && four && five && six && eight && nine));
+            bool h = (!eight && (one && two && three && four && five && six && seven && nine));
+            bool i = (!nine && (one && two && three && four && five && six && seven && eight));
+
+            // Organize an array for looping through, for reusability.
+            bool[] exchange = { a, b, c, d, e, f, g, h, i };
+
+            // Identify which number is possible. If only one is possible, return true and which number it is. Otherwise, false.
+            for (int check = 0; check < 9;  check++) 
+            {
+                switch (exchange[check])
+                {
+                    case true:
+                        return (true, check);
+                    case false:
+                        continue;
+                }
+            }
+                return (false, 0);
+        }
+
+        public int[] find_important(Rows fakerow, Cols fakecol, Boxs fakebox, int skiprow, int skipcol)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                if (has_zeros(fakerow.getrows(i)) == false)         // First check if this row has zeros. If not, just move on.
+                {
+                    continue;
+                }
+                else                                                  // If so, find the important row/column/box for analysis
+                {
+                    int important_row = i;                            // important row number is given by the i value containing a zero.
+                    int important_col = 0;
+                    int important_box = 0;
+
+                    for (int j = 0; j < 9; j++)
+                    {
+                        int[] row = fakerow.getrows(i);
+
+                        if (row[j] == 0)                              // Important col number is given by the j value containing a zero.
+                        {
+                            switch (j + 1)
+                            {
+                                case 1:
+                                    important_col = 1;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))       // Skip this zero if we've looked at it before.
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)                        // Important box number depends on i and j.
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 1;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 4;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 7;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 2:
+                                    important_col = 2;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 1;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 4;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 7;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 3:
+                                    important_col = 3;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 1;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 4;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 7;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 4:
+                                    important_col = 4;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 2;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 5;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 8;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 5:
+                                    important_col = 5;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 2;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 5;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 8;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 6:
+                                    important_col = 6;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 2;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 5;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 8;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 7:
+                                    important_col = 7;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 3;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 6;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 9;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 8:
+                                    important_col = 8;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 3;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 6;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 9;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 9:
+                                    important_col = 9;
+                                    if ((important_row <= skiprow) && (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case (0 | 1 | 2):
+                                                important_box = 3;
+                                                break;
+                                            case (3 | 4 | 5):
+                                                important_box = 6;
+                                                break;
+                                            case (6 | 7 | 8):
+                                                important_box = 9;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                default:
+                                    MessageBox.Show("What is going on here?");
+                                    break;
+                            }
+                        }
+                    }
+                    return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
+                }
+            }
+            return [0, 0, 0];                   // If there are no zeros, return false.
+        }
+
+        public (bool act, int[][]) intermediate_value_insert(int[][] mat, int[][] mat2, int[][] mat3)
+        {
+            /* Setup dummy objects so that we can use their tools. */
+            Rows fakerow = new Rows();
+            Cols fakecol = new Cols();
+            Boxs fakebox = new Boxs();
+
+            /* Populate the dummies with the correct information. */
+            for (int fake = 0; fake < 9; fake++)
+            {
+                fakerow.setrows(fake, mat[fake]);
+                fakecol.setcols(fake, mat2[fake]);
+                fakebox.setboxs(fake, mat3[fake]);
+            }
+
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
+            int[] important = new int[3];
+            int skiprow = 0;
+            int skipcol = 0;
+
+            int count = 0;
+            bool act = false;
+
+            do
+            {
+                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+                skiprow = important[0];
+                skipcol = important[1];
+
+
+                (bool verify, int loc_minus_1) = row_checking(fakerow, important[0], fakecol, important[1], fakebox, important[2]);
+                if (verify)
+                {
+                    int[] newrow = fakerow.getrows(important[0]);
+                    newrow[important[1]] = loc_minus_1 + 1;
+                    fakerow.setrows(important[0], newrow);
+                    act = true;
+                }
+                else
+                {
+                    continue;
+                }
+                count++;
+            }
+            while (count<81);
+
+            return (act, fakerow.getmatrix());
+        }
     }
 }
