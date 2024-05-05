@@ -651,7 +651,10 @@ namespace WpfApp2
 
         public (bool, int) basic_value_insert(int[] vect)
         {
-            if ((has_zeros(vect) != false) && (count_zeros(vect) == 1))
+            bool hzv = has_zeros(vect);             // These two variables exist to reduce the number of function calls.
+            int czv = count_zeros(vect);
+
+            if ((hzv != false) && (czv == 1))
             {
                 int place = 0;
                 int summa = vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8];
@@ -671,15 +674,15 @@ namespace WpfApp2
 
                 return (true, vect[place]);
             }
-            else if (has_zeros(vect) == false)
+            else if (hzv == false)
             {
                 return (false, 0);
             }
-            else if (count_zeros(vect) < 1)
+            else if (czv < 1)
             {
                 return (false, 0);
             }
-            else if (count_zeros(vect) > 1)
+            else if (czv > 1)
             {
                 return (false, 0);
             }
@@ -705,15 +708,20 @@ namespace WpfApp2
             bool nine = false;
 
             // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?, etc")
-            one = (fakerow.has_number(1, fakerow.getrows(row_num)) || fakecol.has_number(1, fakecol.getcols(col_num)) || fakebox.has_number(1, fakebox.getboxs(box_num)));
-            two = (fakerow.has_number(2, fakerow.getrows(row_num)) || fakecol.has_number(2, fakecol.getcols(col_num)) || fakebox.has_number(2, fakebox.getboxs(box_num)));
-            three = (fakerow.has_number(3, fakerow.getrows(row_num)) || fakecol.has_number(3, fakecol.getcols(col_num)) || fakebox.has_number(3, fakebox.getboxs(box_num)));
-            four = (fakerow.has_number(4, fakerow.getrows(row_num)) || fakecol.has_number(4, fakecol.getcols(col_num)) || fakebox.has_number(4, fakebox.getboxs(box_num)));
-            five = (fakerow.has_number(5, fakerow.getrows(row_num)) || fakecol.has_number(5, fakecol.getcols(col_num)) || fakebox.has_number(5, fakebox.getboxs(box_num)));
-            six = (fakerow.has_number(6, fakerow.getrows(row_num)) || fakecol.has_number(6, fakecol.getcols(col_num)) || fakebox.has_number(6, fakebox.getboxs(box_num)));
-            seven = (fakerow.has_number(7, fakerow.getrows(row_num)) || fakecol.has_number(7, fakecol.getcols(col_num)) || fakebox.has_number(7, fakebox.getboxs(box_num)));
-            eight = (fakerow.has_number(8, fakerow.getrows(row_num)) || fakecol.has_number(8, fakecol.getcols(col_num)) || fakebox.has_number(8, fakebox.getboxs(box_num)));
-            nine = (fakerow.has_number(9, fakerow.getrows(row_num)) || fakecol.has_number(9, fakecol.getcols(col_num)) || fakebox.has_number(9, fakebox.getboxs(box_num)));
+            // As named, these variables save time by reducing function calls dramatically.
+            int[] row_time_saver = fakerow.getrows(row_num);            
+            int[] col_time_saver = fakecol.getcols(col_num);
+            int[] box_time_saver = fakebox.getboxs(box_num);
+            
+            one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+            two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+            three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+            four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+            five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+            six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+            seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+            eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+            nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
 
             // Identify if only one number is possible. ("Can this spot only be a 1? Can it only be a two? etc").
             // If multiple or none are possible, each new bool we create ends up false.
@@ -748,7 +756,9 @@ namespace WpfApp2
         {
             for (int i = 0; i < 9; i++)
             {
-                if (has_zeros(fakerow.getrows(i)) == false)         // First check if this row has zeros. If not, just move on.
+                int[] row = fakerow.getrows(i);      // This was applied here to reduce the number of "getrows" calls.
+
+                if (has_zeros(row) == false)         // First check if this row has zeros. If not, just move on.
                 {
                     continue;
                 }
@@ -758,10 +768,10 @@ namespace WpfApp2
                     int important_col = 0;
                     int important_box = 0;
 
+                    bool change = false;
+
                     for (int j = 0; j < 9; j++)
                     {
-                        int[] row = fakerow.getrows(i);
-
                         if (row[j] == 0)                              // Important col number is given by the j value containing a zero.
                         {
                             switch (j + 1)
@@ -780,16 +790,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 0;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 3;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 6;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -811,16 +824,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 0;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 3;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 6;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -842,16 +858,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 0;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 3;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 6;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -873,16 +892,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 1;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 4;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 7;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -904,16 +926,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 1;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 4;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 7;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -935,16 +960,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 1;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 4;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 7;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -966,16 +994,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 2;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 5;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 8;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -997,16 +1028,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 2;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 5;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 8;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -1028,16 +1062,19 @@ namespace WpfApp2
                                             case 1:
                                             case 2:
                                                 important_box = 2;
+                                                change = true;
                                                 break;
                                             case 3:
                                             case 4:
                                             case 5:
                                                 important_box = 5;
+                                                change = true;
                                                 break;
                                             case 6:
                                             case 7:
                                             case 8:
                                                 important_box = 8;
+                                                change = true;
                                                 break;
                                             default:
                                                 MessageBox.Show("Something is wrong with Linking");
@@ -1049,11 +1086,24 @@ namespace WpfApp2
                                     MessageBox.Show("What is going on here?");
                                     break;
                             }
+
+                            switch (change)
+                            {
+                                case true:
+                                    return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
+                                default:
+                                    MessageBox.Show("I don't understand how we got here...");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
                         }
                     }
-                    return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
                 }
             }
+
             return [0, 0, 0];                   // If there are no zeros, return false.
         }
 
@@ -1074,8 +1124,8 @@ namespace WpfApp2
 
             /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
             int[] important = new int[3];
-            int skiprow = 0;
-            int skipcol = 0;
+            int skiprow = -1;
+            int skipcol = -1;
 
             int count = 0;
             bool act = false;
@@ -1094,12 +1144,13 @@ namespace WpfApp2
                     newrow[important[1]] = loc_minus_1 + 1;
                     fakerow.setrows(important[0], newrow);
                     act = true;
+                    count++;
                 }
                 else
                 {
+                    count++;
                     continue;
                 }
-                count++;
             }
             while (count<81);
 
