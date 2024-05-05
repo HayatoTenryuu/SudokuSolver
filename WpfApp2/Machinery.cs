@@ -1092,7 +1092,6 @@ namespace WpfApp2
                                 case true:
                                     return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
                                 default:
-                                    MessageBox.Show("I don't understand how we got here...");
                                     break;
                             }
                         }

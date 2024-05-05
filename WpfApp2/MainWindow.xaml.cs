@@ -192,6 +192,7 @@ namespace WpfApp2
             int z = 0;
             
             bool checker = false;
+            int loop_counter = 0;
 
             do
             {
@@ -246,6 +247,8 @@ namespace WpfApp2
                            Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
                            Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
                            Machine.has_zeros(rowset.getrows(8)));
+
+                loop_counter++;
             }
             while (checker);
 
