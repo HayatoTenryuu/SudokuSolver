@@ -24,279 +24,22 @@ namespace WpfApp2
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            switch (((TextBox)sender).Text)                     // Limit the characters to 1-9 only (Textbox set to single character entry, so "10" isn't a concern).
+            switch (((TextBox)sender).Text)        // Limit the characters to 1-9 only (Textbox set to single character entry, so "10" isn't a concern).
             {
                 case "1":
-                    break;
                 case "2":
-                    break;
                 case "3":
-                    break;
                 case "4":
-                    break;
                 case "5":
-                    break;
                 case "6":
-                    break;
                 case "7":
-                    break;
                 case "8":
-                    break;
                 case "9":
                     break;
                 default:
                     ((TextBox)sender).Text = "";
                     break;
             }
-            /*switch (((TextBox)sender).Name)
-            {
-                case ("R11"):
-                    
-                    break;
-                case ("R12"):
-
-                    break;
-                case ("R13"):
-
-                    break;
-                case ("R14"):
-
-                    break;
-                case ("R15"):
-
-                    break;
-                case ("R16"):
-
-                    break;
-                case ("R17"):
-
-                    break;
-                case ("R18"):
-
-                    break;
-                case ("R19"):
-
-                    break;
-                case ("R21"):
-
-                    break;
-                case ("R22"):
-
-                    break;
-                case ("R23"):
-
-                    break;
-                case ("R24"):
-
-                    break;
-                case ("R25"):
-
-                    break;
-                case ("R26"):
-
-                    break;
-                case ("R27"):
-
-                    break;
-                case ("R28"):
-
-                    break;
-                case ("R29"):
-
-                    break;
-                case ("R31"):
-
-                    break;
-                case ("R32"):
-
-                    break;
-                case ("R33"):
-
-                    break;
-                case ("R34"):
-
-                    break;
-                case ("R35"):
-
-                    break;
-                case ("R36"):
-
-                    break;
-                case ("R37"):
-
-                    break;
-                case ("R38"):
-
-                    break;
-                case ("R39"):
-
-                    break;
-                case ("R41"):
-
-                    break;
-                case ("R42"):
-
-                    break;
-                case ("R43"):
-
-                    break;
-                case ("R44"):
-
-                    break;
-                case ("R45"):
-
-                    break;
-                case ("R46"):
-
-                    break;
-                case ("R47"):
-
-                    break;
-                case ("R48"):
-
-                    break;
-                case ("R49"):
-
-                    break;
-                case ("R51"):
-
-                    break;
-                case ("R52"):
-
-                    break;
-                case ("R53"):
-
-                    break;
-                case ("R54"):
-
-                    break;
-                case ("R55"):
-
-                    break;
-                case ("R56"):
-
-                    break;
-                case ("R57"):
-
-                    break;
-                case ("R58"):
-
-                    break;
-                case ("R59"):
-
-                    break;
-                case ("R61"):
-
-                    break;
-                case ("R62"):
-
-                    break;
-                case ("R63"):
-
-                    break;
-                case ("R64"):
-
-                    break;
-                case ("R65"):
-
-                    break;
-                case ("R66"):
-
-                    break;
-                case ("R67"):
-
-                    break;
-                case ("R68"):
-
-                    break;
-                case ("R69"):
-
-                    break;
-                case ("R71"):
-
-                    break;
-                case ("R72"):
-
-                    break;
-                case ("R73"):
-
-                    break;
-                case ("R74"):
-
-                    break;
-                case ("R75"):
-
-                    break;
-                case ("R76"):
-
-                    break;
-                case ("R77"):
-
-                    break;
-                case ("R78"):
-
-                    break;
-                case ("R79"):
-
-                    break;
-                case ("R81"):
-
-                    break;
-                case ("R82"):
-
-                    break;
-                case ("R83"):
-
-                    break;
-                case ("R84"):
-
-                    break;
-                case ("R85"):
-
-                    break;
-                case ("R86"):
-
-                    break;
-                case ("R87"):
-
-                    break;
-                case ("R88"):
-
-                    break;
-                case ("R89"):
-
-                    break;
-                case ("R91"):
-
-                    break;
-                case ("R92"):
-
-                    break;
-                case ("R93"):
-
-                    break;
-                case ("R94"):
-
-                    break;
-                case ("R95"):
-
-                    break;
-                case ("R96"):
-
-                    break;
-                case ("R97"):
-
-                    break;
-                case ("R98"):
-
-                    break;
-                case ("R99"):
-
-                    break;
-                default:
-                    MessageBox.Show("Something has gone weird");
-                    break;
-            }*/
         }
 
         private void Background_TextChanged(object sender, TextChangedEventArgs e)
@@ -437,9 +180,9 @@ namespace WpfApp2
             Machinery.Rows original_rowset = new Machinery.Rows();
             original_rowset = Machine.cols_to_rows(original_rowset, colset.getmatrix());
 
-            /*---------------------------------------
-             * Step 4: Try to Solve with Basic Rules.
-             ---------------------------------------*/
+            /*----------------------
+             * Step 4: Try to Solve.
+             ---------------------*/
 
             bool a = false;
             bool b = false;
@@ -447,12 +190,9 @@ namespace WpfApp2
             int x = 0;
             int y = 0;
             int z = 0;
-
-            /*----------------------------------------------
-             * Step 5: Try to Solve with Intermediate Rules.
-             ---------------------------------------------*/
             
             bool checker = false;
+            int loop_counter = 0;
 
             do
             {
@@ -507,6 +247,8 @@ namespace WpfApp2
                            Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
                            Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
                            Machine.has_zeros(rowset.getrows(8)));
+
+                loop_counter++;
             }
             while (checker);
 
