@@ -1157,7 +1157,7 @@ namespace WpfApp2
                     continue;
                 }
             }
-            while (count<81);
+            while (count<81 || act == false);
 
             return (act, fakerow.getmatrix());
         }
