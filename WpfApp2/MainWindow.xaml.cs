@@ -248,6 +248,16 @@ namespace WpfApp2
                            Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
                            Machine.has_zeros(rowset.getrows(8)));
 
+                rowset.printrows(rowset.getrows(0));
+                rowset.printrows(rowset.getrows(1));
+                rowset.printrows(rowset.getrows(2));
+                rowset.printrows(rowset.getrows(3));
+                rowset.printrows(rowset.getrows(4));
+                rowset.printrows(rowset.getrows(5));
+                rowset.printrows(rowset.getrows(6));
+                rowset.printrows(rowset.getrows(7));
+                rowset.printrows(rowset.getrows(8));
+
                 loop_counter++;
             }
             while (checker);
