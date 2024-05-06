@@ -1113,6 +1113,12 @@ namespace WpfApp2
             Cols fakecol = new Cols();
             Boxs fakebox = new Boxs();
 
+
+
+            // WHY IS ACT ONLY EVER TRUE ONCE?!!!!!!!!!!!!!!!!!!
+
+
+
             /* Populate the dummies with the correct information. */
             for (int fake = 0; fake < 9; fake++)
             {
