@@ -622,6 +622,10 @@ namespace WpfApp2
 
         public bool has_zeros(int[] vect)
         {
+            /* 
+             * This checks if an array (row/box/column) has any zeros in it.
+             */
+
             if (vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8] == 45)
             {
                 return false;
@@ -634,6 +638,10 @@ namespace WpfApp2
 
         public int count_zeros(int[] vect)
         {
+            /*
+             * This counts how many zeros are in an array (row/box/column).
+             */
+
             int count = 0;
             for (int a = 0; a < 9; a++)
             {
@@ -649,8 +657,395 @@ namespace WpfApp2
             return count;
         }
 
+        public int[] where_zeros(int[] vect)
+        {
+            /*
+             * This looks for where in an array (row/box/column) the zeros are.
+             */
+
+            int[] zero_loc = new int[9];
+
+            for (int a = 0; a < 9; a++)
+            {
+                if (vect[a] == 0)
+                {
+                    zero_loc[a] = 1;
+                }
+                else
+                {
+                    zero_loc[a] = 0;
+                }
+            }
+
+            return zero_loc;
+        }
+
+        public int[] find_important(Rows fakerow, Cols fakecol, Boxs fakebox, int skiprow, int skipcol)
+        {
+            /*
+             * This looks for any zeros, and compares them to any it has already looked at.
+             * When we find a new zero, it returns an array with the new zero's row, column, and box number.
+             */
+
+            for (int i = 0; i < 9; i++)
+            {
+                int[] row = fakerow.getrows(i);      // This variable reduces the number of function calls.
+
+                if (!has_zeros(row))                 // First check if this row has zeros. If not, just move on.
+                {
+                    continue;
+                }
+                else                                                  // If so, find the important row/column/box for analysis
+                {
+                    int important_row = i;                            // important row number is given by the i value containing a zero.
+                    int important_col = 0;
+                    int important_box = 0;
+
+                    bool change = false;
+
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (row[j] == 0)                              // Important col number is given by the j value containing a zero.
+                        {
+                            switch (j + 1)
+                            {
+                                case 1:
+                                    important_col = 0;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))       // Skip this zero if we've looked at it before.
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)                        // Important box number depends on i and j.
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 0;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 3;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 6;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 2:
+                                    important_col = 1;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 0;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 3;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 6;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 3:
+                                    important_col = 2;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 0;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 3;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 6;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 4:
+                                    important_col = 3;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 1;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 4;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 7;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 5:
+                                    important_col = 4;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 1;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 4;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 7;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 6:
+                                    important_col = 5;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 1;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 4;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 7;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 7:
+                                    important_col = 6;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 2;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 5;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 8;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 8:
+                                    important_col = 7;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 2;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 5;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 8;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                case 9:
+                                    important_col = 8;
+                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                            case 1:
+                                            case 2:
+                                                important_box = 2;
+                                                change = true;
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                important_box = 5;
+                                                change = true;
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                important_box = 8;
+                                                change = true;
+                                                break;
+                                            default:
+                                                MessageBox.Show("Something is wrong with Linking");
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                default:
+                                    MessageBox.Show("What is going on here?");
+                                    break;
+                            }
+
+                            switch (change)
+                            {
+                                case true:
+                                    return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+
+            return [0, 0, 0];                   // If there are no zeros, return false.
+        }
+
         public (bool, int) basic_value_insert(int[] vect)
         {
+            /*
+             * This will insert a value into an array (row/box/column) assuming the array is only missing one number.
+             * If the array is missing multiple numbers, or if it is already full, it will do nothing.
+             */
+
             bool hzv = has_zeros(vect);             // These two variables exist to reduce the number of function calls.
             int czv = count_zeros(vect);
 
@@ -694,8 +1089,14 @@ namespace WpfApp2
 
         }
 
-        public (bool, int) row_checking(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox, int box_num)
+        public (bool, int) basic_value_checking(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox, int box_num)
         {
+            /*
+             * This checks what values an individual zero can be.
+             * If the zero can only be one value (a 2 or a 5, etc) it returns true, and the number that the 0 must be.
+             * If the zero can be multiple things, it returns false.
+             */
+
             // We need to know if a spot can be a one, a two, etc.
             bool one = false;                   
             bool two = false;
@@ -752,372 +1153,20 @@ namespace WpfApp2
                 return (false, 0);
         }
 
-        public int[] find_important(Rows fakerow, Cols fakecol, Boxs fakebox, int skiprow, int skipcol)
+        public (bool, int[][]) basic_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
         {
-            for (int i = 0; i < 9; i++)
-            {
-                int[] row = fakerow.getrows(i);      // This was applied here to reduce the number of "getrows" calls.
+            /*
+             * This takes every zero in the Sudoku and solves for each square based on what each square can be.
+             * It does not take sets into account. It only says "this row already has a 1, this box already has a 2", etc.
+             * It does not eliminate based on what a set must include, it eliminates only what a sqaure's three sets already have.
+             * 
+             * If it does a replacement, it returns true and the new matrix. If not, it returns false.
+             */
 
-                if (has_zeros(row) == false)         // First check if this row has zeros. If not, just move on.
-                {
-                    continue;
-                }
-                else                                                  // If so, find the important row/column/box for analysis
-                {
-                    int important_row = i;                            // important row number is given by the i value containing a zero.
-                    int important_col = 0;
-                    int important_box = 0;
-
-                    bool change = false;
-
-                    for (int j = 0; j < 9; j++)
-                    {
-                        if (row[j] == 0)                              // Important col number is given by the j value containing a zero.
-                        {
-                            switch (j + 1)
-                            {
-                                case 1:
-                                    important_col = 0;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))       // Skip this zero if we've looked at it before.
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)                        // Important box number depends on i and j.
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 0;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 3;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 6;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 2:
-                                    important_col = 1;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 0;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 3;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 6;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    important_col = 2;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 0;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 3;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 6;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    important_col = 3;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 1;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 4;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 7;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    important_col = 4;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 1;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 4;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 7;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    important_col = 5;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 1;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 4;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 7;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 7:
-                                    important_col = 6;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 2;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 5;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 8;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 8:
-                                    important_col = 7;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 2;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 5;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 8;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                case 9:
-                                    important_col = 8;
-                                    if ((important_row <= skiprow) && (important_col <= skipcol))
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        switch (i)
-                                        {
-                                            case 0:
-                                            case 1:
-                                            case 2:
-                                                important_box = 2;
-                                                change = true;
-                                                break;
-                                            case 3:
-                                            case 4:
-                                            case 5:
-                                                important_box = 5;
-                                                change = true;
-                                                break;
-                                            case 6:
-                                            case 7:
-                                            case 8:
-                                                important_box = 8;
-                                                change = true;
-                                                break;
-                                            default:
-                                                MessageBox.Show("Something is wrong with Linking");
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                default:
-                                    MessageBox.Show("What is going on here?");
-                                    break;
-                            }
-
-                            switch (change)
-                            {
-                                case true:
-                                    return [important_row, important_col, important_box];       // Once we honed in on the zero, return the relevant numbers.
-                                default:
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                }
-            }
-
-            return [0, 0, 0];                   // If there are no zeros, return false.
-        }
-
-        public (bool act, int[][]) intermediate_value_insert(int[][] mat, int[][] mat2, int[][] mat3)
-        {
             /* Setup dummy objects so that we can use their tools. */
             Rows fakerow = new Rows();
             Cols fakecol = new Cols();
             Boxs fakebox = new Boxs();
-
-
-
-            // WHY IS ACT ONLY EVER TRUE ONCE?!!!!!!!!!!!!!!!!!!
-
-
 
             /* Populate the dummies with the correct information. */
             for (int fake = 0; fake < 9; fake++)
@@ -1129,6 +1178,7 @@ namespace WpfApp2
 
             /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
             int[] important = new int[3];
+            important = [-1, -1, -1];
             int skiprow = -1;
             int skipcol = -1;
 
@@ -1137,12 +1187,22 @@ namespace WpfApp2
 
             do
             {
+
                 important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+
+                if (important[0] > skiprow)
+                {
+                    skipcol = -1;
+                }
+                else
+                {
+                    skipcol = important[1];
+                }
+
                 skiprow = important[0];
-                skipcol = important[1];
 
+                (bool verify, int loc_minus_1) = basic_value_checking(fakerow, important[0], fakecol, important[1], fakebox, important[2]);
 
-                (bool verify, int loc_minus_1) = row_checking(fakerow, important[0], fakecol, important[1], fakebox, important[2]);
                 if (verify)
                 {
                     int[] newrow = fakerow.getrows(important[0]);
@@ -1151,13 +1211,1768 @@ namespace WpfApp2
                     act = true;
                     count++;
                 }
+
                 else
                 {
                     count++;
+                    if (count == 81)
+                    {
+                        MessageBox.Show("We are maxing out basic solver.");
+                    }
                     continue;
                 }
             }
-            while (count<81);
+            while ((act == false) && (count < 81));
+
+            return (act, fakerow.getmatrix());
+        }
+
+        public (bool, Rows) intermediate_row_value_checking(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            /* 
+             * This is the checker for rows, to see what each zero within a row can be,
+             * If it can solve for a particular square, it adds the number and returns the new Row set.
+             * If it cannot solve anything, it returns the original Row set.
+             */
+
+            // We need to find all the zeros in our row, and know their location.
+            // As named, the time saver variables save time by reducing function calls dramatically.
+            int[] row_time_saver = fakerow.getrows(row_num);
+
+            int num_zeros = count_zeros(row_time_saver);
+            int[] zero_loc = where_zeros(row_time_saver);
+
+            // We now have the number and locations of each zero.
+            // Create and control the size of the possibility-tracking matrix.
+            bool[][] possibilities = new bool[9][];
+            possibilities[0] = new bool[9];
+            possibilities[1] = new bool[9];
+            possibilities[2] = new bool[9];
+            possibilities[3] = new bool[9];
+            possibilities[4] = new bool[9];
+            possibilities[5] = new bool[9];
+            possibilities[6] = new bool[9];
+            possibilities[7] = new bool[9];
+            possibilities[8] = new bool[9];
+
+            bool change = false;
+
+            // We need to set if a zero can be a one, a two, etc.
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            for (int w = 0; w < 9; w++)
+            {
+                if (zero_loc[w] != 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int[] col_time_saver = fakecol.getcols(w);
+                    int[] box_time_saver = new int[9];
+
+                    switch (row_num)
+                    {
+                        case 0:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+                                
+                            }
+                            break;
+                        case 1:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 2:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 3:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 4:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 5:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 6:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 7:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 8:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                    } 
+
+                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+
+                    // Set the matrix of possbilities for each zero in our box.
+                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                }
+            }
+
+            // Determine the number of zeros that can be a given number (3 zeros could be a 1, 1 zero could be a 4, etc).
+            int alpha = 0;
+            int beta = 0;
+            int gamma = 0;
+            int delta = 0;
+            int epsilon = 0;
+            int zeta = 0;
+            int eta = 0;
+            int theta = 0;
+            int iota = 0;
+
+            for (int e = 0; e < 9; e++)
+            {
+                if (possibilities[e][0] == true)
+                {
+                    alpha += 1;
+                }
+                if (possibilities[e][1] == true)
+                {
+                    beta += 1;
+                }
+                if (possibilities[e][2] == true)
+                {
+                    gamma += 1;
+                }
+                if (possibilities[e][3] == true)
+                {
+                    delta += 1;
+                }
+                if (possibilities[e][4] == true)
+                {
+                    epsilon += 1;
+                }
+                if (possibilities[e][5] == true)
+                {
+                    zeta += 1;
+                }
+                if (possibilities[e][6] == true)
+                {
+                    eta += 1;
+                }
+                if (possibilities[e][7] == true)
+                {
+                    theta += 1;
+                }
+                if (possibilities[e][8] == true)
+                {
+                    iota += 1;
+                }
+            }
+
+            // Replace anything that can only be one thing.
+            if (alpha == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][0] == true)
+                    {
+                        row_time_saver[r] = 1;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (beta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][1] == true)
+                    {
+                        row_time_saver[r] = 2;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (gamma == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][2] == true)
+                    {
+                        row_time_saver[r] = 3;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (delta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][3] == true)
+                    {
+                        row_time_saver[r] = 4;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (epsilon == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][4] == true)
+                    {
+                        row_time_saver[r] = 5;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (zeta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][5] == true)
+                    {
+                        row_time_saver[r] = 6;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (eta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][6] == true)
+                    {
+                        row_time_saver[r] = 7;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (theta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][7] == true)
+                    {
+                        row_time_saver[r] = 8;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (iota == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][8] == true)
+                    {
+                        row_time_saver[r] = 9;
+                        fakerow.setrows(row_num, row_time_saver);
+                        change = true;
+                    }
+                }
+            }
+
+            if (change == true)
+            {
+                return (true, fakerow);
+            }
+            else
+            {
+                return (false, fakerow);
+            }
+        }
+
+        public (bool, Cols) intermediate_col_value_checking(Rows fakerow, Cols fakecol, int col_num, Boxs fakebox)
+        {
+            /* 
+             * This is the checker for columns, to see what each zero within a column can be,
+             * If it can solve for a particular square, it adds the number and returns the new Column set.
+             * If it cannot solve anything, it returns the original Column set.
+             */
+
+            // We need to find all the zeros in our column, and know their location.
+            // As named, the time saver variables save time by reducing function calls dramatically.
+            int[] col_time_saver = fakecol.getcols(col_num);
+
+            int num_zeros = count_zeros(col_time_saver);
+            int[] zero_loc = where_zeros(col_time_saver);
+
+            // We now have the number and locations of each zero.
+            // Create and control the size of the possibility-tracking matrix.
+            bool[][] possibilities = new bool[9][];
+            possibilities[0] = new bool[9];
+            possibilities[1] = new bool[9];
+            possibilities[2] = new bool[9];
+            possibilities[3] = new bool[9];
+            possibilities[4] = new bool[9];
+            possibilities[5] = new bool[9];
+            possibilities[6] = new bool[9];
+            possibilities[7] = new bool[9];
+            possibilities[8] = new bool[9];
+
+            bool change = false;
+
+            // We need to set if a zero can be a one, a two, etc.
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            for (int w = 0; w < 9; w++)
+            {
+                if (zero_loc[w] != 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int[] row_time_saver = fakerow.getrows(w);
+                    int[] box_time_saver = new int[9];
+
+                    switch (col_num)
+                    {
+                        case 0:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 1:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 2:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 3:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 4:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 5:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 6:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 7:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 8:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                    }
+
+                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+
+                    // Set the matrix of possbilities for each zero in our box.
+                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                }
+            }
+
+            // Determine the number of zeros that can be a given number (3 zeros could be a 1, 1 zero could be a 4, etc).
+            int alpha = 0;
+            int beta = 0;
+            int gamma = 0;
+            int delta = 0;
+            int epsilon = 0;
+            int zeta = 0;
+            int eta = 0;
+            int theta = 0;
+            int iota = 0;
+
+            for (int e = 0; e < 9; e++)
+            {
+                if (possibilities[e][0] == true)
+                {
+                    alpha += 1;
+                }
+                if (possibilities[e][1] == true)
+                {
+                    beta += 1;
+                }
+                if (possibilities[e][2] == true)
+                {
+                    gamma += 1;
+                }
+                if (possibilities[e][3] == true)
+                {
+                    delta += 1;
+                }
+                if (possibilities[e][4] == true)
+                {
+                    epsilon += 1;
+                }
+                if (possibilities[e][5] == true)
+                {
+                    zeta += 1;
+                }
+                if (possibilities[e][6] == true)
+                {
+                    eta += 1;
+                }
+                if (possibilities[e][7] == true)
+                {
+                    theta += 1;
+                }
+                if (possibilities[e][8] == true)
+                {
+                    iota += 1;
+                }
+            }
+
+            // Replace anything that can only be one thing.
+            if (alpha == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][0] == true)
+                    {
+                        col_time_saver[r] = 1;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (beta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][1] == true)
+                    {
+                        col_time_saver[r] = 2;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (gamma == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][2] == true)
+                    {
+                        col_time_saver[r] = 3;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (delta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][3] == true)
+                    {
+                        col_time_saver[r] = 4;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (epsilon == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][4] == true)
+                    {
+                        col_time_saver[r] = 5;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (zeta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][5] == true)
+                    {
+                        col_time_saver[r] = 6;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (eta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][6] == true)
+                    {
+                        col_time_saver[r] = 7;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (theta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][7] == true)
+                    {
+                        col_time_saver[r] = 8;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (iota == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][8] == true)
+                    {
+                        col_time_saver[r] = 9;
+                        fakecol.setcols(col_num, col_time_saver);
+                        change = true;
+                    }
+                }
+            }
+
+            if (change == true)
+            {
+                return (true, fakecol);
+            }
+            else
+            {
+                return (false, fakecol);
+            }
+        }
+
+        public (bool, Boxs) intermediate_box_value_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
+        {
+            /* 
+             * This is the checker for boxes, to see what each zero within a box can be,
+             * If it can solve for a particular square, it adds the number and returns the new Box set.
+             * If it cannot solve anything, it returns the original Box set.
+             */
+
+            // We need to find all the zeros in our box, and know their location.
+            // As named, the time saver variables save time by reducing function calls dramatically.
+            int[] box_time_saver = fakebox.getboxs(box_num);
+
+            int num_zeros = count_zeros(box_time_saver);
+            int[] zero_loc = where_zeros(box_time_saver);
+
+            int[] r_index = new int[9];
+            int[] c_index = new int[9];
+
+            r_index = [9, 9, 9, 9, 9, 9, 9, 9, 9];
+            c_index = [9, 9, 9, 9, 9, 9, 9, 9, 9];
+
+            switch (box_num)
+            {
+                case 0:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 6:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 7:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 8:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 0)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                default:
+                    MessageBox.Show("Box number is impossible.");
+                    break;
+            }
+
+            // We now have the number and locations of each zero.
+            // Create and control the size of the possibility-tracking matrix.
+            bool[][] possibilities = new bool[9][];
+            possibilities[0] = new bool[9];
+            possibilities[1] = new bool[9];
+            possibilities[2] = new bool[9];
+            possibilities[3] = new bool[9];
+            possibilities[4] = new bool[9];
+            possibilities[5] = new bool[9];
+            possibilities[6] = new bool[9];
+            possibilities[7] = new bool[9];
+            possibilities[8] = new bool[9];
+
+            bool change = false;
+
+            // We need to set if a zero can be a one, a two, etc.
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            for (int w = 0; w < 9; w++)
+            {
+                if (zero_loc[w] != 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int[] row_time_saver = fakerow.getrows(r_index[w]);
+                    int[] col_time_saver = fakecol.getcols(c_index[w]);
+
+                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+
+                    // Set the matrix of possbilities for each zero in our box.
+                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                }
+            }
+
+            // Determine the number of zeros that can be a given number (3 zeros could be a 1, 1 zero could be a 4, etc).
+            int alpha = 0;
+            int beta = 0;
+            int gamma = 0;
+            int delta = 0;
+            int epsilon = 0;
+            int zeta = 0;
+            int eta = 0;
+            int theta = 0;
+            int iota = 0;
+
+            for (int e = 0; e < 9; e++)
+            {
+                if (possibilities[e][0] == true)
+                {
+                    alpha += 1;
+                }
+                if (possibilities[e][1] == true)
+                {
+                    beta += 1;
+                }
+                if (possibilities[e][2] == true)
+                {
+                    gamma += 1;
+                }
+                if (possibilities[e][3] == true)
+                {
+                    delta += 1;
+                }
+                if (possibilities[e][4] == true)
+                {
+                    epsilon += 1;
+                }
+                if (possibilities[e][5] == true)
+                {
+                    zeta += 1;
+                }
+                if (possibilities[e][6] == true)
+                {
+                    eta += 1;
+                }
+                if (possibilities[e][7] == true)
+                {
+                    theta += 1;
+                }
+                if (possibilities[e][8] == true)
+                {
+                    iota += 1;
+                }
+            }
+
+            // Replace anything that can only be one thing.
+            if (alpha == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][0] == true)
+                    {
+                        box_time_saver[r] = 1;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (beta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][1] == true)
+                    {
+                        box_time_saver[r] = 2;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (gamma == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][2] == true)
+                    {
+                        box_time_saver[r] = 3;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (delta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][3] == true)
+                    {
+                        box_time_saver[r] = 4;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (epsilon == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][4] == true)
+                    {
+                        box_time_saver[r] = 5;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (zeta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][5] == true)
+                    {
+                        box_time_saver[r] = 6;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (eta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][6] == true)
+                    {
+                        box_time_saver[r] = 7;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (theta == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][7] == true)
+                    {
+                        box_time_saver[r] = 8;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+            if (iota == 1)
+            {
+                for (int r = 0; r < 9; r++)
+                {
+                    if (possibilities[r][8] == true)
+                    {
+                        box_time_saver[r] = 9;
+                        fakebox.setboxs(box_num, box_time_saver);
+                        change = true;
+                    }
+                }
+            }
+
+            if (change == true)
+            {
+                return (true, fakebox);
+            }
+            else
+            {
+                return (false, fakebox);
+            }
+        }
+
+        public (bool, int[][]) intermediate_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
+        {
+            /* 
+             * This looks at whether there are unique possbilities within a set.
+             * For instance, a box has three 0s, but only one of them can be a 1.
+             * Therefore that 0 must be a 1, and we set it as such.
+             * 
+             * Because it is a set-based approach, we need unique solvers to look at each set type.
+             */
+
+            /* Setup dummy objects so that we can use their tools. */
+            Rows fakerow = new Rows();
+            Cols fakecol = new Cols();
+            Boxs fakebox = new Boxs();
+
+            /* Populate the dummies with the correct information. */
+            for (int fake = 0; fake < 9; fake++)
+            {
+                fakerow.setrows(fake, mat[fake]);
+                fakecol.setcols(fake, mat2[fake]);
+                fakebox.setboxs(fake, mat3[fake]);
+            }
+
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
+            int[] important = new int[3];
+            important = [-1, -1, -1];
+            int skiprow = -1;
+            int skipcol = -1;
+
+            int count = 0;
+            bool act = false;
+
+            do
+            {
+
+                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+
+                if (important[0] > skiprow)
+                {
+                    skipcol = -1;
+                }
+                else
+                {
+                    skipcol = important[1];
+                }
+
+                skiprow = important[0];
+
+                (bool verify1, Rows newFakerow) = intermediate_row_value_checking(fakerow, important[0], fakecol, fakebox);
+                (bool verify2, Cols newFakecol) = intermediate_col_value_checking(fakerow, fakecol, important[1], fakebox);
+                (bool verify3, Boxs newFakebox) = intermediate_box_value_checking(fakerow, fakecol, fakebox, important[2]);
+
+                if (verify1)
+                {
+                    fakerow.setrows(important[0], newFakerow.getrows(important[0]));
+                    fakecol = rows_to_cols(fakecol, fakerow.getmatrix());
+                    fakebox = rows_to_boxs(fakebox, fakerow.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify2)
+                {
+                    fakecol.setcols(important[1], newFakecol.getcols(important[1]));
+                    fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
+                    fakebox = cols_to_boxs(fakebox, fakecol.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify3)
+                {
+                    fakebox.setboxs(important[2], newFakebox.getboxs(important[2]));
+                    fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                    fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else
+                {
+                    count++;
+                    if (count == 81)
+                    {
+                        MessageBox.Show("We are maxing out basic solver.");
+                    }
+                }
+
+            }
+            while ((act == false) && (count < 81));
 
             return (act, fakerow.getmatrix());
         }

@@ -193,6 +193,7 @@ namespace WpfApp2
             
             bool checker = false;
             int loop_counter = 0;
+            int[][] matrix = new int[9][];
 
             do
             {
@@ -229,11 +230,26 @@ namespace WpfApp2
                     }
                 }
 
-                (bool act, int[][] return_matrix) = Machine.intermediate_value_insert(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                (bool act, int[][] return_matrix) = Machine.basic_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
 
                 for (int i = 0; i < 9; i++)
                 {
                     rowset.setrows(i, return_matrix[i]);
+                }
+
+                if (act == true)
+                {
+                    colset = Machine.rows_to_cols(colset, rowset.getmatrix());
+                    boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
+                }
+                else
+                {
+                    (act, matrix) = Machine.intermediate_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                }
+
+                for (int i = 0; i < 9; i++)
+                {
+                    rowset.setrows(i, matrix[i]);
                 }
 
                 if (act == true)
@@ -259,6 +275,9 @@ namespace WpfApp2
                 rowset.printrows(rowset.getrows(8));
 
                 loop_counter++;
+                MessageBox.Show(loop_counter.ToString());
+
+
             }
             while (checker);
 
