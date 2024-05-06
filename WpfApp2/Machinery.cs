@@ -622,6 +622,10 @@ namespace WpfApp2
 
         public bool has_zeros(int[] vect)
         {
+            /* 
+             * This checks if an array (row/box/column) has any zeros in it.
+             */
+
             if (vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8] == 45)
             {
                 return false;
@@ -634,6 +638,10 @@ namespace WpfApp2
 
         public int count_zeros(int[] vect)
         {
+            /*
+             * This counts how many zeros are in an array (row/box/column).
+             */
+
             int count = 0;
             for (int a = 0; a < 9; a++)
             {
@@ -651,6 +659,10 @@ namespace WpfApp2
 
         public int[] where_zeros(int[] vect)
         {
+            /*
+             * This looks for where in an array (row/box/column) the zeros are.
+             */
+
             int[] zero_loc = new int[9];
 
             for (int a = 0; a < 9; a++)
@@ -670,11 +682,16 @@ namespace WpfApp2
 
         public int[] find_important(Rows fakerow, Cols fakecol, Boxs fakebox, int skiprow, int skipcol)
         {
+            /*
+             * This looks for any zeros, and compares them to any it has already looked at.
+             * When we find a new zero, it returns an array with the new zero's row, column, and box number.
+             */
+
             for (int i = 0; i < 9; i++)
             {
-                int[] row = fakerow.getrows(i);      // This was applied here to reduce the number of "getrows" calls.
+                int[] row = fakerow.getrows(i);      // This variable reduces the number of function calls.
 
-                if (!has_zeros(row))         // First check if this row has zeros. If not, just move on.
+                if (!has_zeros(row))                 // First check if this row has zeros. If not, just move on.
                 {
                     continue;
                 }
@@ -1024,6 +1041,11 @@ namespace WpfApp2
 
         public (bool, int) basic_value_insert(int[] vect)
         {
+            /*
+             * This will insert a value into an array (row/box/column) assuming the array is only missing one number.
+             * If the array is missing multiple numbers, or if it is already full, it will do nothing.
+             */
+
             bool hzv = has_zeros(vect);             // These two variables exist to reduce the number of function calls.
             int czv = count_zeros(vect);
 
@@ -1069,6 +1091,12 @@ namespace WpfApp2
 
         public (bool, int) basic_value_checking(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox, int box_num)
         {
+            /*
+             * This checks what values an individual zero can be.
+             * If the zero can only be one value (a 2 or a 5, etc) it returns true, and the number that the 0 must be.
+             * If the zero can be multiple things, it returns false.
+             */
+
             // We need to know if a spot can be a one, a two, etc.
             bool one = false;                   
             bool two = false;
@@ -1127,6 +1155,14 @@ namespace WpfApp2
 
         public (bool, int[][]) basic_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
         {
+            /*
+             * This takes every zero in the Sudoku and solves for each square based on what each square can be.
+             * It does not take sets into account. It only says "this row already has a 1, this box already has a 2", etc.
+             * It does not eliminate based on what a set must include, it eliminates only what a sqaure's three sets already have.
+             * 
+             * If it does a replacement, it returns true and the new matrix. If not, it returns false.
+             */
+
             /* Setup dummy objects so that we can use their tools. */
             Rows fakerow = new Rows();
             Cols fakecol = new Cols();
@@ -1191,8 +1227,14 @@ namespace WpfApp2
             return (act, fakerow.getmatrix());
         }
 
-        public (bool, Rows) intermediate_row_value_checking(Rows fakerow, int row_num, Cols fakecol,Boxs fakebox)
+        public (bool, Rows) intermediate_row_value_checking(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
         {
+            /* 
+             * This is the checker for rows, to see what each zero within a row can be,
+             * If it can solve for a particular square, it adds the number and returns the new Row set.
+             * If it cannot solve anything, it returns the original Row set.
+             */
+
             // We need to find all the zeros in our row, and know their location.
             // As named, the time saver variables save time by reducing function calls dramatically.
             int[] row_time_saver = fakerow.getrows(row_num);
@@ -1644,8 +1686,14 @@ namespace WpfApp2
             }
         }
 
-        public (bool, Rows) intermediate_col_value_checking(Rows fakerow, Cols fakecol, int col_num, Boxs fakebox)
+        public (bool, Cols) intermediate_col_value_checking(Rows fakerow, Cols fakecol, int col_num, Boxs fakebox)
         {
+            /* 
+             * This is the checker for columns, to see what each zero within a column can be,
+             * If it can solve for a particular square, it adds the number and returns the new Column set.
+             * If it cannot solve anything, it returns the original Column set.
+             */
+
             // We need to find all the zeros in our column, and know their location.
             // As named, the time saver variables save time by reducing function calls dramatically.
             int[] col_time_saver = fakecol.getcols(col_num);
@@ -2087,20 +2135,24 @@ namespace WpfApp2
                 }
             }
 
-            fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
-
             if (change == true)
             {
-                return (true, fakerow);
+                return (true, fakecol);
             }
             else
             {
-                return (false, fakerow);
+                return (false, fakecol);
             }
         }
 
-        public (bool, Rows) intermediate_box_value_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
+        public (bool, Boxs) intermediate_box_value_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
         {
+            /* 
+             * This is the checker for boxes, to see what each zero within a box can be,
+             * If it can solve for a particular square, it adds the number and returns the new Box set.
+             * If it cannot solve anything, it returns the original Box set.
+             */
+
             // We need to find all the zeros in our box, and know their location.
             // As named, the time saver variables save time by reducing function calls dramatically.
             int[] box_time_saver = fakebox.getboxs(box_num);
@@ -2821,16 +2873,108 @@ namespace WpfApp2
                 }
             }
 
-            fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
-
             if (change == true)
             {
-                return (true, fakerow);
+                return (true, fakebox);
             }
             else
             {
-                return (false, fakerow);
+                return (false, fakebox);
             }
+        }
+
+        public (bool, int[][]) intermediate_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
+        {
+            /* 
+             * This looks at whether there are unique possbilities within a set.
+             * For instance, a box has three 0s, but only one of them can be a 1.
+             * Therefore that 0 must be a 1, and we set it as such.
+             * 
+             * Because it is a set-based approach, we need unique solvers to look at each set type.
+             */
+
+            /* Setup dummy objects so that we can use their tools. */
+            Rows fakerow = new Rows();
+            Cols fakecol = new Cols();
+            Boxs fakebox = new Boxs();
+
+            /* Populate the dummies with the correct information. */
+            for (int fake = 0; fake < 9; fake++)
+            {
+                fakerow.setrows(fake, mat[fake]);
+                fakecol.setcols(fake, mat2[fake]);
+                fakebox.setboxs(fake, mat3[fake]);
+            }
+
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
+            int[] important = new int[3];
+            important = [-1, -1, -1];
+            int skiprow = -1;
+            int skipcol = -1;
+
+            int count = 0;
+            bool act = false;
+
+            do
+            {
+
+                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+
+                if (important[0] > skiprow)
+                {
+                    skipcol = -1;
+                }
+                else
+                {
+                    skipcol = important[1];
+                }
+
+                skiprow = important[0];
+
+                (bool verify1, Rows newFakerow) = intermediate_row_value_checking(fakerow, important[0], fakecol, fakebox);
+                (bool verify2, Cols newFakecol) = intermediate_col_value_checking(fakerow, fakecol, important[1], fakebox);
+                (bool verify3, Boxs newFakebox) = intermediate_box_value_checking(fakerow, fakecol, fakebox, important[2]);
+
+                if (verify1)
+                {
+                    fakerow.setrows(important[0], newFakerow.getrows(important[0]));
+                    fakecol = rows_to_cols(fakecol, fakerow.getmatrix());
+                    fakebox = rows_to_boxs(fakebox, fakerow.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify2)
+                {
+                    fakecol.setcols(important[1], newFakecol.getcols(important[1]));
+                    fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
+                    fakebox = cols_to_boxs(fakebox, fakecol.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify3)
+                {
+                    fakebox.setboxs(important[2], newFakebox.getboxs(important[2]));
+                    fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                    fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else
+                {
+                    count++;
+                    if (count == 81)
+                    {
+                        MessageBox.Show("We are maxing out basic solver.");
+                    }
+                }
+
+            }
+            while ((act == false) && (count < 81));
+
+            return (act, fakerow.getmatrix());
         }
     }
 }
