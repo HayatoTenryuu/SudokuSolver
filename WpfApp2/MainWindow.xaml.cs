@@ -245,11 +245,10 @@ namespace WpfApp2
                 else
                 {
                     (act, matrix) = Machine.intermediate_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
-                }
-
-                for (int i = 0; i < 9; i++)
-                {
-                    rowset.setrows(i, matrix[i]);
+                    for (int i = 0; i < 9; i++)
+                    {
+                        rowset.setrows(i, matrix[i]);
+                    }
                 }
 
                 if (act == true)
