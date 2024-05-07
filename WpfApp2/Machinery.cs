@@ -1217,7 +1217,7 @@ namespace WpfApp2
                     count++;
                     if (count == 81)
                     {
-                        MessageBox.Show("We are maxing out basic solver.");
+                        // MessageBox.Show("We are maxing out basic solver.");
                     }
                     continue;
                 }
@@ -1511,7 +1511,7 @@ namespace WpfApp2
                     nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
 
                     // Set the matrix of possbilities for each zero in our box.
-                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
                 }
             }
 
@@ -1528,39 +1528,39 @@ namespace WpfApp2
 
             for (int e = 0; e < 9; e++)
             {
-                if (possibilities[e][0] == true)
+                if (possibilities[e][0])
                 {
                     alpha += 1;
                 }
-                if (possibilities[e][1] == true)
+                if (possibilities[e][1])
                 {
                     beta += 1;
                 }
-                if (possibilities[e][2] == true)
+                if (possibilities[e][2])
                 {
                     gamma += 1;
                 }
-                if (possibilities[e][3] == true)
+                if (possibilities[e][3])
                 {
                     delta += 1;
                 }
-                if (possibilities[e][4] == true)
+                if (possibilities[e][4])
                 {
                     epsilon += 1;
                 }
-                if (possibilities[e][5] == true)
+                if (possibilities[e][5])
                 {
                     zeta += 1;
                 }
-                if (possibilities[e][6] == true)
+                if (possibilities[e][6])
                 {
                     eta += 1;
                 }
-                if (possibilities[e][7] == true)
+                if (possibilities[e][7])
                 {
                     theta += 1;
                 }
-                if (possibilities[e][8] == true)
+                if (possibilities[e][8])
                 {
                     iota += 1;
                 }
@@ -1571,7 +1571,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][0] == true)
+                    if (possibilities[r][0])
                     {
                         row_time_saver[r] = 1;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1583,7 +1583,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][1] == true)
+                    if (possibilities[r][1])
                     {
                         row_time_saver[r] = 2;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1595,7 +1595,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][2] == true)
+                    if (possibilities[r][2])
                     {
                         row_time_saver[r] = 3;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1607,7 +1607,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][3] == true)
+                    if (possibilities[r][3])
                     {
                         row_time_saver[r] = 4;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1619,7 +1619,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][4] == true)
+                    if (possibilities[r][4])
                     {
                         row_time_saver[r] = 5;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1631,7 +1631,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][5] == true)
+                    if (possibilities[r][5])
                     {
                         row_time_saver[r] = 6;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1643,7 +1643,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][6] == true)
+                    if (possibilities[r][6])
                     {
                         row_time_saver[r] = 7;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1655,7 +1655,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][7] == true)
+                    if (possibilities[r][7])
                     {
                         row_time_saver[r] = 8;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1667,7 +1667,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][8] == true)
+                    if (possibilities[r][8])
                     {
                         row_time_saver[r] = 9;
                         fakerow.setrows(row_num, row_time_saver);
@@ -1970,7 +1970,7 @@ namespace WpfApp2
                     nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
 
                     // Set the matrix of possbilities for each zero in our box.
-                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
                 }
             }
 
@@ -1987,39 +1987,39 @@ namespace WpfApp2
 
             for (int e = 0; e < 9; e++)
             {
-                if (possibilities[e][0] == true)
+                if (possibilities[e][0])
                 {
                     alpha += 1;
                 }
-                if (possibilities[e][1] == true)
+                if (possibilities[e][1])
                 {
                     beta += 1;
                 }
-                if (possibilities[e][2] == true)
+                if (possibilities[e][2])
                 {
                     gamma += 1;
                 }
-                if (possibilities[e][3] == true)
+                if (possibilities[e][3])
                 {
                     delta += 1;
                 }
-                if (possibilities[e][4] == true)
+                if (possibilities[e][4])
                 {
                     epsilon += 1;
                 }
-                if (possibilities[e][5] == true)
+                if (possibilities[e][5])
                 {
                     zeta += 1;
                 }
-                if (possibilities[e][6] == true)
+                if (possibilities[e][6])
                 {
                     eta += 1;
                 }
-                if (possibilities[e][7] == true)
+                if (possibilities[e][7])
                 {
                     theta += 1;
                 }
-                if (possibilities[e][8] == true)
+                if (possibilities[e][8])
                 {
                     iota += 1;
                 }
@@ -2030,7 +2030,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][0] == true)
+                    if (possibilities[r][0])
                     {
                         col_time_saver[r] = 1;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2042,7 +2042,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][1] == true)
+                    if (possibilities[r][1])
                     {
                         col_time_saver[r] = 2;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2054,7 +2054,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][2] == true)
+                    if (possibilities[r][2])
                     {
                         col_time_saver[r] = 3;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2066,7 +2066,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][3] == true)
+                    if (possibilities[r][3])
                     {
                         col_time_saver[r] = 4;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2078,7 +2078,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][4] == true)
+                    if (possibilities[r][4])
                     {
                         col_time_saver[r] = 5;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2090,7 +2090,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][5] == true)
+                    if (possibilities[r][5])
                     {
                         col_time_saver[r] = 6;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2102,7 +2102,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][6] == true)
+                    if (possibilities[r][6])
                     {
                         col_time_saver[r] = 7;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2114,7 +2114,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][7] == true)
+                    if (possibilities[r][7])
                     {
                         col_time_saver[r] = 8;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2126,7 +2126,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][8] == true)
+                    if (possibilities[r][8])
                     {
                         col_time_saver[r] = 9;
                         fakecol.setcols(col_num, col_time_saver);
@@ -2171,7 +2171,7 @@ namespace WpfApp2
                 case 0:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2225,7 +2225,7 @@ namespace WpfApp2
                 case 1:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2279,7 +2279,7 @@ namespace WpfApp2
                 case 2:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2333,7 +2333,7 @@ namespace WpfApp2
                 case 3:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2387,7 +2387,7 @@ namespace WpfApp2
                 case 4:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2441,7 +2441,7 @@ namespace WpfApp2
                 case 5:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2495,7 +2495,7 @@ namespace WpfApp2
                 case 6:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2549,7 +2549,7 @@ namespace WpfApp2
                 case 7:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2603,7 +2603,7 @@ namespace WpfApp2
                 case 8:
                     for (int q = 0; q < 9; q++)
                     {
-                        if (zero_loc[q] == 0)
+                        if (zero_loc[q] == 1)
                         {
                             switch (q)
                             {
@@ -2708,7 +2708,7 @@ namespace WpfApp2
                     nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
 
                     // Set the matrix of possbilities for each zero in our box.
-                    possibilities[w] = [one, two, three, four, five, six, seven, eight, nine];
+                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
                 }
             }
 
@@ -2725,39 +2725,39 @@ namespace WpfApp2
 
             for (int e = 0; e < 9; e++)
             {
-                if (possibilities[e][0] == true)
+                if (possibilities[e][0])
                 {
                     alpha += 1;
                 }
-                if (possibilities[e][1] == true)
+                if (possibilities[e][1])
                 {
                     beta += 1;
                 }
-                if (possibilities[e][2] == true)
+                if (possibilities[e][2])
                 {
                     gamma += 1;
                 }
-                if (possibilities[e][3] == true)
+                if (possibilities[e][3])
                 {
                     delta += 1;
                 }
-                if (possibilities[e][4] == true)
+                if (possibilities[e][4])
                 {
                     epsilon += 1;
                 }
-                if (possibilities[e][5] == true)
+                if (possibilities[e][5])
                 {
                     zeta += 1;
                 }
-                if (possibilities[e][6] == true)
+                if (possibilities[e][6])
                 {
                     eta += 1;
                 }
-                if (possibilities[e][7] == true)
+                if (possibilities[e][7])
                 {
                     theta += 1;
                 }
-                if (possibilities[e][8] == true)
+                if (possibilities[e][8])
                 {
                     iota += 1;
                 }
@@ -2768,7 +2768,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][0] == true)
+                    if (possibilities[r][0])
                     {
                         box_time_saver[r] = 1;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2780,7 +2780,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][1] == true)
+                    if (possibilities[r][1])
                     {
                         box_time_saver[r] = 2;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2792,7 +2792,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][2] == true)
+                    if (possibilities[r][2])
                     {
                         box_time_saver[r] = 3;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2804,7 +2804,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][3] == true)
+                    if (possibilities[r][3])
                     {
                         box_time_saver[r] = 4;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2816,7 +2816,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][4] == true)
+                    if (possibilities[r][4])
                     {
                         box_time_saver[r] = 5;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2828,7 +2828,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][5] == true)
+                    if (possibilities[r][5])
                     {
                         box_time_saver[r] = 6;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2840,7 +2840,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][6] == true)
+                    if (possibilities[r][6])
                     {
                         box_time_saver[r] = 7;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2852,7 +2852,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][7] == true)
+                    if (possibilities[r][7])
                     {
                         box_time_saver[r] = 8;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2864,7 +2864,7 @@ namespace WpfApp2
             {
                 for (int r = 0; r < 9; r++)
                 {
-                    if (possibilities[r][8] == true)
+                    if (possibilities[r][8])
                     {
                         box_time_saver[r] = 9;
                         fakebox.setboxs(box_num, box_time_saver);
@@ -2906,7 +2906,7 @@ namespace WpfApp2
                 fakebox.setboxs(fake, mat3[fake]);
             }
 
-            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */           
             int[] important = new int[3];
             important = [-1, -1, -1];
             int skiprow = -1;

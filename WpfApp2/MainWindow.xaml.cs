@@ -263,18 +263,8 @@ namespace WpfApp2
                            Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
                            Machine.has_zeros(rowset.getrows(8)));
 
-                rowset.printrows(rowset.getrows(0));
-                rowset.printrows(rowset.getrows(1));
-                rowset.printrows(rowset.getrows(2));
-                rowset.printrows(rowset.getrows(3));
-                rowset.printrows(rowset.getrows(4));
-                rowset.printrows(rowset.getrows(5));
-                rowset.printrows(rowset.getrows(6));
-                rowset.printrows(rowset.getrows(7));
-                rowset.printrows(rowset.getrows(8));
-
                 loop_counter++;
-                MessageBox.Show(loop_counter.ToString());
+                // MessageBox.Show(loop_counter.ToString());
 
 
             }
@@ -283,7 +273,11 @@ namespace WpfApp2
             MessageBox.Show("All Done!");
 
             FinalWindow ending = new FinalWindow(original_rowset, rowset);
-
+            ending.Height = 500;
+            ending.Width = 950;
+            ending.Show();
+            ending.Activate();
+            
         }
     }
 }
