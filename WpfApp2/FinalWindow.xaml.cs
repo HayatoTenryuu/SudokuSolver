@@ -314,7 +314,7 @@ namespace WpfApp2
             }
 
             R64_OG.Text = OG_Matrix[5][3].ToString();
-            if (R65_OG.Text == "0")
+            if (R64_OG.Text == "0")
             {
                 R64_OG.Text = "";
             }
