@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Insert Sudoku" Height="650" Width="550">
-    <Grid Width="550" Height="650">
+    <Grid x:Name="MainWin" Width="550" Height="650">
 
         <Image HorizontalAlignment="Left" Height="410" Margin="70,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png" Grid.ColumnSpan="3"/>
         <TextBlock x:Name="TitleMain" HorizontalAlignment="Center" Margin="0,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="222" FontWeight="Bold" FontSize="24" Panel.ZIndex="50"><Run Language="ja-jp" Text=" "/><Run Text="Insert Your Puzzle:"/></TextBlock>
