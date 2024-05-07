@@ -267,16 +267,18 @@ namespace WpfApp2
 
                     loop_counter++;
                     // MessageBox.Show(loop_counter.ToString());
-
-
+                    if (loop_counter > 1000)
+                    {
+                        throw new Exception("I cannot solve this.");
+                    }
                 }
                 while (checker);
 
                 MessageBox.Show("All Done!");
 
                 FinalWindow ending = new FinalWindow(original_rowset, rowset);
-                ending.Height = 600;
-                ending.Width = 1050;
+                ending.Height = 525;
+                ending.Width = 975;
                 ending.Show();
                 ending.Activate();
             }
