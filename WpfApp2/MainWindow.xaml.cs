@@ -184,100 +184,110 @@ namespace WpfApp2
              * Step 4: Try to Solve.
              ---------------------*/
 
-            bool a = false;
-            bool b = false;
-            bool c = false;
-            int x = 0;
-            int y = 0;
-            int z = 0;
-            
-            bool checker = false;
-            int loop_counter = 0;
-            int[][] matrix = new int[9][];
-
-            do
+            try
             {
-                for (int i = 0; i < 9; i++)
+                bool a = false;
+                bool b = false;
+                bool c = false;
+                int x = 0;
+                int y = 0;
+                int z = 0;
+
+                bool checker = false;
+                int loop_counter = 0;
+                int[][] matrix = new int[9][];
+
+                do
                 {
-                    (a, x) = Machine.basic_value_insert(rowset.getrows(i));
-                    if (a == true)
+                    for (int i = 0; i < 9; i++)
+                    {
+                        (a, x) = Machine.basic_value_insert(rowset.getrows(i));
+                        if (a == true)
+                        {
+                            colset = Machine.rows_to_cols(colset, rowset.getmatrix());
+                            boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        (b, y) = Machine.basic_value_insert(colset.getcols(i));
+                        if (b == true)
+                        {
+                            boxset = Machine.cols_to_boxs(boxset, colset.getmatrix());
+                            rowset = Machine.cols_to_rows(rowset, colset.getmatrix());
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        (c, z) = Machine.basic_value_insert(boxset.getboxs(i));
+                        if (c == true)
+                        {
+                            rowset = Machine.boxs_to_rows(rowset, boxset.getmatrix());
+                            colset = Machine.boxs_to_cols(colset, boxset.getmatrix());
+                            break;
+                        }
+                    }
+
+                    (bool act, int[][] return_matrix) = Machine.basic_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        rowset.setrows(i, return_matrix[i]);
+                    }
+
+                    if (act == true)
                     {
                         colset = Machine.rows_to_cols(colset, rowset.getmatrix());
                         boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
-                        break;
                     }
-                }
-
-                for (int i = 0; i < 9; i++)
-                {
-                    (b, y) = Machine.basic_value_insert(colset.getcols(i));
-                    if (b == true)
+                    else
                     {
-                        boxset = Machine.cols_to_boxs(boxset, colset.getmatrix());
-                        rowset = Machine.cols_to_rows(rowset, colset.getmatrix());
-                        break;
+                        (act, matrix) = Machine.intermediate_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                        for (int i = 0; i < 9; i++)
+                        {
+                            rowset.setrows(i, matrix[i]);
+                        }
                     }
-                }
 
-                for (int i = 0; i < 9; i++)
-                {
-                    (c, z) = Machine.basic_value_insert(boxset.getboxs(i));
-                    if (c == true)
+                    if (act == true)
                     {
-                        rowset = Machine.boxs_to_rows(rowset, boxset.getmatrix());
-                        colset = Machine.boxs_to_cols(colset, boxset.getmatrix());
-                        break;
+                        colset = Machine.rows_to_cols(colset, rowset.getmatrix());
+                        boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
                     }
+
+                    checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
+                               Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
+                               Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
+                               Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
+                               Machine.has_zeros(rowset.getrows(8)));
+
+                    loop_counter++;
+                    // MessageBox.Show(loop_counter.ToString());
+
+
                 }
+                while (checker);
 
-                (bool act, int[][] return_matrix) = Machine.basic_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                MessageBox.Show("All Done!");
 
-                for (int i = 0; i < 9; i++)
-                {
-                    rowset.setrows(i, return_matrix[i]);
-                }
+                FinalWindow ending = new FinalWindow(original_rowset, rowset);
+                ending.Height = 600;
+                ending.Width = 1050;
+                ending.Show();
+                ending.Activate();
+            }
 
-                if (act == true)
-                {
-                    colset = Machine.rows_to_cols(colset, rowset.getmatrix());
-                    boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
-                }
-                else
-                {
-                    (act, matrix) = Machine.intermediate_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
-                    for (int i = 0; i < 9; i++)
-                    {
-                        rowset.setrows(i, matrix[i]);
-                    }
-                }
-
-                if (act == true)
-                {
-                    colset = Machine.rows_to_cols(colset, rowset.getmatrix());
-                    boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
-                }
-
-                checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
-                           Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
-                           Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
-                           Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
-                           Machine.has_zeros(rowset.getrows(8)));
-
-                loop_counter++;
-                // MessageBox.Show(loop_counter.ToString());
-
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Something has gone wrong, please contact your local administrator for help.\n\n" +
+                    "Error Message: " + ex);
+                MessageBox.Show("Also, please be sure you typed in the problem correctly, because I can't solve unsolvable problems.");
 
             }
-            while (checker);
-
-            MessageBox.Show("All Done!");
-
-            FinalWindow ending = new FinalWindow(original_rowset, rowset);
-            ending.Height = 500;
-            ending.Width = 950;
-            ending.Show();
-            ending.Activate();
-            
         }
     }
 }

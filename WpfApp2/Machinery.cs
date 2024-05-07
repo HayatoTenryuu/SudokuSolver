@@ -2967,7 +2967,7 @@ namespace WpfApp2
                     count++;
                     if (count == 81)
                     {
-                        MessageBox.Show("We are maxing out basic solver.");
+                        // MessageBox.Show("We are maxing out intermediate solver.");
                     }
                 }
 
