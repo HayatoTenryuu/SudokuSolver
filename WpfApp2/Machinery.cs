@@ -2883,100 +2883,6 @@ namespace WpfApp2
             }
         }
 
-        public (bool, int[][]) intermediate_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
-        {
-            /* 
-             * This looks at whether there are unique possbilities within a set.
-             * For instance, a box has three 0s, but only one of them can be a 1.
-             * Therefore that 0 must be a 1, and we set it as such.
-             * 
-             * Because it is a set-based approach, we need unique solvers to look at each set type.
-             */
-
-            /* Setup dummy objects so that we can use their tools. */
-            Rows fakerow = new Rows();
-            Cols fakecol = new Cols();
-            Boxs fakebox = new Boxs();
-
-            /* Populate the dummies with the correct information. */
-            for (int fake = 0; fake < 9; fake++)
-            {
-                fakerow.setrows(fake, mat[fake]);
-                fakecol.setcols(fake, mat2[fake]);
-                fakebox.setboxs(fake, mat3[fake]);
-            }
-
-            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */           
-            int[] important = new int[3];
-            important = [-1, -1, -1];
-            int skiprow = -1;
-            int skipcol = -1;
-
-            int count = 0;
-            bool act = false;
-
-            do
-            {
-
-                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
-
-                if (important[0] > skiprow)
-                {
-                    skipcol = -1;
-                }
-                else
-                {
-                    skipcol = important[1];
-                }
-
-                skiprow = important[0];
-
-                (bool verify1, Rows newFakerow) = intermediate_row_value_checking(fakerow, important[0], fakecol, fakebox);
-                (bool verify2, Cols newFakecol) = intermediate_col_value_checking(fakerow, fakecol, important[1], fakebox);
-                (bool verify3, Boxs newFakebox) = intermediate_box_value_checking(fakerow, fakecol, fakebox, important[2]);
-
-                if (verify1)
-                {
-                    fakerow.setrows(important[0], newFakerow.getrows(important[0]));
-                    fakecol = rows_to_cols(fakecol, fakerow.getmatrix());
-                    fakebox = rows_to_boxs(fakebox, fakerow.getmatrix());
-                    act = true;
-                    count++;
-                }
-
-                else if (verify2)
-                {
-                    fakecol.setcols(important[1], newFakecol.getcols(important[1]));
-                    fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
-                    fakebox = cols_to_boxs(fakebox, fakecol.getmatrix());
-                    act = true;
-                    count++;
-                }
-
-                else if (verify3)
-                {
-                    fakebox.setboxs(important[2], newFakebox.getboxs(important[2]));
-                    fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
-                    fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
-                    act = true;
-                    count++;
-                }
-
-                else
-                {
-                    count++;
-                    if (count == 81)
-                    {
-                        // MessageBox.Show("We are maxing out intermediate solver.");
-                    }
-                }
-
-            }
-            while ((act == false) && (count < 81));
-
-            return (act, fakerow.getmatrix());
-        }
-
         public (bool, int[][]) intermediate_inference_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
         {
             /*
@@ -3574,17 +3480,398 @@ namespace WpfApp2
                 throwawaybox.setboxs(box_num, box_time_saver);
                 r_assert = true;
             }
-
-
-            /* Insert all other possible row assetions for the other 8 numbers*/
+            else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+            {
+                box_time_saver[0] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+            {
+                box_time_saver[3] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
+            {
+                box_time_saver[6] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+            {
+                box_time_saver[0] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+            {
+                box_time_saver[3] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
+            {
+                box_time_saver[6] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+            {
+                box_time_saver[0] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+            {
+                box_time_saver[3] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
+            {
+                box_time_saver[6] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+            {
+                box_time_saver[0] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+            {
+                box_time_saver[3] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
+            {
+                box_time_saver[6] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+            {
+                box_time_saver[0] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+            {
+                box_time_saver[3] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
+            {
+                box_time_saver[6] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+            {
+                box_time_saver[0] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+            {
+                box_time_saver[3] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
+            {
+                box_time_saver[6] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+            {
+                box_time_saver[0] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+            {
+                box_time_saver[3] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
+            {
+                box_time_saver[6] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+            {
+                box_time_saver[0] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+            {
+                box_time_saver[3] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
+            {
+                box_time_saver[6] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
 
             // If we can make a row assertion, then check the other boxes horizontal to ours.
             if (r_assert)
             {
-                /*call a solver function*/
-                change = true;
+                switch (box_num)
+                {
+                    case 0:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 1);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 2);
+                            break;
+                        }
+                    case 1:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 0);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 2);
+                            break;
+                        }
+                    case 2:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 0);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 1);
+                            break;
+                        }
+                    case 3:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 4);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 5);
+                            break;
+                        }
+                    case 4:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 3);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 5);
+                            break;
+                        }
+                    case 5:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 3);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 4);
+                            break;
+                        }
+                    case 6:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 7);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 8);
+                            break;
+                        }
+                    case 7:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 6);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 8);
+                            break;
+                        }
+                    case 8:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 6);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 7);
+                            break;
+                        }
+                    default:
+                        MessageBox.Show("Something is weird with inference row checking.");
+                        break;
+                }
 
-                /*if something was solved, assigned the solved thing to fakebox*/
+                if (change)
+                {
+                    if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
             }
 
             // Determine if any possibilities are restricted to a single column. If so, make the appropriate column assertion.
@@ -3606,30 +3893,523 @@ namespace WpfApp2
                 throwawaybox.setboxs(box_num, box_time_saver);
                 c_assert = true;
             }
-            /* Insert all other possible column assetions for the other 8 numbers*/
-
-
+            else if ((possibilities[0][1] == true || possibilities[3][1] == true || possibilities[6][1] == true) && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+            {
+                box_time_saver[0] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && (possibilities[1][1] == true || possibilities[4][1] == true || possibilities[7][1] == true) && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[8][1] == false)
+            {
+                box_time_saver[1] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && (possibilities[2][1] == true || possibilities[5][1] == true || possibilities[8][1] == true))
+            {
+                box_time_saver[2] = 2;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][2] == true || possibilities[3][2] == true || possibilities[6][2] == true) && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+            {
+                box_time_saver[0] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && (possibilities[1][2] == true || possibilities[4][2] == true || possibilities[7][2] == true) && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[8][2] == false)
+            {
+                box_time_saver[1] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && (possibilities[2][2] == true || possibilities[5][2] == true || possibilities[8][2] == true))
+            {
+                box_time_saver[2] = 3;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][3] == true || possibilities[3][3] == true || possibilities[6][3] == true) && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+            {
+                box_time_saver[0] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && (possibilities[1][3] == true || possibilities[4][3] == true || possibilities[7][3] == true) && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[8][3] == false)
+            {
+                box_time_saver[1] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && (possibilities[2][3] == true || possibilities[5][3] == true || possibilities[8][3] == true))
+            {
+                box_time_saver[2] = 4;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][4] == true || possibilities[3][4] == true || possibilities[6][4] == true) && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+            {
+                box_time_saver[0] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && (possibilities[1][4] == true || possibilities[4][4] == true || possibilities[7][4] == true) && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[8][4] == false)
+            {
+                box_time_saver[1] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && (possibilities[2][4] == true || possibilities[5][4] == true || possibilities[8][4] == true))
+            {
+                box_time_saver[2] = 5;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][5] == true || possibilities[3][5] == true || possibilities[6][5] == true) && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+            {
+                box_time_saver[0] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && (possibilities[1][5] == true || possibilities[4][5] == true || possibilities[7][5] == true) && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[8][5] == false)
+            {
+                box_time_saver[1] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && (possibilities[2][5] == true || possibilities[5][5] == true || possibilities[8][5] == true))
+            {
+                box_time_saver[2] = 6;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][6] == true || possibilities[3][6] == true || possibilities[6][6] == true) && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+            {
+                box_time_saver[0] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && (possibilities[1][6] == true || possibilities[4][6] == true || possibilities[7][6] == true) && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[8][6] == false)
+            {
+                box_time_saver[1] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && (possibilities[2][6] == true || possibilities[5][6] == true || possibilities[8][6] == true))
+            {
+                box_time_saver[2] = 7;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][7] == true || possibilities[3][7] == true || possibilities[6][7] == true) && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+            {
+                box_time_saver[0] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && (possibilities[1][7] == true || possibilities[4][7] == true || possibilities[7][7] == true) && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[8][7] == false)
+            {
+                box_time_saver[1] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && (possibilities[2][7] == true || possibilities[5][7] == true || possibilities[8][7] == true))
+            {
+                box_time_saver[2] = 8;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if ((possibilities[0][8] == true || possibilities[3][8] == true || possibilities[6][8] == true) && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+            {
+                box_time_saver[0] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && (possibilities[1][8] == true || possibilities[4][8] == true || possibilities[7][8] == true) && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[8][8] == false)
+            {
+                box_time_saver[1] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && (possibilities[2][8] == true || possibilities[5][8] == true || possibilities[8][8] == true))
+            {
+                box_time_saver[2] = 9;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
 
             // If we can make a column assertion, then check the other boxes vertical to ours.
             if (c_assert)
             {
-                /*call a solver function and check if something was solved or not*/
-                change = true;
+                switch (box_num)
+                {
+                    case 0:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 3);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 6);
+                            break;
+                        }
+                    case 1:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 4);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 7);
+                            break;
+                        }
+                    case 2:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 5);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 8);
+                            break;
+                        }
+                    case 3:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 0);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 6);
+                            break;
+                        }
+                    case 4:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 1);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 7);
+                            break;
+                        }
+                    case 5:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 2);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 8);
+                            break;
+                        }
+                    case 6:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 0);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 3);
+                            break;
+                        }
+                    case 7:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 1);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 4);
+                            break;
+                        }
+                    case 8:
+                        (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 2);
+                        if (change)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            (change, throwawaybox) = intermediate_box_value_checking(fakerow, fakecol, throwawaybox, 5);
+                            break;
+                        }
+                    default:
+                        MessageBox.Show("Something is weird with inference column checking.");
+                        break;
+                }
 
-                /*if something was solved, assigned the solved thing to fakebox*/
-
+                if (change)
+                {
+                    if ((possibilities[0][0] == true || possibilities[3][0] == true || possibilities[6][0] == true) && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && (possibilities[1][0] == true || possibilities[4][0] == true || possibilities[7][0] == true) && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[8][0] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && (possibilities[2][0] == true || possibilities[5][0] == true || possibilities[8][0] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][1] == true || possibilities[3][1] == true || possibilities[6][1] == true) && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && (possibilities[1][1] == true || possibilities[4][1] == true || possibilities[7][1] == true) && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[8][1] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && (possibilities[2][1] == true || possibilities[5][1] == true || possibilities[8][1] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][2] == true || possibilities[3][2] == true || possibilities[6][2] == true) && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && (possibilities[1][2] == true || possibilities[4][2] == true || possibilities[7][2] == true) && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[8][2] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && (possibilities[2][2] == true || possibilities[5][2] == true || possibilities[8][2] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][3] == true || possibilities[3][3] == true || possibilities[6][3] == true) && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && (possibilities[1][3] == true || possibilities[4][3] == true || possibilities[7][3] == true) && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[8][3] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && (possibilities[2][3] == true || possibilities[5][3] == true || possibilities[8][3] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][4] == true || possibilities[3][4] == true || possibilities[6][4] == true) && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && (possibilities[1][4] == true || possibilities[4][4] == true || possibilities[7][4] == true) && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[8][4] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && (possibilities[2][4] == true || possibilities[5][4] == true || possibilities[8][4] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][5] == true || possibilities[3][5] == true || possibilities[6][5] == true) && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && (possibilities[1][5] == true || possibilities[4][5] == true || possibilities[7][5] == true) && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[8][5] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && (possibilities[2][5] == true || possibilities[5][5] == true || possibilities[8][5] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][6] == true || possibilities[3][6] == true || possibilities[6][6] == true) && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && (possibilities[1][6] == true || possibilities[4][6] == true || possibilities[7][6] == true) && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[8][6] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && (possibilities[2][6] == true || possibilities[5][6] == true || possibilities[8][6] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][7] == true || possibilities[3][7] == true || possibilities[6][7] == true) && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && (possibilities[1][7] == true || possibilities[4][7] == true || possibilities[7][7] == true) && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[8][7] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && (possibilities[2][7] == true || possibilities[5][7] == true || possibilities[8][7] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if ((possibilities[0][8] == true || possibilities[3][8] == true || possibilities[6][8] == true) && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && (possibilities[1][8] == true || possibilities[4][8] == true || possibilities[7][8] == true) && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[8][8] == false)
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && (possibilities[2][8] == true || possibilities[5][8] == true || possibilities[8][8] == true))
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
             }
 
-
+            // If we changed something, return what we learned.
             if (change)
             {
+                for (int i = 0; i < 9; i++)
+                {
+                    fakebox.setboxs(i, throwawaybox.getboxs(i));
+                }
                 return (true, fakebox.getmatrix());
             }
             else
             {
                 return (false, fakebox.getmatrix());
             }
-            
+
         }
+
+        public (bool, int[][]) intermediate_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
+        {
+            /* 
+             * This looks at whether there are unique possbilities within a set.
+             * For instance, a box has three 0s, but only one of them can be a 1.
+             * Therefore that 0 must be a 1, and we set it as such.
+             * 
+             * Because it is a set-based approach, we need unique solvers to look at each set type.
+             */
+
+            /* Setup dummy objects so that we can use their tools. */
+            Rows fakerow = new Rows();
+            Cols fakecol = new Cols();
+            Boxs fakebox = new Boxs();
+
+            /* Populate the dummies with the correct information. */
+            for (int fake = 0; fake < 9; fake++)
+            {
+                fakerow.setrows(fake, mat[fake]);
+                fakecol.setcols(fake, mat2[fake]);
+                fakebox.setboxs(fake, mat3[fake]);
+            }
+
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */           
+            int[] important = new int[3];
+            important = [-1, -1, -1];
+            int skiprow = -1;
+            int skipcol = -1;
+
+            int count = 0;
+            bool act = false;
+
+            do
+            {
+
+                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+
+                if (important[0] > skiprow)
+                {
+                    skipcol = -1;
+                }
+                else
+                {
+                    skipcol = important[1];
+                }
+
+                skiprow = important[0];
+
+                (bool verify1, Rows newFakerow) = intermediate_row_value_checking(fakerow, important[0], fakecol, fakebox);
+                (bool verify2, Cols newFakecol) = intermediate_col_value_checking(fakerow, fakecol, important[1], fakebox);
+                (bool verify3, Boxs newFakebox) = intermediate_box_value_checking(fakerow, fakecol, fakebox, important[2]);
+
+                if (verify1)
+                {
+                    fakerow.setrows(important[0], newFakerow.getrows(important[0]));
+                    fakecol = rows_to_cols(fakecol, fakerow.getmatrix());
+                    fakebox = rows_to_boxs(fakebox, fakerow.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify2)
+                {
+                    fakecol.setcols(important[1], newFakecol.getcols(important[1]));
+                    fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
+                    fakebox = cols_to_boxs(fakebox, fakecol.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify3)
+                {
+                    fakebox.setboxs(important[2], newFakebox.getboxs(important[2]));
+                    fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                    fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                // If direct analysis doesn't work, see if we can infer a value and solve with that.
+                else
+                {
+                    (act, int[][] mat4) = intermediate_inference_checking(fakerow, fakecol, fakebox, important[2]);
+
+                    if (act)
+                    {
+                        for (int fake = 0; fake < 9; fake++)
+                        {
+                            fakebox.setboxs(fake, mat4[fake]);
+                        }
+
+                        fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                        fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    }
+
+                    count++;
+                    if (count == 81)
+                    {
+                        // MessageBox.Show("We are maxing out intermediate solver.");
+                    }
+                }
+            }
+            while ((act == false) && (count < 81));
+
+            return (act, fakerow.getmatrix());
+        }
+
+        
     }
 }
