@@ -2976,5 +2976,660 @@ namespace WpfApp2
 
             return (act, fakerow.getmatrix());
         }
+
+        public (bool, int[][]) intermediate_inference_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
+        {
+            /*
+             * This is designed to check via inferred knowledge.
+             * Let's say only the last row of a box can be a 3, then we use that inferred 3 to check other boxes
+             * horizontal to the first. If only the middle column of a box can be a 5, then we use that inferred 
+             * 5 to check other boxes vertical to the first.
+             */
+
+            // Create a box to contain our assertion, and give it all the values of a real box.
+            Boxs throwawaybox = new Boxs();
+
+            for (int i = 0; i < 9; i++)
+            {
+                throwawaybox.setboxs(i, fakebox.getboxs(i));
+            }
+
+            // Determine what assertion to make, and assign it to the first element. Actual location doesn't matter.
+            // This begins with finding possibilities.
+            int[] box_time_saver = throwawaybox.getboxs(box_num);
+
+            int num_zeros = count_zeros(box_time_saver);
+            int[] zero_loc = where_zeros(box_time_saver);
+
+            int[] r_index = new int[9];
+            int[] c_index = new int[9];
+
+            r_index = [9, 9, 9, 9, 9, 9, 9, 9, 9];
+            c_index = [9, 9, 9, 9, 9, 9, 9, 9, 9];
+
+            switch (box_num)
+            {
+                case 0:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 0;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 0;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 0;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 1;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 1;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 1;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 2;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 2;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 2;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 3;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 3;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 3;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 4;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 4;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 4;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 5;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 5;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 5;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 6:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 0;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 1;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 2;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 0;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 1;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 2;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 0;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 1;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 2;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 7:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 3;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 4;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 5;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 3;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 4;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 5;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 3;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 4;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 5;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 8:
+                    for (int q = 0; q < 9; q++)
+                    {
+                        if (zero_loc[q] == 1)
+                        {
+                            switch (q)
+                            {
+                                case 0:
+                                    r_index[q] = 6;
+                                    c_index[q] = 6;
+                                    break;
+                                case 1:
+                                    r_index[q] = 6;
+                                    c_index[q] = 7;
+                                    break;
+                                case 2:
+                                    r_index[q] = 6;
+                                    c_index[q] = 8;
+                                    break;
+                                case 3:
+                                    r_index[q] = 7;
+                                    c_index[q] = 6;
+                                    break;
+                                case 4:
+                                    r_index[q] = 7;
+                                    c_index[q] = 7;
+                                    break;
+                                case 5:
+                                    r_index[q] = 7;
+                                    c_index[q] = 8;
+                                    break;
+                                case 6:
+                                    r_index[q] = 8;
+                                    c_index[q] = 6;
+                                    break;
+                                case 7:
+                                    r_index[q] = 8;
+                                    c_index[q] = 7;
+                                    break;
+                                case 8:
+                                    r_index[q] = 8;
+                                    c_index[q] = 8;
+                                    break;
+                                default:
+                                    MessageBox.Show("potential checking okashii.");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                default:
+                    MessageBox.Show("Box number is impossible.");
+                    break;
+            }
+
+            // We now have the number and locations of each zero.
+            // Create and control the size of the possibility-tracking matrix.
+            bool[][] possibilities = new bool[9][];
+            possibilities[0] = new bool[9];
+            possibilities[1] = new bool[9];
+            possibilities[2] = new bool[9];
+            possibilities[3] = new bool[9];
+            possibilities[4] = new bool[9];
+            possibilities[5] = new bool[9];
+            possibilities[6] = new bool[9];
+            possibilities[7] = new bool[9];
+            possibilities[8] = new bool[9];
+
+            bool change = false;
+            bool r_assert = false;
+            bool c_assert = false;
+
+            // We need to set if a zero can be a one, a two, etc.
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            for (int w = 0; w < 9; w++)
+            {
+                if (zero_loc[w] != 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int[] row_time_saver = fakerow.getrows(r_index[w]);
+                    int[] col_time_saver = fakecol.getcols(c_index[w]);
+
+                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+
+                    // Set the matrix of possbilities for each zero in our box.
+                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
+                }
+            }
+
+            // Determine if any possibilities are restricted to a single row. If so, make the appropriate row assertion.
+            if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+            {
+                box_time_saver[0] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+            {
+                box_time_saver[3] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+            else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
+            {
+                box_time_saver[6] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                r_assert = true;
+            }
+
+
+            /* Insert all other possible row assetions for the other 8 numbers*/
+
+            // If we can make a row assertion, then check the other boxes horizontal to ours.
+            if (r_assert)
+            {
+                /*call a solver function*/
+                change = true;
+
+                /*if something was solved, assigned the solved thing to fakebox*/
+            }
+
+            // Determine if any possibilities are restricted to a single column. If so, make the appropriate column assertion.
+            if ((possibilities[0][0] == true || possibilities[3][0] == true || possibilities[6][0] == true) && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+            {
+                box_time_saver[0] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && (possibilities[1][0] == true || possibilities[4][0] == true || possibilities[7][0] == true) && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[8][0] == false)
+            {
+                box_time_saver[1] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && (possibilities[2][0] == true || possibilities[5][0] == true || possibilities[8][0] == true))
+            {
+                box_time_saver[2] = 1;
+                throwawaybox.setboxs(box_num, box_time_saver);
+                c_assert = true;
+            }
+            /* Insert all other possible column assetions for the other 8 numbers*/
+
+
+
+            // If we can make a column assertion, then check the other boxes vertical to ours.
+            if (c_assert)
+            {
+                /*call a solver function and check if something was solved or not*/
+                change = true;
+
+                /*if something was solved, assigned the solved thing to fakebox*/
+
+            }
+
+
+            if (change)
+            {
+                return (true, fakebox.getmatrix());
+            }
+            else
+            {
+                return (false, fakebox.getmatrix());
+            }
+            
+        }
     }
 }
