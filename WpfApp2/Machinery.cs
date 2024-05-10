@@ -3464,165 +3464,570 @@ namespace WpfApp2
             // Determine if any possibilities are restricted to a single row. If so, make the appropriate row assertion.
             if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
             {
-                box_time_saver[0] = 1;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][0])
+                {
+                    box_time_saver[0] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][0])
+                {
+                    box_time_saver[1] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
             {
-                box_time_saver[3] = 1;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][0])
+                {
+                    box_time_saver[3] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][0])
+                {
+                    box_time_saver[4] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
             {
-                box_time_saver[6] = 1;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][0])
+                {
+                    box_time_saver[6] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][0])
+                {
+                    box_time_saver[7] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 1;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
             {
-                box_time_saver[0] = 2;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][0])
+                {
+                    box_time_saver[0] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][0])
+                {
+                    box_time_saver[1] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
             {
-                box_time_saver[3] = 2;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][0])
+                {
+                    box_time_saver[3] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][0])
+                {
+                    box_time_saver[4] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
             {
-                box_time_saver[6] = 2;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][1])
+                {
+                    box_time_saver[6] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][1])
+                {
+                    box_time_saver[7] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 2;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
             {
-                box_time_saver[0] = 3;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][2])
+                {
+                    box_time_saver[0] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][2])
+                {
+                    box_time_saver[1] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
             {
-                box_time_saver[3] = 3;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][2])
+                {
+                    box_time_saver[3] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][2])
+                {
+                    box_time_saver[4] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
             {
-                box_time_saver[6] = 3;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][2])
+                {
+                    box_time_saver[6] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][2])
+                {
+                    box_time_saver[7] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 3;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
             {
-                box_time_saver[0] = 4;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][3])
+                {
+                    box_time_saver[0] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][3])
+                {
+                    box_time_saver[1] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
             {
-                box_time_saver[3] = 4;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][3])
+                {
+                    box_time_saver[3] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][3])
+                {
+                    box_time_saver[4] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
             {
-                box_time_saver[6] = 4;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][3])
+                {
+                    box_time_saver[6] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][3])
+                {
+                    box_time_saver[7] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 4;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
             {
-                box_time_saver[0] = 5;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][4])
+                {
+                    box_time_saver[0] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][4])
+                {
+                    box_time_saver[1] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
             {
-                box_time_saver[3] = 5;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][4])
+                {
+                    box_time_saver[3] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][4])
+                {
+                    box_time_saver[4] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
             {
-                box_time_saver[6] = 5;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][4])
+                {
+                    box_time_saver[6] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][4])
+                {
+                    box_time_saver[7] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 5;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
             {
-                box_time_saver[0] = 6;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][5])
+                {
+                    box_time_saver[0] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][5])
+                {
+                    box_time_saver[1] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
             {
-                box_time_saver[3] = 6;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][5])
+                {
+                    box_time_saver[3] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][5])
+                {
+                    box_time_saver[4] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
             {
-                box_time_saver[6] = 6;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][5])
+                {
+                    box_time_saver[6] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][5])
+                {
+                    box_time_saver[7] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 6;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
             {
-                box_time_saver[0] = 7;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][6])
+                {
+                    box_time_saver[0] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][6])
+                {
+                    box_time_saver[1] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
             {
-                box_time_saver[3] = 7;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][6])
+                {
+                    box_time_saver[3] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][6])
+                {
+                    box_time_saver[4] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
             {
-                box_time_saver[6] = 7;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][6])
+                {
+                    box_time_saver[6] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][6])
+                {
+                    box_time_saver[7] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 7;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
             {
-                box_time_saver[0] = 8;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][7])
+                {
+                    box_time_saver[0] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][7])
+                {
+                    box_time_saver[1] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
             {
-                box_time_saver[3] = 8;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][7])
+                {
+                    box_time_saver[3] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][7])
+                {
+                    box_time_saver[4] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
             {
-                box_time_saver[6] = 8;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][7])
+                {
+                    box_time_saver[6] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][7])
+                {
+                    box_time_saver[7] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 8;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
             {
-                box_time_saver[0] = 9;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[0][8])
+                {
+                    box_time_saver[0] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[1][8])
+                {
+                    box_time_saver[1] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[2] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
             {
-                box_time_saver[3] = 9;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[3][8])
+                {
+                    box_time_saver[3] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[4][8])
+                {
+                    box_time_saver[4] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[5] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
             else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
             {
-                box_time_saver[6] = 9;
-                throwawaybox.setboxs(box_num, box_time_saver);
-                r_assert = true;
+                if (possibilities[6][8])
+                {
+                    box_time_saver[6] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else if (possibilities[7][8])
+                {
+                    box_time_saver[7] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
+                else
+                {
+                    box_time_saver[8] = 9;
+                    throwawaybox.setboxs(box_num, box_time_saver);
+                    r_assert = true;
+                }
             }
 
             // If we can make a row assertion, then check the other boxes horizontal to ours.
@@ -3738,138 +4143,489 @@ namespace WpfApp2
                 {
                     if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][0])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][0])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][0])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][0])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][0])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][0])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][0])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][0])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][0])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][0])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][1])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][1])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][2])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][2])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][2])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][2])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][2])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][2])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][3])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][3])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][3])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][3])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][3])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][3])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][4])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][4])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][4])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][4])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][4])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][4])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][5])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][5])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][5])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][5])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][5])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][5])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][6])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][6])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][6])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][6])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][6])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][6])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][7])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][7])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][7])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][7])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][7])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][7])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][8])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[1][8])
+                        {
+                            box_time_saver[1] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[2] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
                     {
-                        box_time_saver[3] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[3][8])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[4][8])
+                        {
+                            box_time_saver[4] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[5] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
                     {
-                        box_time_saver[6] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[6][8])
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[7][8])
+                        {
+                            box_time_saver[7] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[8] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                 }
             }
@@ -4151,8 +4907,21 @@ namespace WpfApp2
                 {
                     if ((possibilities[0][0] == true || possibilities[3][0] == true || possibilities[6][0] == true) && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
                     {
-                        box_time_saver[0] = 0;
-                        throwawaybox.setboxs(box_num, box_time_saver);
+                        if (possibilities[0][0])
+                        {
+                            box_time_saver[0] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else if (possibilities[3][0])
+                        {
+                            box_time_saver[3] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
+                        else
+                        {
+                            box_time_saver[6] = 0;
+                            throwawaybox.setboxs(box_num, box_time_saver);
+                        }
                     }
                     else if (possibilities[0][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && (possibilities[1][0] == true || possibilities[4][0] == true || possibilities[7][0] == true) && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[8][0] == false)
                     {
