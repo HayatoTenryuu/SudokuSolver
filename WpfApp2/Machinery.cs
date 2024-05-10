@@ -2883,7 +2883,7 @@ namespace WpfApp2
             }
         }
 
-        public (bool, int[][]) intermediate_inference_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
+        public (bool, Boxs) intermediate_inference_checking(Rows fakerow, Cols fakecol, Boxs fakebox, int box_num)
         {
             /*
              * This is designed to check via inferred knowledge.
@@ -4294,11 +4294,11 @@ namespace WpfApp2
                 {
                     fakebox.setboxs(i, throwawaybox.getboxs(i));
                 }
-                return (true, fakebox.getmatrix());
+                return (true, fakebox);
             }
             else
             {
-                return (false, fakebox.getmatrix());
+                return (false, fakebox);
             }
 
         }
@@ -4385,15 +4385,10 @@ namespace WpfApp2
                 // If direct analysis doesn't work, see if we can infer a value and solve with that.
                 else
                 {
-                    (act, int[][] mat4) = intermediate_inference_checking(fakerow, fakecol, fakebox, important[2]);
+                    (act, fakebox) = intermediate_inference_checking(fakerow, fakecol, fakebox, important[2]);
 
                     if (act)
                     {
-                        for (int fake = 0; fake < 9; fake++)
-                        {
-                            fakebox.setboxs(fake, mat4[fake]);
-                        }
-
                         fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
                         fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
                     }
