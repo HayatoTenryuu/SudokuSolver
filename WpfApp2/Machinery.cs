@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -711,9 +712,44 @@ namespace WpfApp2
                             {
                                 case 1:
                                     important_col = 0;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))       // Skip this zero if we've looked at it before.
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 0;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 3;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 6;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -745,9 +781,44 @@ namespace WpfApp2
                                     }
                                 case 2:
                                     important_col = 1;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 0;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 3;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 6;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -779,9 +850,44 @@ namespace WpfApp2
                                     }
                                 case 3:
                                     important_col = 2;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 0;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 3;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 6;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -813,9 +919,44 @@ namespace WpfApp2
                                     }
                                 case 4:
                                     important_col = 3;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 1;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 4;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 7;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -847,9 +988,44 @@ namespace WpfApp2
                                     }
                                 case 5:
                                     important_col = 4;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 1;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 4;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 7;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -881,9 +1057,44 @@ namespace WpfApp2
                                     }
                                 case 6:
                                     important_col = 5;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 1;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 4;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 7;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -915,9 +1126,44 @@ namespace WpfApp2
                                     }
                                 case 7:
                                     important_col = 6;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 2;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 5;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 8;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -949,9 +1195,44 @@ namespace WpfApp2
                                     }
                                 case 8:
                                     important_col = 7;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 2;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 5;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 8;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -983,9 +1264,44 @@ namespace WpfApp2
                                     }
                                 case 9:
                                     important_col = 8;
-                                    if ((important_row < skiprow) || (important_col <= skipcol))
+                                    if (important_row <= skiprow)
                                     {
-                                        break;
+                                        if (important_row < skiprow)          // Skip if we are past this point
+                                        {
+                                            break;
+                                        }
+                                        else if (important_col <= skipcol)    // Skip if we've seen this zero before
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            switch (i)                        // Important box number depends on i and j.
+                                            {
+                                                case 0:
+                                                case 1:
+                                                case 2:
+                                                    important_box = 2;
+                                                    change = true;
+                                                    break;
+                                                case 3:
+                                                case 4:
+                                                case 5:
+                                                    important_box = 5;
+                                                    change = true;
+                                                    break;
+                                                case 6:
+                                                case 7:
+                                                case 8:
+                                                    important_box = 8;
+                                                    change = true;
+                                                    break;
+                                                default:
+                                                    MessageBox.Show("Something is wrong with Linking");
+                                                    break;
+                                            }
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -1126,6 +1442,7 @@ namespace WpfApp2
 
             // Identify if only one number is possible. ("Can this spot only be a 1? Can it only be a two? etc").
             // If multiple or none are possible, each new bool we create ends up false.
+
             bool a = (!one && (two && three && four && five && six && seven && eight && nine));
             bool b = (!two && (one && three && four && five && six && seven && eight && nine));
             bool c = (!three && (one && two && four && five && six && seven && eight && nine));
@@ -1205,11 +1522,23 @@ namespace WpfApp2
 
                 if (verify)
                 {
-                    int[] newrow = fakerow.getrows(important[0]);
-                    newrow[important[1]] = loc_minus_1 + 1;
-                    fakerow.setrows(important[0], newrow);
-                    act = true;
-                    count++;
+                    if (fakerow.getrows(important[0])[important[1]] != 0)   // If guard to protect against rare bugs
+                    {
+                        count++;
+                        if (count == 81)
+                        {
+                            // MessageBox.Show("We are maxing out basic solver.");
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        int[] newrow = fakerow.getrows(important[0]);
+                        newrow[important[1]] = loc_minus_1 + 1;
+                        fakerow.setrows(important[0], newrow);
+                        act = true;
+                        count++;
+                    }
                 }
 
                 else
@@ -4139,477 +4468,475 @@ namespace WpfApp2
                         break;
                 }
 
-                if (change)
+                if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
                 {
-                    if ((possibilities[0][0] == true || possibilities[1][0] == true || possibilities[2][0] == true) && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    if (possibilities[0][0])
                     {
-                        if (possibilities[0][0])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][0])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    else if (possibilities[1][0])
                     {
-                        if (possibilities[3][0])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][0])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
+                    else
                     {
-                        if (possibilities[6][0])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][0])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                }
+                else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && (possibilities[3][0] == true || possibilities[4][0] == true || possibilities[5][0] == true) && possibilities[6][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                {
+                    if (possibilities[3][0])
                     {
-                        if (possibilities[0][0])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][0])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                    else if (possibilities[4][0])
                     {
-                        if (possibilities[3][0])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][0])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
+                    else
                     {
-                        if (possibilities[6][1])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][1])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                }
+                else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && (possibilities[6][0] == true || possibilities[7][0] == true || possibilities[8][0] == true))
+                {
+                    if (possibilities[6][0])
                     {
-                        if (possibilities[0][2])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][2])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                    else if (possibilities[7][0])
                     {
-                        if (possibilities[3][2])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][2])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
+                    else
                     {
-                        if (possibilities[6][2])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][2])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                }
+                else if ((possibilities[0][1] == true || possibilities[1][1] == true || possibilities[2][1] == true) && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                {
+                    if (possibilities[0][0])
                     {
-                        if (possibilities[0][3])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][3])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                    else if (possibilities[1][0])
                     {
-                        if (possibilities[3][3])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][3])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
+                    else
                     {
-                        if (possibilities[6][3])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][3])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                }
+                else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && (possibilities[3][1] == true || possibilities[4][1] == true || possibilities[5][1] == true) && possibilities[6][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                {
+                    if (possibilities[3][0])
                     {
-                        if (possibilities[0][4])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][4])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                    else if (possibilities[4][0])
                     {
-                        if (possibilities[3][4])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][4])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
+                    else
                     {
-                        if (possibilities[6][4])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][4])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                }
+                else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && (possibilities[6][1] == true || possibilities[7][1] == true || possibilities[8][1] == true))
+                {
+                    if (possibilities[6][1])
                     {
-                        if (possibilities[0][5])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][5])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                    else if (possibilities[7][1])
                     {
-                        if (possibilities[3][5])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][5])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
+                    else
                     {
-                        if (possibilities[6][5])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][5])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                }
+                else if ((possibilities[0][2] == true || possibilities[1][2] == true || possibilities[2][2] == true) && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                {
+                    if (possibilities[0][2])
                     {
-                        if (possibilities[0][6])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][6])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                    else if (possibilities[1][2])
                     {
-                        if (possibilities[3][6])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][6])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
+                    else
                     {
-                        if (possibilities[6][6])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][6])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                }
+                else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && (possibilities[3][2] == true || possibilities[4][2] == true || possibilities[5][2] == true) && possibilities[6][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                {
+                    if (possibilities[3][2])
                     {
-                        if (possibilities[0][7])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][7])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                    else if (possibilities[4][2])
                     {
-                        if (possibilities[3][7])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][7])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
+                    else
                     {
-                        if (possibilities[6][7])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][7])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                }
+                else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && (possibilities[6][2] == true || possibilities[7][2] == true || possibilities[8][2] == true))
+                {
+                    if (possibilities[6][2])
                     {
-                        if (possibilities[0][8])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[1][8])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                    else if (possibilities[7][2])
                     {
-                        if (possibilities[3][8])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][8])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][3] == true || possibilities[1][3] == true || possibilities[2][3] == true) && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                {
+                    if (possibilities[0][3])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][3])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && (possibilities[3][3] == true || possibilities[4][3] == true || possibilities[5][3] == true) && possibilities[6][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                {
+                    if (possibilities[3][3])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][3])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && (possibilities[6][3] == true || possibilities[7][3] == true || possibilities[8][3] == true))
+                {
+                    if (possibilities[6][3])
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[7][3])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][4] == true || possibilities[1][4] == true || possibilities[2][4] == true) && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                {
+                    if (possibilities[0][4])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][4])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && (possibilities[3][4] == true || possibilities[4][4] == true || possibilities[5][4] == true) && possibilities[6][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                {
+                    if (possibilities[3][4])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][4])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && (possibilities[6][4] == true || possibilities[7][4] == true || possibilities[8][4] == true))
+                {
+                    if (possibilities[6][4])
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[7][4])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][5] == true || possibilities[1][5] == true || possibilities[2][5] == true) && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                {
+                    if (possibilities[0][5])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][5])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && (possibilities[3][5] == true || possibilities[4][5] == true || possibilities[5][5] == true) && possibilities[6][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                {
+                    if (possibilities[3][5])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][5])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && (possibilities[6][5] == true || possibilities[7][5] == true || possibilities[8][5] == true))
+                {
+                    if (possibilities[6][5])
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[7][5])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][6] == true || possibilities[1][6] == true || possibilities[2][6] == true) && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                {
+                    if (possibilities[0][6])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][6])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && (possibilities[3][6] == true || possibilities[4][6] == true || possibilities[5][6] == true) && possibilities[6][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                {
+                    if (possibilities[3][6])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][6])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && (possibilities[6][6] == true || possibilities[7][6] == true || possibilities[8][6] == true))
+                {
+                    if (possibilities[6][6])
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[7][6])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][7] == true || possibilities[1][7] == true || possibilities[2][7] == true) && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                {
+                    if (possibilities[0][7])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][7])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && (possibilities[3][7] == true || possibilities[4][7] == true || possibilities[5][7] == true) && possibilities[6][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                {
+                    if (possibilities[3][7])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][7])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && (possibilities[6][7] == true || possibilities[7][7] == true || possibilities[8][7] == true))
+                {
+                    if (possibilities[6][7])
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[7][7])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][8] == true || possibilities[1][8] == true || possibilities[2][8] == true) && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                {
+                    if (possibilities[0][8])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[1][8])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && (possibilities[3][8] == true || possibilities[4][8] == true || possibilities[5][8] == true) && possibilities[6][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                {
+                    if (possibilities[3][8])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][8])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
                     {
                         if (possibilities[6][8])
                         {
@@ -4627,7 +4954,6 @@ namespace WpfApp2
                             throwawaybox.setboxs(box_num, box_time_saver);
                         }
                     }
-                }
             }
 
             // Determine if any possibilities are restricted to a single column. If so, make the appropriate column assertion.
@@ -5308,478 +5634,476 @@ namespace WpfApp2
                         break;
                 }
 
-                if (change)
+                if ((possibilities[0][0] == true || possibilities[3][0] == true || possibilities[6][0] == true) && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
                 {
-                    if ((possibilities[0][0] == true || possibilities[3][0] == true || possibilities[6][0] == true) && possibilities[1][0] == false && possibilities[2][0] == false && possibilities[4][0] == false && possibilities[5][0] == false && possibilities[7][0] == false && possibilities[8][0] == false)
+                    if (possibilities[0][0])
                     {
-                        if (possibilities[0][0])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][0])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 00;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && (possibilities[1][0] == true || possibilities[4][0] == true || possibilities[7][0] == true) && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[8][0] == false)
+                    else if (possibilities[3][0])
                     {
-                        if (possibilities[1][0])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][0])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && (possibilities[2][0] == true || possibilities[5][0] == true || possibilities[8][0] == true))
+                    else
                     {
-                        if (possibilities[2][0])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][0])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 00;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][1] == true || possibilities[3][1] == true || possibilities[6][1] == true) && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                }
+                else if (possibilities[0][0] == false && possibilities[2][0] == false && possibilities[3][0] == false && (possibilities[1][0] == true || possibilities[4][0] == true || possibilities[7][0] == true) && possibilities[5][0] == false && possibilities[6][0] == false && possibilities[8][0] == false)
+                {
+                    if (possibilities[1][0])
                     {
-                        if (possibilities[0][1])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][1])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && (possibilities[1][1] == true || possibilities[4][1] == true || possibilities[7][1] == true) && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[8][1] == false)
+                    else if (possibilities[4][0])
                     {
-                        if (possibilities[1][1])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][1])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && (possibilities[2][1] == true || possibilities[5][1] == true || possibilities[8][1] == true))
+                    else
                     {
-                        if (possibilities[2][1])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][1])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][2] == true || possibilities[3][2] == true || possibilities[6][2] == true) && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                }
+                else if (possibilities[0][0] == false && possibilities[1][0] == false && possibilities[3][0] == false && possibilities[4][0] == false && possibilities[6][0] == false && possibilities[7][0] == false && (possibilities[2][0] == true || possibilities[5][0] == true || possibilities[8][0] == true))
+                {
+                    if (possibilities[2][0])
                     {
-                        if (possibilities[0][2])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][2])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && (possibilities[1][2] == true || possibilities[4][2] == true || possibilities[7][2] == true) && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[8][2] == false)
+                    else if (possibilities[5][0])
                     {
-                        if (possibilities[1][2])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][2])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && (possibilities[2][2] == true || possibilities[5][2] == true || possibilities[8][2] == true))
+                    else
                     {
-                        if (possibilities[2][2])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][2])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][3] == true || possibilities[3][3] == true || possibilities[6][3] == true) && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                }
+                else if ((possibilities[0][1] == true || possibilities[3][1] == true || possibilities[6][1] == true) && possibilities[1][1] == false && possibilities[2][1] == false && possibilities[4][1] == false && possibilities[5][1] == false && possibilities[7][1] == false && possibilities[8][1] == false)
+                {
+                    if (possibilities[0][1])
                     {
-                        if (possibilities[0][3])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][3])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && (possibilities[1][3] == true || possibilities[4][3] == true || possibilities[7][3] == true) && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[8][3] == false)
+                    else if (possibilities[3][1])
                     {
-                        if (possibilities[1][3])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][3])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && (possibilities[2][3] == true || possibilities[5][3] == true || possibilities[8][3] == true))
+                    else
                     {
-                        if (possibilities[2][3])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][3])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][4] == true || possibilities[3][4] == true || possibilities[6][4] == true) && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                }
+                else if (possibilities[0][1] == false && possibilities[2][1] == false && possibilities[3][1] == false && (possibilities[1][1] == true || possibilities[4][1] == true || possibilities[7][1] == true) && possibilities[5][1] == false && possibilities[6][1] == false && possibilities[8][1] == false)
+                {
+                    if (possibilities[1][1])
                     {
-                        if (possibilities[0][4])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][4])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && (possibilities[1][4] == true || possibilities[4][4] == true || possibilities[7][4] == true) && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[8][4] == false)
+                    else if (possibilities[4][1])
                     {
-                        if (possibilities[1][4])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][4])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && (possibilities[2][4] == true || possibilities[5][4] == true || possibilities[8][4] == true))
+                    else
                     {
-                        if (possibilities[2][4])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][4])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][5] == true || possibilities[3][5] == true || possibilities[6][5] == true) && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                }
+                else if (possibilities[0][1] == false && possibilities[1][1] == false && possibilities[3][1] == false && possibilities[4][1] == false && possibilities[6][1] == false && possibilities[7][1] == false && (possibilities[2][1] == true || possibilities[5][1] == true || possibilities[8][1] == true))
+                {
+                    if (possibilities[2][1])
                     {
-                        if (possibilities[0][5])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][5])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && (possibilities[1][5] == true || possibilities[4][5] == true || possibilities[7][5] == true) && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[8][5] == false)
+                    else if (possibilities[5][1])
                     {
-                        if (possibilities[1][5])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][5])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && (possibilities[2][5] == true || possibilities[5][5] == true || possibilities[8][5] == true))
+                    else
                     {
-                        if (possibilities[2][5])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][5])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][6] == true || possibilities[3][6] == true || possibilities[6][6] == true) && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                }
+                else if ((possibilities[0][2] == true || possibilities[3][2] == true || possibilities[6][2] == true) && possibilities[1][2] == false && possibilities[2][2] == false && possibilities[4][2] == false && possibilities[5][2] == false && possibilities[7][2] == false && possibilities[8][2] == false)
+                {
+                    if (possibilities[0][2])
                     {
-                        if (possibilities[0][6])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][6])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && (possibilities[1][6] == true || possibilities[4][6] == true || possibilities[7][6] == true) && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[8][6] == false)
+                    else if (possibilities[3][2])
                     {
-                        if (possibilities[1][6])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][6])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && (possibilities[2][6] == true || possibilities[5][6] == true || possibilities[8][6] == true))
+                    else
                     {
-                        if (possibilities[2][6])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][6])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if ((possibilities[0][7] == true || possibilities[3][7] == true || possibilities[6][7] == true) && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                }
+                else if (possibilities[0][2] == false && possibilities[2][2] == false && possibilities[3][2] == false && (possibilities[1][2] == true || possibilities[4][2] == true || possibilities[7][2] == true) && possibilities[5][2] == false && possibilities[6][2] == false && possibilities[8][2] == false)
+                {
+                    if (possibilities[1][2])
                     {
-                        if (possibilities[0][7])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][7])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && (possibilities[1][7] == true || possibilities[4][7] == true || possibilities[7][7] == true) && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[8][7] == false)
+                    else if (possibilities[4][2])
                     {
-                        if (possibilities[1][7])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][7])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && (possibilities[2][7] == true || possibilities[5][7] == true || possibilities[8][7] == true))
+                    else
                     {
-                        if (possibilities[2][7])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][7])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][2] == false && possibilities[1][2] == false && possibilities[3][2] == false && possibilities[4][2] == false && possibilities[6][2] == false && possibilities[7][2] == false && (possibilities[2][2] == true || possibilities[5][2] == true || possibilities[8][2] == true))
+                {
+                    if (possibilities[2][2])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][2])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][3] == true || possibilities[3][3] == true || possibilities[6][3] == true) && possibilities[1][3] == false && possibilities[2][3] == false && possibilities[4][3] == false && possibilities[5][3] == false && possibilities[7][3] == false && possibilities[8][3] == false)
+                {
+                    if (possibilities[0][3])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[3][3])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][3] == false && possibilities[2][3] == false && possibilities[3][3] == false && (possibilities[1][3] == true || possibilities[4][3] == true || possibilities[7][3] == true) && possibilities[5][3] == false && possibilities[6][3] == false && possibilities[8][3] == false)
+                {
+                    if (possibilities[1][3])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][3])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][3] == false && possibilities[1][3] == false && possibilities[3][3] == false && possibilities[4][3] == false && possibilities[6][3] == false && possibilities[7][3] == false && (possibilities[2][3] == true || possibilities[5][3] == true || possibilities[8][3] == true))
+                {
+                    if (possibilities[2][3])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][3])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][4] == true || possibilities[3][4] == true || possibilities[6][4] == true) && possibilities[1][4] == false && possibilities[2][4] == false && possibilities[4][4] == false && possibilities[5][4] == false && possibilities[7][4] == false && possibilities[8][4] == false)
+                {
+                    if (possibilities[0][4])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[3][4])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][4] == false && possibilities[2][4] == false && possibilities[3][4] == false && (possibilities[1][4] == true || possibilities[4][4] == true || possibilities[7][4] == true) && possibilities[5][4] == false && possibilities[6][4] == false && possibilities[8][4] == false)
+                {
+                    if (possibilities[1][4])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][4])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][4] == false && possibilities[1][4] == false && possibilities[3][4] == false && possibilities[4][4] == false && possibilities[6][4] == false && possibilities[7][4] == false && (possibilities[2][4] == true || possibilities[5][4] == true || possibilities[8][4] == true))
+                {
+                    if (possibilities[2][4])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][4])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][5] == true || possibilities[3][5] == true || possibilities[6][5] == true) && possibilities[1][5] == false && possibilities[2][5] == false && possibilities[4][5] == false && possibilities[5][5] == false && possibilities[7][5] == false && possibilities[8][5] == false)
+                {
+                    if (possibilities[0][5])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[3][5])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][5] == false && possibilities[2][5] == false && possibilities[3][5] == false && (possibilities[1][5] == true || possibilities[4][5] == true || possibilities[7][5] == true) && possibilities[5][5] == false && possibilities[6][5] == false && possibilities[8][5] == false)
+                {
+                    if (possibilities[1][5])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][5])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][5] == false && possibilities[1][5] == false && possibilities[3][5] == false && possibilities[4][5] == false && possibilities[6][5] == false && possibilities[7][5] == false && (possibilities[2][5] == true || possibilities[5][5] == true || possibilities[8][5] == true))
+                {
+                    if (possibilities[2][5])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][5])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][6] == true || possibilities[3][6] == true || possibilities[6][6] == true) && possibilities[1][6] == false && possibilities[2][6] == false && possibilities[4][6] == false && possibilities[5][6] == false && possibilities[7][6] == false && possibilities[8][6] == false)
+                {
+                    if (possibilities[0][6])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[3][6])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][6] == false && possibilities[2][6] == false && possibilities[3][6] == false && (possibilities[1][6] == true || possibilities[4][6] == true || possibilities[7][6] == true) && possibilities[5][6] == false && possibilities[6][6] == false && possibilities[8][6] == false)
+                {
+                    if (possibilities[1][6])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][6])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][6] == false && possibilities[1][6] == false && possibilities[3][6] == false && possibilities[4][6] == false && possibilities[6][6] == false && possibilities[7][6] == false && (possibilities[2][6] == true || possibilities[5][6] == true || possibilities[8][6] == true))
+                {
+                    if (possibilities[2][6])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][6])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if ((possibilities[0][7] == true || possibilities[3][7] == true || possibilities[6][7] == true) && possibilities[1][7] == false && possibilities[2][7] == false && possibilities[4][7] == false && possibilities[5][7] == false && possibilities[7][7] == false && possibilities[8][7] == false)
+                {
+                    if (possibilities[0][7])
+                    {
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[3][7])
+                    {
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][7] == false && possibilities[2][7] == false && possibilities[3][7] == false && (possibilities[1][7] == true || possibilities[4][7] == true || possibilities[7][7] == true) && possibilities[5][7] == false && possibilities[6][7] == false && possibilities[8][7] == false)
+                {
+                    if (possibilities[1][7])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][7])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][7] == false && possibilities[1][7] == false && possibilities[3][7] == false && possibilities[4][7] == false && possibilities[6][7] == false && possibilities[7][7] == false && (possibilities[2][7] == true || possibilities[5][7] == true || possibilities[8][7] == true))
+                {
+                    if (possibilities[2][7])
+                    {
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[5][7])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
 
-                        }
                     }
-                    else if ((possibilities[0][8] == true || possibilities[3][8] == true || possibilities[6][8] == true) && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                }
+                else if ((possibilities[0][8] == true || possibilities[3][8] == true || possibilities[6][8] == true) && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && possibilities[7][8] == false && possibilities[8][8] == false)
+                {
+                    if (possibilities[0][8])
                     {
-                        if (possibilities[0][8])
-                        {
-                            box_time_saver[0] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[3][8])
-                        {
-                            box_time_saver[3] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[0] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && (possibilities[1][8] == true || possibilities[4][8] == true || possibilities[7][8] == true) && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[8][8] == false)
+                    else if (possibilities[3][8])
                     {
-                        if (possibilities[1][8])
-                        {
-                            box_time_saver[1] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[4][8])
-                        {
-                            box_time_saver[4] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[3] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
-                    else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && (possibilities[2][8] == true || possibilities[5][8] == true || possibilities[8][8] == true))
+                    else
+                    {
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && (possibilities[1][8] == true || possibilities[4][8] == true || possibilities[7][8] == true) && possibilities[5][8] == false && possibilities[6][8] == false && possibilities[8][8] == false)
+                {
+                    if (possibilities[1][8])
+                    {
+                        box_time_saver[1] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else if (possibilities[4][8])
+                    {
+                        box_time_saver[4] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
+                else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && (possibilities[2][8] == true || possibilities[5][8] == true || possibilities[8][8] == true))
                     {
                         if (possibilities[2][8])
                         {
@@ -5797,7 +6121,6 @@ namespace WpfApp2
                             throwawaybox.setboxs(box_num, box_time_saver);
                         }
                     }
-                }
             }
 
             // If we changed something, return what we learned.

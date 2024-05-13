@@ -274,7 +274,7 @@ namespace WpfApp2
                         throw new Exception("I cannot solve this.");
                     }
 
-                    /* rowset.printrows(rowset.getrows(0));
+                    /*rowset.printrows(rowset.getrows(0));
                     rowset.printrows(rowset.getrows(1));
                     rowset.printrows(rowset.getrows(2));
                     rowset.printrows(rowset.getrows(3));
@@ -282,7 +282,7 @@ namespace WpfApp2
                     rowset.printrows(rowset.getrows(5));
                     rowset.printrows(rowset.getrows(6));
                     rowset.printrows(rowset.getrows(7));
-                    rowset.printrows(rowset.getrows(8)); */
+                    rowset.printrows(rowset.getrows(8));*/
                 }
                 while (checker);
 
