@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="blank-sudoku-grid.png" />
+    <None Remove="Blue_question_mark_icon.svg.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="blank-sudoku-grid.png" />
+    <Resource Include="Blue_question_mark_icon.svg.png" />
   </ItemGroup>
 
 </Project>

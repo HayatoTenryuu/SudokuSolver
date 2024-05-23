@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Insert Sudoku" Height="650" Width="550">
+        Title="Insert Sudoku" Height="640" Width="550">
     <Grid x:Name="MainWin" Width="550" Height="650">
 
         <Image HorizontalAlignment="Left" Height="410" Margin="70,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png" Grid.ColumnSpan="3"/>
@@ -98,6 +98,11 @@
                     <GradientStop Color="#FF00FFB3"/>
                     <GradientStop Color="#FF1FFF00" Offset="1"/>
                 </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="466,20,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click" BorderBrush="{x:Null}" Height="22">
+            <Button.Background>
+                <ImageBrush ImageSource="/Blue_question_mark_icon.svg.png"/>
             </Button.Background>
         </Button>
 
