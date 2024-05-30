@@ -1352,7 +1352,7 @@ namespace WpfApp2
                 }
             }
 
-            return [0, 0, 0];                   // If there are no zeros, return false.
+            return [0, 0, 0];                   // If there are no zeros, return zero.
         }
 
         public (bool, int) basic_value_insert(int[] vect)
@@ -1409,7 +1409,7 @@ namespace WpfApp2
         {
             /*
              * This checks what values an individual zero can be.
-             * If the zero can only be one value (a 2 or a 5, etc) it returns true, and the number that the 0 must be.
+             * If the zero can only be one value (it can be a 2, or it can be a 5, etc) it returns true, and the number that the 0 must be.
              * If the zero can be multiple things, it returns false.
              */
 
@@ -1424,7 +1424,7 @@ namespace WpfApp2
             bool eight = false;
             bool nine = false;
 
-            // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?, etc")
+            // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Does it have a 2?, etc")
             // As named, these variables save time by reducing function calls dramatically.
             int[] row_time_saver = fakerow.getrows(row_num);            
             int[] col_time_saver = fakecol.getcols(col_num);
