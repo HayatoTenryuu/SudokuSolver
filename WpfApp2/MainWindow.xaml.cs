@@ -45,8 +45,11 @@ namespace WpfApp2
 
             if (((TextBox)sender).Text != "")
             {
-                KeyEventArgs Tab_key = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Tab) { RoutedEvent = Keyboard.KeyDownEvent };
-                InputManager.Current.ProcessInput(Tab_key);
+                if (Ellipse_Button.IsChecked == true)
+                {
+                    KeyEventArgs Tab_key = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Tab) { RoutedEvent = Keyboard.KeyDownEvent };
+                    InputManager.Current.ProcessInput(Tab_key);
+                }
             }
 
         }
@@ -403,7 +406,14 @@ namespace WpfApp2
                 "When you type a number, it will auto-tab for you to speed up and simplify the process.\n\n" +
                 "Any numbers you don't know just leave blank.\n\n" +
                 "There are some advanced puzzles this solver can't solve, so if you " +
-                "have an error pop up, you will need to solve the puzzle by hand or wait until the next release to try again.", "Help");   
+                "have an error pop up, you will need to solve the puzzle by hand or wait until the next release to try again. \n\n" +
+                "Also, the AutoTab button does exactly that. When on, typing numbers automatically pushes you to " +
+                "the next number, but if you want to hit the tab button yourself, you can by turning AutoTab off.", "Help");   
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

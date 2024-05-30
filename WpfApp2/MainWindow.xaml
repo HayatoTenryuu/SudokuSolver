@@ -5,94 +5,183 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Insert Sudoku" Height="640" Width="550">
-    <Grid x:Name="MainWin" Width="550" Height="650">
+        Title="Insert Sudoku" Height="700" Width="600">
 
-        <Image HorizontalAlignment="Left" Height="410" Margin="70,64,0,0" VerticalAlignment="Top" Width="441" Source="/blank-sudoku-grid.png" Grid.ColumnSpan="3"/>
-        <TextBlock x:Name="TitleMain" HorizontalAlignment="Center" Margin="0,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="222" FontWeight="Bold" FontSize="24" Panel.ZIndex="50"><Run Language="ja-jp" Text=" "/><Run Text="Insert Your Puzzle:"/></TextBlock>
-        <TextBox x:Name="R11" HorizontalAlignment="Left" Margin="75,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="1"/>
-        <TextBox x:Name="R12" HorizontalAlignment="Left" Margin="120,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="2"/>
-        <TextBox x:Name="R13" HorizontalAlignment="Left" Margin="164,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="3"/>
-        <TextBox x:Name="R14" HorizontalAlignment="Left" Margin="211,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="4"/>
-        <TextBox x:Name="R15" HorizontalAlignment="Left" Margin="255,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="5"/>
-        <TextBox x:Name="R16" HorizontalAlignment="Left" Margin="300,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="6"/>
-        <TextBox x:Name="R17" HorizontalAlignment="Left" Margin="346,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="7"/>
-        <TextBox x:Name="R18" HorizontalAlignment="Left" Margin="390,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="8"/>
-        <TextBox x:Name="R19" HorizontalAlignment="Left" Margin="435,69,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="9"/>
-        <TextBox x:Name="R21" HorizontalAlignment="Left" Margin="75,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="10"/>
-        <TextBox x:Name="R29" HorizontalAlignment="Left" Margin="435,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="18"/>
-        <TextBox x:Name="R22" HorizontalAlignment="Left" Margin="120,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="11"/>
-        <TextBox x:Name="R23" HorizontalAlignment="Left" Margin="164,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="12"/>
-        <TextBox x:Name="R24" HorizontalAlignment="Left" Margin="211,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="13"/>
-        <TextBox x:Name="R25" HorizontalAlignment="Left" Margin="255,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="14"/>
-        <TextBox x:Name="R26" HorizontalAlignment="Left" Margin="300,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="15"/>
-        <TextBox x:Name="R27" HorizontalAlignment="Left" Margin="346,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="16"/>
-        <TextBox x:Name="R28" HorizontalAlignment="Left" Margin="390,114,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="17"/>
-        <TextBox x:Name="R31" HorizontalAlignment="Left" Margin="75,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="19"/>
-        <TextBox x:Name="R39" HorizontalAlignment="Left" Margin="435,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="27"/>
-        <TextBox x:Name="R32" HorizontalAlignment="Left" Margin="120,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="20"/>
-        <TextBox x:Name="R33" HorizontalAlignment="Left" Margin="164,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="21"/>
-        <TextBox x:Name="R34" HorizontalAlignment="Left" Margin="211,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="22"/>
-        <TextBox x:Name="R35" HorizontalAlignment="Left" Margin="255,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="23"/>
-        <TextBox x:Name="R36" HorizontalAlignment="Left" Margin="300,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="24"/>
-        <TextBox x:Name="R37" HorizontalAlignment="Left" Margin="346,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="25"/>
-        <TextBox x:Name="R38" HorizontalAlignment="Left" Margin="390,159,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="26"/>
-        <TextBox x:Name="R41" HorizontalAlignment="Left" Margin="75,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="28"/>
-        <TextBox x:Name="R49" HorizontalAlignment="Left" Margin="435,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="36"/>
-        <TextBox x:Name="R42" HorizontalAlignment="Left" Margin="120,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="29"/>
-        <TextBox x:Name="R43" HorizontalAlignment="Left" Margin="164,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="30"/>
-        <TextBox x:Name="R44" HorizontalAlignment="Left" Margin="211,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="31"/>
-        <TextBox x:Name="R45" HorizontalAlignment="Left" Margin="255,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="32"/>
-        <TextBox x:Name="R46" HorizontalAlignment="Left" Margin="300,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="33"/>
-        <TextBox x:Name="R47" HorizontalAlignment="Left" Margin="346,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="34"/>
-        <TextBox x:Name="R48" HorizontalAlignment="Left" Margin="390,204,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="35"/>
-        <TextBox x:Name="R51" HorizontalAlignment="Left" Margin="75,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="37"/>
-        <TextBox x:Name="R59" HorizontalAlignment="Left" Margin="435,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="45"/>
-        <TextBox x:Name="R52" HorizontalAlignment="Left" Margin="120,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="38"/>
-        <TextBox x:Name="R53" HorizontalAlignment="Left" Margin="164,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="39"/>
-        <TextBox x:Name="R54" HorizontalAlignment="Left" Margin="211,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="40"/>
-        <TextBox x:Name="R55" HorizontalAlignment="Left" Margin="255,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="41"/>
-        <TextBox x:Name="R56" HorizontalAlignment="Left" Margin="300,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="42"/>
-        <TextBox x:Name="R57" HorizontalAlignment="Left" Margin="346,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="43"/>
-        <TextBox x:Name="R58" HorizontalAlignment="Left" Margin="390,249,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="44"/>
-        <TextBox x:Name="R61" HorizontalAlignment="Left" Margin="75,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="46"/>
-        <TextBox x:Name="R69" HorizontalAlignment="Left" Margin="435,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="54"/>
-        <TextBox x:Name="R62" HorizontalAlignment="Left" Margin="120,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="47"/>
-        <TextBox x:Name="R63" HorizontalAlignment="Left" Margin="164,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="48"/>
-        <TextBox x:Name="R64" HorizontalAlignment="Left" Margin="211,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="49"/>
-        <TextBox x:Name="R65" HorizontalAlignment="Left" Margin="255,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="50"/>
-        <TextBox x:Name="R66" HorizontalAlignment="Left" Margin="300,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="51"/>
-        <TextBox x:Name="R67" HorizontalAlignment="Left" Margin="346,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="52"/>
-        <TextBox x:Name="R68" HorizontalAlignment="Left" Margin="390,294,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="53"/>
-        <TextBox x:Name="R71" HorizontalAlignment="Left" Margin="75,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="55"/>
-        <TextBox x:Name="R79" HorizontalAlignment="Left" Margin="435,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="63"/>
-        <TextBox x:Name="R72" HorizontalAlignment="Left" Margin="120,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="56"/>
-        <TextBox x:Name="R73" HorizontalAlignment="Left" Margin="164,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="57"/>
-        <TextBox x:Name="R74" HorizontalAlignment="Left" Margin="211,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="58"/>
-        <TextBox x:Name="R75" HorizontalAlignment="Left" Margin="255,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="59"/>
-        <TextBox x:Name="R76" HorizontalAlignment="Left" Margin="300,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="60"/>
-        <TextBox x:Name="R77" HorizontalAlignment="Left" Margin="346,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="61"/>
-        <TextBox x:Name="R78" HorizontalAlignment="Left" Margin="390,339,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="62"/>
-        <TextBox x:Name="R91" HorizontalAlignment="Left" Margin="75,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="73"/>
-        <TextBox x:Name="R99" HorizontalAlignment="Left" Margin="435,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="81"/>
-        <TextBox x:Name="R92" HorizontalAlignment="Left" Margin="120,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="74"/>
-        <TextBox x:Name="R93" HorizontalAlignment="Left" Margin="164,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="75"/>
-        <TextBox x:Name="R94" HorizontalAlignment="Left" Margin="211,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="76"/>
-        <TextBox x:Name="R95" HorizontalAlignment="Left" Margin="255,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="77"/>
-        <TextBox x:Name="R96" HorizontalAlignment="Left" Margin="300,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="78"/>
-        <TextBox x:Name="R97" HorizontalAlignment="Left" Margin="346,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="79"/>
-        <TextBox x:Name="R98" HorizontalAlignment="Left" Margin="390,429,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="80"/>
-        <TextBox x:Name="R81" HorizontalAlignment="Left" Margin="75,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="64"/>
-        <TextBox x:Name="R89" HorizontalAlignment="Left" Margin="435,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="72"/>
-        <TextBox x:Name="R82" HorizontalAlignment="Left" Margin="120,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="65"/>
-        <TextBox x:Name="R83" HorizontalAlignment="Left" Margin="164,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="66"/>
-        <TextBox x:Name="R84" HorizontalAlignment="Left" Margin="211,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="67"/>
-        <TextBox x:Name="R85" HorizontalAlignment="Left" Margin="255,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="68"/>
-        <TextBox x:Name="R86" HorizontalAlignment="Left" Margin="300,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="69"/>
-        <TextBox x:Name="R87" HorizontalAlignment="Left" Margin="346,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="70"/>
-        <TextBox x:Name="R88" HorizontalAlignment="Left" Margin="390,384,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="71"/>
-        <TextBox x:Name="ClickableBackground" HorizontalAlignment="Center" Height="590" TextWrapping="Wrap" VerticalAlignment="Top" Width="550" Opacity="0" BorderBrush="{x:Null}" SnapsToDevicePixels="True" ClipToBounds="True" IsHitTestVisible="True" SelectionOpacity="0" Panel.ZIndex="0" TextChanged="Background_TextChanged"/>
-        <Button x:Name="Solve_Button" Content="Solve!" HorizontalAlignment="Center" Margin="0,510,0,0" VerticalAlignment="Top" Height="48" Width="190" FontWeight="Bold" FontSize="18" BorderBrush="Black" TabIndex="82" Click="Solve_Button_Click">
+    <Grid x:Name="MainWin" Width="600" Height="700">
+        <Grid.Resources>
+            <Style TargetType="{x:Type CheckBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type CheckBox}">
+                            <ControlTemplate.Resources>
+                                <SolidColorBrush x:Key="fillBrush">LightBlue</SolidColorBrush>
+                                <SolidColorBrush x:Key="borderBrush">Gray</SolidColorBrush>
+                            </ControlTemplate.Resources>
+                            <Grid  Background="Transparent" SnapsToDevicePixels="True" Height="18">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="34" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid  x:Name="markGrid" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Fill="Transparent" Height="16" x:Name="moveEllipse">
+                                        <Rectangle.Style>
+                                            <Style TargetType="Rectangle">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                        <DataTrigger.EnterActions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <DoubleAnimation From="0" To="16" Duration="0:0:0.4" Storyboard.TargetProperty="Width" />
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </DataTrigger.EnterActions>
+                                                        <DataTrigger.ExitActions>
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <DoubleAnimation To="0" Duration="0:0:0.4" Storyboard.TargetProperty="Width"/>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </DataTrigger.ExitActions>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Rectangle.Style>
+                                    </Rectangle>
+                                    <Rectangle RadiusX="6" RadiusY="6" Grid.ColumnSpan="2" Name="line" StrokeThickness=".8" IsHitTestVisible="False" Margin="1,4,1,4">
+                                        <Rectangle.Style>
+                                            <Style TargetType="{x:Type Rectangle}">
+                                                <Setter Property="Fill" Value="LightGray"/>
+                                            </Style>
+                                        </Rectangle.Style>
+                                    </Rectangle>
+                                    <Ellipse Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" StrokeThickness=".8" Name="spot" Grid.Column="1" HorizontalAlignment="Left">
+                                        <Ellipse.Style>
+                                            <Style TargetType="Ellipse">
+                                                <Setter Property="Fill" Value="LightSteelBlue"/>
+                                                <Setter Property="Stroke" Value="CadetBlue"/>
+                                            </Style>
+                                        </Ellipse.Style>
+                                    </Ellipse>
+
+                                </Grid>
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Stroke" TargetName="line" Value="DarkGray"/>
+                                    <Setter Property="Stroke" TargetName="spot" Value="DarkGray"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity"  Value=".5"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Stroke" TargetName="line" Value="Black"/>
+                                    <Setter Property="Stroke" TargetName="spot" Value="Black"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Fill" TargetName="line" Value="LightSkyBlue"/>
+                                    <Setter Property="Fill" TargetName="spot" Value="SkyBlue"/>
+                                    <Setter Property="Stroke" TargetName="spot" Value="SteelBlue"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="{x:Null}">
+                                    <Setter Property="Fill" TargetName="line" Value="lightGray"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Image HorizontalAlignment="Left" Height="410" Margin="88,128,0,0" VerticalAlignment="Top" Width="440" Source="/blank-sudoku-grid.png"/>
+        <TextBlock x:Name="TitleMain" HorizontalAlignment="Left" Margin="184,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="222" FontWeight="Bold" FontSize="24" Panel.ZIndex="50"><Run Language="ja-jp" Text=" "/><Run Text="Insert Your Puzzle:"/></TextBlock>
+        <TextBox x:Name="R11" HorizontalAlignment="Left" Margin="93,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="1"/>
+        <TextBox x:Name="R12" HorizontalAlignment="Left" Margin="138,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="2"/>
+        <TextBox x:Name="R13" HorizontalAlignment="Left" Margin="182,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="3"/>
+        <TextBox x:Name="R14" HorizontalAlignment="Left" Margin="229,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="4"/>
+        <TextBox x:Name="R15" HorizontalAlignment="Left" Margin="273,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="5"/>
+        <TextBox x:Name="R16" HorizontalAlignment="Left" Margin="318,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="6"/>
+        <TextBox x:Name="R17" HorizontalAlignment="Left" Margin="364,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="7"/>
+        <TextBox x:Name="R18" HorizontalAlignment="Left" Margin="408,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="8"/>
+        <TextBox x:Name="R19" HorizontalAlignment="Left" Margin="453,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="9"/>
+        <TextBox x:Name="R21" HorizontalAlignment="Left" Margin="93,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="10"/>
+        <TextBox x:Name="R29" HorizontalAlignment="Left" Margin="453,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="18"/>
+        <TextBox x:Name="R22" HorizontalAlignment="Left" Margin="138,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="11"/>
+        <TextBox x:Name="R23" HorizontalAlignment="Left" Margin="182,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="12"/>
+        <TextBox x:Name="R24" HorizontalAlignment="Left" Margin="229,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="13"/>
+        <TextBox x:Name="R25" HorizontalAlignment="Left" Margin="273,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="14"/>
+        <TextBox x:Name="R26" HorizontalAlignment="Left" Margin="318,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="15"/>
+        <TextBox x:Name="R27" HorizontalAlignment="Left" Margin="364,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="16"/>
+        <TextBox x:Name="R28" HorizontalAlignment="Left" Margin="408,177,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="17"/>
+        <TextBox x:Name="R31" HorizontalAlignment="Left" Margin="93,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="19"/>
+        <TextBox x:Name="R39" HorizontalAlignment="Left" Margin="453,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="27"/>
+        <TextBox x:Name="R32" HorizontalAlignment="Left" Margin="138,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="20"/>
+        <TextBox x:Name="R33" HorizontalAlignment="Left" Margin="182,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="21"/>
+        <TextBox x:Name="R34" HorizontalAlignment="Left" Margin="229,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="22"/>
+        <TextBox x:Name="R35" HorizontalAlignment="Left" Margin="273,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="23"/>
+        <TextBox x:Name="R36" HorizontalAlignment="Left" Margin="318,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="24"/>
+        <TextBox x:Name="R37" HorizontalAlignment="Left" Margin="364,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="25"/>
+        <TextBox x:Name="R38" HorizontalAlignment="Left" Margin="408,222,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="26"/>
+        <TextBox x:Name="R41" HorizontalAlignment="Left" Margin="93,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="28"/>
+        <TextBox x:Name="R49" HorizontalAlignment="Left" Margin="453,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="36"/>
+        <TextBox x:Name="R42" HorizontalAlignment="Left" Margin="138,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="29"/>
+        <TextBox x:Name="R43" HorizontalAlignment="Left" Margin="182,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="30"/>
+        <TextBox x:Name="R44" HorizontalAlignment="Left" Margin="229,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="31"/>
+        <TextBox x:Name="R45" HorizontalAlignment="Left" Margin="273,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="32"/>
+        <TextBox x:Name="R46" HorizontalAlignment="Left" Margin="318,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="33"/>
+        <TextBox x:Name="R47" HorizontalAlignment="Left" Margin="364,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="34"/>
+        <TextBox x:Name="R48" HorizontalAlignment="Left" Margin="408,268,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="35"/>
+        <TextBox x:Name="R51" HorizontalAlignment="Left" Margin="93,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="37"/>
+        <TextBox x:Name="R59" HorizontalAlignment="Left" Margin="453,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="45"/>
+        <TextBox x:Name="R52" HorizontalAlignment="Left" Margin="138,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="38"/>
+        <TextBox x:Name="R53" HorizontalAlignment="Left" Margin="182,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="39"/>
+        <TextBox x:Name="R54" HorizontalAlignment="Left" Margin="229,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="40"/>
+        <TextBox x:Name="R55" HorizontalAlignment="Left" Margin="273,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="41"/>
+        <TextBox x:Name="R56" HorizontalAlignment="Left" Margin="318,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="42"/>
+        <TextBox x:Name="R57" HorizontalAlignment="Left" Margin="364,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="43"/>
+        <TextBox x:Name="R58" HorizontalAlignment="Left" Margin="408,312,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="44"/>
+        <TextBox x:Name="R61" HorizontalAlignment="Left" Margin="93,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="46"/>
+        <TextBox x:Name="R69" HorizontalAlignment="Left" Margin="453,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="54"/>
+        <TextBox x:Name="R62" HorizontalAlignment="Left" Margin="138,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="47"/>
+        <TextBox x:Name="R63" HorizontalAlignment="Left" Margin="182,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="48"/>
+        <TextBox x:Name="R64" HorizontalAlignment="Left" Margin="229,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="49"/>
+        <TextBox x:Name="R65" HorizontalAlignment="Left" Margin="273,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="50"/>
+        <TextBox x:Name="R66" HorizontalAlignment="Left" Margin="318,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="51"/>
+        <TextBox x:Name="R67" HorizontalAlignment="Left" Margin="364,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="52"/>
+        <TextBox x:Name="R68" HorizontalAlignment="Left" Margin="408,357,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="53"/>
+        <TextBox x:Name="R71" HorizontalAlignment="Left" Margin="93,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="55"/>
+        <TextBox x:Name="R79" HorizontalAlignment="Left" Margin="453,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="63"/>
+        <TextBox x:Name="R72" HorizontalAlignment="Left" Margin="138,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="56"/>
+        <TextBox x:Name="R73" HorizontalAlignment="Left" Margin="182,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="57"/>
+        <TextBox x:Name="R74" HorizontalAlignment="Left" Margin="229,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="58"/>
+        <TextBox x:Name="R75" HorizontalAlignment="Left" Margin="273,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="59"/>
+        <TextBox x:Name="R76" HorizontalAlignment="Left" Margin="318,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="60"/>
+        <TextBox x:Name="R77" HorizontalAlignment="Left" Margin="364,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="61"/>
+        <TextBox x:Name="R78" HorizontalAlignment="Left" Margin="408,403,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="62"/>
+        <TextBox x:Name="R91" HorizontalAlignment="Left" Margin="93,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="73"/>
+        <TextBox x:Name="R99" HorizontalAlignment="Left" Margin="453,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="81"/>
+        <TextBox x:Name="R92" HorizontalAlignment="Left" Margin="138,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="74"/>
+        <TextBox x:Name="R93" HorizontalAlignment="Left" Margin="182,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="75"/>
+        <TextBox x:Name="R94" HorizontalAlignment="Left" Margin="229,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="76"/>
+        <TextBox x:Name="R95" HorizontalAlignment="Left" Margin="273,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="77"/>
+        <TextBox x:Name="R96" HorizontalAlignment="Left" Margin="318,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="78"/>
+        <TextBox x:Name="R97" HorizontalAlignment="Left" Margin="364,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="79"/>
+        <TextBox x:Name="R98" HorizontalAlignment="Left" Margin="408,492,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="80"/>
+        <TextBox x:Name="R81" HorizontalAlignment="Left" Margin="93,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="64"/>
+        <TextBox x:Name="R89" HorizontalAlignment="Left" Margin="453,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="72"/>
+        <TextBox x:Name="R82" HorizontalAlignment="Left" Margin="138,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="65"/>
+        <TextBox x:Name="R83" HorizontalAlignment="Left" Margin="182,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="66"/>
+        <TextBox x:Name="R84" HorizontalAlignment="Left" Margin="229,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="67"/>
+        <TextBox x:Name="R85" HorizontalAlignment="Left" Margin="273,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="68"/>
+        <TextBox x:Name="R86" HorizontalAlignment="Left" Margin="318,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="69"/>
+        <TextBox x:Name="R87" HorizontalAlignment="Left" Margin="364,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="70"/>
+        <TextBox x:Name="R88" HorizontalAlignment="Left" Margin="408,448,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="71"/>
+        <TextBox x:Name="ClickableBackground" HorizontalAlignment="Center" Height="690" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" Opacity="0" BorderBrush="{x:Null}" SnapsToDevicePixels="True" ClipToBounds="True" IsHitTestVisible="True" SelectionOpacity="0" Panel.ZIndex="0" TextChanged="Background_TextChanged" Margin="0,-2,0,0"/>
+        <Button x:Name="Solve_Button" Content="Solve!" HorizontalAlignment="Center" Margin="0,580,0,0" VerticalAlignment="Top" Height="48" Width="190" FontWeight="Bold" FontSize="18" BorderBrush="Black" TabIndex="82" Click="Solve_Button_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF00FFB3"/>
@@ -100,11 +189,25 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="466,20,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click" BorderBrush="{x:Null}" Height="22">
+        <Button Content="" HorizontalAlignment="Left" Margin="528,22,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click" BorderBrush="{x:Null}" Height="22">
             <Button.Background>
                 <ImageBrush ImageSource="/Blue_question_mark_icon.svg.png"/>
             </Button.Background>
         </Button>
+        <CheckBox x:Name="Ellipse_Button" Content="   AutoTab" Margin="240,89,254,589" Checked="CheckBox_Checked" IsChecked="True" FlowDirection="RightToLeft" FontSize="14" FontFamily="Segoe UI Variable Text Semibold" RenderTransformOrigin="0.5,0.5">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+
 
     </Grid>
+
 </Window>
+
+    
