@@ -631,9 +631,14 @@ namespace WpfApp2
             {
                 return false;
             }
-            else
+            else if (vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8] < 45)
             {
                 return true;
+            }
+            else
+            {
+                MessageBox.Show("Ya done goofed somewhere.");
+                return false;
             }
         }
 
