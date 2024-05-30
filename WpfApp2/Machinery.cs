@@ -1512,7 +1512,7 @@ namespace WpfApp2
 
                 important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
 
-                if (important[0] > skiprow)
+                if (important[0] > skiprow)         // Fix column indexing when we get to a new row.
                 {
                     skipcol = -1;
                 }
