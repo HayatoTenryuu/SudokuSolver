@@ -299,7 +299,7 @@ namespace WpfApp2
 
                 FinalWindow ending = new FinalWindow(original_rowset, rowset);
                 ending.Height = 540;
-                ending.Width = 1010;
+                ending.Width = 1020;
                 ending.Show();
                 ending.Activate();
 
