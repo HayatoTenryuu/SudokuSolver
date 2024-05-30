@@ -6241,6 +6241,5 @@ namespace WpfApp2
             return (act, fakerow.getmatrix());
         }
 
-        
     }
 }
