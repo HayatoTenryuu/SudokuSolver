@@ -25,8 +25,8 @@ namespace WpfApp2
 
             int[][] OG_Matrix = alpha.getmatrix();
             int[][] new_Matrix = omega.getmatrix();
-
-            SolidColorBrush BlueBrush = new SolidColorBrush(Colors.Blue);
+            
+            SolidColorBrush BlueBrush = new SolidColorBrush(Colors.DodgerBlue);
 
             R11_OG.Text = OG_Matrix[0][0].ToString();
             if (R11_OG.Text == "0") { R11_OG.Text = ""; }
