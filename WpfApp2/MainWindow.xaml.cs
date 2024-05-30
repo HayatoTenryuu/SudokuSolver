@@ -6,6 +6,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -35,11 +36,19 @@ namespace WpfApp2
                 case "7":
                 case "8":
                 case "9":
+                    ((TextBox)sender).SelectAll();
                     break;
                 default:
                     ((TextBox)sender).Text = "";
                     break;
             }
+
+            if (((TextBox)sender).Text != "")
+            {
+                KeyEventArgs Tab_key = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Tab) { RoutedEvent = Keyboard.KeyDownEvent };
+                InputManager.Current.ProcessInput(Tab_key);
+            }
+
         }
 
         private void Background_TextChanged(object sender, TextChangedEventArgs e)
@@ -289,8 +298,8 @@ namespace WpfApp2
                 MessageBox.Show("All Done!");
 
                 FinalWindow ending = new FinalWindow(original_rowset, rowset);
-                ending.Height = 525;
-                ending.Width = 975;
+                ending.Height = 540;
+                ending.Width = 1020;
                 ending.Show();
                 ending.Activate();
 
@@ -384,6 +393,17 @@ namespace WpfApp2
                 MessageBox.Show("Also, please be sure you typed in the problem correctly, because I can't solve unsolvable problems.");
 
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Insert the Sudoku puzzle you would like solved.\n\n" +
+                "You can either click the individual squares you want to fill in, " +
+                "or you can start at the top left square and tab through them all. " +
+                "When you type a number, it will auto-tab for you to speed up and simplify the process.\n\n" +
+                "Any numbers you don't know just leave blank.\n\n" +
+                "There are some advanced puzzles this solver can't solve, so if you " +
+                "have an error pop up, you will need to solve the puzzle by hand or wait until the next release to try again.", "Help");   
         }
     }
 }
