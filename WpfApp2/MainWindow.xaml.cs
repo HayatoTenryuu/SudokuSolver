@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -65,6 +66,8 @@ namespace WpfApp2
             /* --------------------------------
              * Step 0: Get access to our tools.
              --------------------------------*/
+
+            TimeSpan starttime = DateTime.Now.TimeOfDay;
 
             Machinery Machine = new Machinery();
 
@@ -298,7 +301,11 @@ namespace WpfApp2
                 }
                 while (checker);
 
-                MessageBox.Show("All Done!");
+                TimeSpan endtime = DateTime.Now.TimeOfDay;
+                TimeSpan takentime = endtime - starttime;
+
+                MessageBox.Show("All Done! \n" +
+                    "It took me " + takentime.ToString(@"%s\.ffffff") + " seconds to finish this.");
 
                 FinalWindow ending = new FinalWindow(original_rowset, rowset);
                 ending.Height = 540;
