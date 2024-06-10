@@ -291,7 +291,7 @@ namespace WpfApp2
                     
                     /* MessageBox.Show(loop_counter.ToString()); */ 
                     
-                    if (loop_counter > 500)
+                    if (loop_counter > 100)
                     {
                         MessageBox.Show("Cheat Mode has been enabled.");
                         (act, rowset) = Machine.cheat_mode_enabled(rowset, colset, boxset);
