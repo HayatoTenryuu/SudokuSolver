@@ -267,6 +267,14 @@ namespace WpfApp2
                         colset = Machine.rows_to_cols(colset, rowset.getmatrix());
                         boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
                     }
+                    else
+                    {
+                        (act, matrix) = Machine.advanced_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                        for (int i = 0; i < 9; i++)
+                        {
+                            rowset.setrows(i, matrix[i]);
+                        }
+                    }
 
                     checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
                                Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||

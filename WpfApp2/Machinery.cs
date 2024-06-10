@@ -6173,7 +6173,6 @@ namespace WpfApp2
 
             do
             {
-
                 important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
 
                 if (important[0] > skiprow)
@@ -6400,7 +6399,7 @@ namespace WpfApp2
             return (match, row, col, find_num);
         }
 
-        public (bool, int[][]) advanced_row_value_checking_AlternatePairs(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        public (bool, Rows) advanced_row_value_checking_AlternatePairs(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
         {
             /* 
              * This is the checker for Alternate Pairs, to limit the number of possibilities as much as possible, and see what we can do.
@@ -7517,16 +7516,16 @@ namespace WpfApp2
                 // If we did something, return true, otherwise, return false. Return the matrix either way.
                 if (change == true)
                 {
-                    return (true, fakerow.getmatrix());
+                    return (true, fakerow);
                 }
                 else
                 {
-                    return (false, fakerow.getmatrix());
+                    return (false, fakerow);
                 }
             }
             else
             {
-                return (false, fakerow.getmatrix());
+                return (false, fakerow);
             }
         }
 
@@ -7559,21 +7558,106 @@ namespace WpfApp2
             return (false, fakerow.getmatrix());
         }
 
-        public (bool, int[][]) advanced_value_solving(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        public (bool, int[][]) advanced_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
         {
 
-            (bool a, int[][] testrow) = advanced_value_checking_HiddenTwin(fakerow, row_num, fakecol, fakebox);
+            /* 
+             * This looks at whether there are advanced tricks going on within a set.
+             * For instance, Alternate Pairs, XY-Wing, etc.
+             * Therefore we can eliminate possibilities and solve for something.
+             * 
+             * Because it looks for patterns in the overall puzzle, we may need multiple sets to be invoked, so that we check everything.
+             */
 
-            if (a)
+            /* Setup dummy objects so that we can use their tools. */
+            Rows fakerow = new Rows();
+            Cols fakecol = new Cols();
+            Boxs fakebox = new Boxs();
+
+            /* Populate the dummies with the correct information. */
+            for (int fake = 0; fake < 9; fake++)
             {
-                fakerow.setrows(row_num, testrow[row_num]);
-                return (true, fakerow.getmatrix());
+                fakerow.setrows(fake, mat[fake]);
+                fakecol.setcols(fake, mat2[fake]);
+                fakebox.setboxs(fake, mat3[fake]);
             }
 
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
+            int[] important = new int[3];
+            important = [-1, -1, -1];
+            int skiprow = -1;
+            int skipcol = -1;
 
+            int count = 0;
+            bool act = false;
 
+            do
+            {
+                important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
 
-            return (false, fakerow.getmatrix());
+                if (important[0] > skiprow)
+                {
+                    skipcol = -1;
+                }
+                else
+                {
+                    skipcol = important[1];
+                }
+
+                skiprow = important[0];
+
+                (bool verify1, Rows newFakerow) = advanced_row_value_checking_AlternatePairs(fakerow, important[0], fakecol, fakebox);
+                //(bool verify2, Cols newFakecol) = intermediate_col_value_checking(fakerow, fakecol, important[1], fakebox);
+                //(bool verify3, Boxs newFakebox) = intermediate_box_value_checking(fakerow, fakecol, fakebox, important[2]);
+
+                if (verify1)
+                {
+                    fakerow.setrows(important[0], newFakerow.getrows(important[0]));
+                    fakecol = rows_to_cols(fakecol, fakerow.getmatrix());
+                    fakebox = rows_to_boxs(fakebox, fakerow.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                /* else if (verify2)
+                {
+                    fakecol.setcols(important[1], newFakecol.getcols(important[1]));
+                    fakerow = cols_to_rows(fakerow, fakecol.getmatrix());
+                    fakebox = cols_to_boxs(fakebox, fakecol.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                else if (verify3)
+                {
+                    fakebox.setboxs(important[2], newFakebox.getboxs(important[2]));
+                    fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                    fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    act = true;
+                    count++;
+                }
+
+                // If direct analysis doesn't work, see if we can infer a value and solve with that.
+                else
+                {
+                    (act, fakebox) = intermediate_inference_checking(fakerow, fakecol, fakebox, important[2]);
+
+                    if (act)
+                    {
+                        fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
+                        fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
+                    }
+
+                    count++;
+                    if (count == 81)
+                    {
+                        // MessageBox.Show("We are maxing out intermediate solver.");
+                    }
+                } */
+            }
+            while ((act == false) && (count < 81));
+
+            return (act, fakerow.getmatrix());
         }
     }
 }
