@@ -194,7 +194,7 @@
                 <ImageBrush ImageSource="/Blue_question_mark_icon.svg.png"/>
             </Button.Background>
         </Button>
-        <CheckBox x:Name="Ellipse_Button" Content="   AutoTab" Margin="240,89,254,589" Checked="CheckBox_Checked" IsChecked="True" FlowDirection="RightToLeft" FontSize="14" FontFamily="Segoe UI Variable Text Semibold" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="Ellipse_Button" Content="   AutoTab" Margin="240,89,254,589" IsChecked="True" FlowDirection="RightToLeft" FontSize="14" FontFamily="Segoe UI Variable Text Semibold" RenderTransformOrigin="0.5,0.5">
             <CheckBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>

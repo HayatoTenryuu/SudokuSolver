@@ -7635,25 +7635,17 @@ namespace WpfApp2
                     fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
                     act = true;
                     count++;
-                }
+                }*/
 
                 // If direct analysis doesn't work, see if we can infer a value and solve with that.
                 else
                 {
-                    (act, fakebox) = intermediate_inference_checking(fakerow, fakecol, fakebox, important[2]);
-
-                    if (act)
-                    {
-                        fakerow = boxs_to_rows(fakerow, fakebox.getmatrix());
-                        fakecol = boxs_to_cols(fakecol, fakebox.getmatrix());
-                    }
-
                     count++;
                     if (count == 81)
                     {
                         // MessageBox.Show("We are maxing out intermediate solver.");
                     }
-                } */
+                }
             }
             while ((act == false) && (count < 81));
 
