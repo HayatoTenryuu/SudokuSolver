@@ -8785,11 +8785,6 @@ namespace WpfApp2
             }
         }
 
-        public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
-        {
-            return (true, fakerow);
-        }
-
         public (bool, int[][]) advanced_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
         {
 
@@ -8873,6 +8868,12 @@ namespace WpfApp2
 
             return (act, fakerow.getmatrix());
         }
+
+        public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
+        {
+            return (true, fakerow);
+        }
+
     }
 }
 
