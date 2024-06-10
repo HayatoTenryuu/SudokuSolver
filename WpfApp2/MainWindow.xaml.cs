@@ -45,8 +45,11 @@ namespace WpfApp2
 
             if (((TextBox)sender).Text != "")
             {
-                KeyEventArgs Tab_key = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Tab) { RoutedEvent = Keyboard.KeyDownEvent };
-                InputManager.Current.ProcessInput(Tab_key);
+                if (Ellipse_Button.IsChecked == true)
+                {
+                    KeyEventArgs Tab_key = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, Key.Tab) { RoutedEvent = Keyboard.KeyDownEvent };
+                    InputManager.Current.ProcessInput(Tab_key);
+                }
             }
 
         }
@@ -62,6 +65,8 @@ namespace WpfApp2
             /* --------------------------------
              * Step 0: Get access to our tools.
              --------------------------------*/
+
+            TimeSpan starttime = DateTime.Now.TimeOfDay;
 
             Machinery Machine = new Machinery();
 
@@ -303,7 +308,11 @@ namespace WpfApp2
                 }
                 while (checker);
 
-                MessageBox.Show("All Done!");
+                TimeSpan endtime = DateTime.Now.TimeOfDay;
+                TimeSpan takentime = endtime - starttime;
+
+                MessageBox.Show("All Done! \n" +
+                    "It took me " + takentime.ToString(@"%s\.ffffff") + " seconds to finish this.");
 
                 FinalWindow ending = new FinalWindow(original_rowset, rowset);
                 ending.Height = 540;
