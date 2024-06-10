@@ -293,7 +293,21 @@ namespace WpfApp2
                     
                     if (loop_counter > 1000)
                     {
-                        throw new Exception("I cannot solve this.");
+                        MessageBox.Show("Cheat Mode has been enabled.");
+                        (act, rowset) = Machine.cheat_mode_enabled(rowset, colset, boxset);
+
+                        if (act == false)
+                        {
+                            throw new Exception("I cannot solve this.");
+                        }
+                        else
+                        {
+                            checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
+                               Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
+                               Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
+                               Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
+                               Machine.has_zeros(rowset.getrows(8)));
+                        }
                     }
 
                     /*rowset.printrows(rowset.getrows(0));
