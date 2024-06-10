@@ -8871,7 +8871,7 @@ namespace WpfApp2
 
         public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
         {
-            return (true, fakerow);
+            return (false, fakerow);
         }
 
     }
