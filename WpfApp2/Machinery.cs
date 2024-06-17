@@ -9665,6 +9665,52 @@ namespace WpfApp2
             return (act, fakerow);
         }
 
+        public (bool, int[][]) advanced_value_checking_HiddenTwin(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_checking_NakedTwin(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_checking_ChainPermutation(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_checking_AlternatePairs(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_checking_X_Y_Wing(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_checking_PolyInference(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            return (false, fakerow.getmatrix());
+        }
+
+        public (bool, int[][]) advanced_value_solving(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+
+            (bool a, int[][] testrow) = advanced_value_checking_HiddenTwin(fakerow, row_num, fakecol, fakebox);
+
+            if (a)
+            {
+                fakerow.setrows(row_num, testrow[row_num]);
+                return (true, fakerow.getmatrix());
+            }
+
+
+
+
+            return (false, fakerow.getmatrix());
+        }
+
     }
 }
-
