@@ -273,6 +273,14 @@ namespace WpfApp2
                         colset = Machine.rows_to_cols(colset, rowset.getmatrix());
                         boxset = Machine.rows_to_boxs(boxset, rowset.getmatrix());
                     }
+                    else
+                    {
+                        (act, matrix) = Machine.advanced_value_solving(rowset.getmatrix(), colset.getmatrix(), boxset.getmatrix());
+                        for (int i = 0; i < 9; i++)
+                        {
+                            rowset.setrows(i, matrix[i]);
+                        }
+                    }
 
                     checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
                                Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
@@ -284,9 +292,23 @@ namespace WpfApp2
                     
                     /* MessageBox.Show(loop_counter.ToString()); */ 
                     
-                    if (loop_counter > 1000)
+                    if (loop_counter > 100)
                     {
-                        throw new Exception("I cannot solve this.");
+                        MessageBox.Show("Cheat Mode has been enabled.");
+                        (act, rowset) = Machine.cheat_mode_enabled(rowset, colset, boxset);
+
+                        if (act == false)
+                        {
+                            throw new Exception("I cannot solve this.");
+                        }
+                        else
+                        {
+                            checker = (Machine.has_zeros(rowset.getrows(0)) || Machine.has_zeros(rowset.getrows(1)) ||
+                               Machine.has_zeros(rowset.getrows(2)) || Machine.has_zeros(rowset.getrows(3)) ||
+                               Machine.has_zeros(rowset.getrows(4)) || Machine.has_zeros(rowset.getrows(5)) ||
+                               Machine.has_zeros(rowset.getrows(6)) || Machine.has_zeros(rowset.getrows(7)) ||
+                               Machine.has_zeros(rowset.getrows(8)));
+                        }
                     }
 
                     /*rowset.printrows(rowset.getrows(0));
