@@ -8887,29 +8887,15 @@ namespace WpfApp2
         /* Cheat Mode */
         /*------------------------------------------------------------------------------------------------------------------------*/
 
-        public bool[][] possibilities(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        public bool[] possibilities(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox)
         {
-            bool[][] possy = new bool[9][];
-
             int[] row_time_saver = fakerow.getrows(row_num);
+            int[] col_time_saver = fakecol.getcols(col_num); 
 
-            int num_zeros = count_zeros(row_time_saver);
-            int[] zero_loc = where_zeros(row_time_saver);
-
-            // We now have the number and locations of each zero.
             // Create and control the size of the possibility-tracking matrix.
-            bool[][] possibilities = new bool[9][];
-            possibilities[0] = new bool[9];
-            possibilities[1] = new bool[9];
-            possibilities[2] = new bool[9];
-            possibilities[3] = new bool[9];
-            possibilities[4] = new bool[9];
-            possibilities[5] = new bool[9];
-            possibilities[6] = new bool[9];
-            possibilities[7] = new bool[9];
-            possibilities[8] = new bool[9];
+            bool[] possibilities = new bool[9];
 
-            // We need to set if a zero can be a one, a two, etc.
+            // We need to set if the zero can be a one, a two, etc.
             bool one = false;
             bool two = false;
             bool three = false;
@@ -8920,21 +8906,12 @@ namespace WpfApp2
             bool eight = false;
             bool nine = false;
 
-            for (int w = 0; w < 9; w++)
-            {
-                if (zero_loc[w] != 1)
-                {
-                    continue;
-                }
-                else
-                {
-                    int[] col_time_saver = fakecol.getcols(w);
-                    int[] box_time_saver = new int[9];
+            int[] box_time_saver = new int[9];
 
-                    switch (row_num)
+            switch (row_num)
                     {
                         case 0:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -8958,7 +8935,7 @@ namespace WpfApp2
                             }
                             break;
                         case 1:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -8982,7 +8959,7 @@ namespace WpfApp2
                             }
                             break;
                         case 2:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9006,7 +8983,7 @@ namespace WpfApp2
                             }
                             break;
                         case 3:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9030,7 +9007,7 @@ namespace WpfApp2
                             }
                             break;
                         case 4:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9054,7 +9031,7 @@ namespace WpfApp2
                             }
                             break;
                         case 5:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9078,7 +9055,7 @@ namespace WpfApp2
                             }
                             break;
                         case 6:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9102,7 +9079,7 @@ namespace WpfApp2
                             }
                             break;
                         case 7:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9126,7 +9103,7 @@ namespace WpfApp2
                             }
                             break;
                         case 8:
-                            switch (w)
+                            switch (col_num)
                             {
                                 case 0:
                                 case 1:
@@ -9151,25 +9128,21 @@ namespace WpfApp2
                             break;
                     }
 
-                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
-                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
-                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
-                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
-                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
-                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
-                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
-                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
-                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
-                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+            // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+            one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+            two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+            three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+            four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+            five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+            six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+            seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+            eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+            nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
 
-                    // Set the matrix of possbilities for each zero in our box.
-                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
-                }
-            }
+            // Set the matrix of possbilities for each zero in our box.
+            possibilities = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
 
-            possy = possibilities;
-
-            return possy;
+            return possibilities;
         }
 
         public bool has_duplicates(int[] vect)
@@ -9272,11 +9245,94 @@ namespace WpfApp2
 
         /*---------------------------------------------------------------------------------------------------------------------*/
 
+        public Stack<int> guess_list = new Stack<int>();
 
+        public Dictionary<char, int[]> guess_possibilities = new Dictionary<char, int[]>();
 
         public int loop = -1;
 
         public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
+        {
+
+            // Setup
+            Rows try_row = fakerow;
+            Cols try_col = fakecol;
+            Boxs try_box = fakebox;
+
+            bool done = false;
+            bool act = false;
+
+            int skiprow = -1;
+            int skipcol = -1;
+
+            List<int> zero_possibilities = new List<int>();
+
+
+            /* First, check for where our first zero is. */
+            int[] important = find_important(fakerow, fakecol, fakebox, skiprow, skipcol);
+
+            if (important[0] > skiprow)
+            {
+                skipcol = -1;
+            }
+            else
+            {
+                skipcol = important[1];
+            }
+
+            skiprow = important[0];
+
+
+            /* Next, find the possibilities for that zero. */
+            bool[] possy = possibilities(fakerow, important[0], fakecol, important[1], fakebox);
+
+            for (int x = 0; x < 9; x++)
+            {
+                if (possy[x] == true)
+                {
+                    zero_possibilities.Add(x + 1);
+                }
+            }
+
+            int[] maybes = zero_possibilities.ToArray();
+
+
+            /* Assign the first possibility and make note of what you chose. */
+            int[] toss = try_row.getrows(important[0]);
+            toss[important[1]] = maybes[0];
+            try_row.setrows(important[0], toss);
+
+            guess_list.Append(maybes[0]);
+            guess_possibilities.Add('a', maybes);
+
+
+            /* Solve everything you can. */
+            
+
+
+            /* Test for rule violations. */
+
+
+            /* If violations, remove most recent decision and try other possibilities. */
+
+
+            /* If all possibilities have violations, remove second most recent decision and try alternatives. */
+
+                    // This sort of recursion would be much easier with Prolog...
+
+            /* If no violations, check for remaining zeros. */
+
+
+            /* If no remaining zeros, return matrix. */
+            return (act, fakerow);
+
+
+            /* if zeros remain, make another guess, rinse and repeat. */ 
+
+        }
+
+
+        /*public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
         {
 
             // Setup
@@ -9299,7 +9355,7 @@ namespace WpfApp2
                     break;
                 }
 
-                /* First check where zeros exist still */
+                /* First check where zeros exist still 
 
                 bool a_line = has_zeros(fakerow.getrows(0));
                 bool b_line = has_zeros(fakerow.getrows(1));
@@ -9312,7 +9368,7 @@ namespace WpfApp2
                 bool i_line = has_zeros(fakerow.getrows(8));
 
 
-                /* Then try to solve them one by one by possibilities */
+                /* Then try to solve them one by one by possibilities 
 
                 // Make a guess
                 bool[][] possy = new bool[9][];
@@ -9352,7 +9408,7 @@ namespace WpfApp2
                         {
                             if ((possy[an][bn] == true) && ((bn != choice) || ((try_row.getrows(important[0]) != choice_row) || (an != choice_col))))
                             {
-                                choice = bn;
+                                choice = bn; 
                                 int[] toss_row = try_row.getrows(important[0]);
                                 toss_row[an] = bn+1;
                                 try_row.setrows(important[0], toss_row);    
@@ -9459,7 +9515,7 @@ namespace WpfApp2
                 try_box = rows_to_boxs(try_box, try_row.getmatrix());
 
 
-                /* Double check that you haven't made an error by violating a rule */
+                /* Double check that you haven't made an error by violating a rule 
                 bool kill = rule_enforcer(try_row, try_col, try_box);
 
                 if (kill == true)
@@ -9516,7 +9572,7 @@ namespace WpfApp2
             while (done == false);
            
             return (act, fakerow);
-        }
+        }*/
 
-    }
+    } 
 }

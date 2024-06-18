@@ -9,8 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Prolog Interface References\**" />
+    <EmbeddedResource Remove="Prolog Interface References\**" />
+    <None Remove="Prolog Interface References\**" />
+    <Page Remove="Prolog Interface References\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="blank-sudoku-grid.png" />
     <None Remove="Blue_question_mark_icon.svg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SwiPlCs">
+      <HintPath>Prolog Interface References\SwiPlCs64.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
