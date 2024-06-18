@@ -630,318 +630,6 @@ namespace WpfApp2
         /* Utility Functions */
         /*------------------------------------------------------------------------------------------------------------------------*/
 
-        public bool has_duplicates(int[] vect)
-        {
-            int count = 0;
-
-            for (int numb = 1; numb < 10; numb++)
-            {
-                for (int i = 0; i < 9; i++)
-                {
-                    if (numb == vect[i])
-                    {
-                        count++;
-                    }
-                }
-
-                if (count > 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    count = 0;
-                }
-            }
-
-            return false;
-        }
-
-        public bool[][] possibilities(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
-        {
-            bool[][] possy = new bool[9][];
-
-            int[] row_time_saver = fakerow.getrows(row_num);
-
-            int num_zeros = count_zeros(row_time_saver);
-            int[] zero_loc = where_zeros(row_time_saver);
-
-            // We now have the number and locations of each zero.
-            // Create and control the size of the possibility-tracking matrix.
-            bool[][] possibilities = new bool[9][];
-            possibilities[0] = new bool[9];
-            possibilities[1] = new bool[9];
-            possibilities[2] = new bool[9];
-            possibilities[3] = new bool[9];
-            possibilities[4] = new bool[9];
-            possibilities[5] = new bool[9];
-            possibilities[6] = new bool[9];
-            possibilities[7] = new bool[9];
-            possibilities[8] = new bool[9];
-
-            // We need to set if a zero can be a one, a two, etc.
-            bool one = false;
-            bool two = false;
-            bool three = false;
-            bool four = false;
-            bool five = false;
-            bool six = false;
-            bool seven = false;
-            bool eight = false;
-            bool nine = false;
-
-            for (int w = 0; w < 9; w++)
-            {
-                if (zero_loc[w] != 1)
-                {
-                    continue;
-                }
-                else
-                {
-                    int[] col_time_saver = fakecol.getcols(w);
-                    int[] box_time_saver = new int[9];
-
-                    switch (row_num)
-                    {
-                        case 0:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 1:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 2:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 3:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 4:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 5:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 6:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 7:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                        case 8:
-                            switch (w)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
-                    }
-
-                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
-                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
-                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
-                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
-                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
-                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
-                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
-                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
-                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
-                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
-
-                    // Set the matrix of possbilities for each zero in our box.
-                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
-                }
-            }
-
-            possy = possibilities;
-
-            return possy;
-        }
-
         public int sum_values(int[] vect)
         {
             int summa = vect[0] + vect[1] + vect[2] + vect[3] + vect[4] + vect[5] + vect[6] + vect[7] + vect[8];
@@ -1681,6 +1369,10 @@ namespace WpfApp2
 
             return [0, 0, 0];                   // If there are no zeros, return zero.
         }
+
+        /*-------------------------------------------------------------------------------------------------------------------------*/
+        /* Solvers */
+        /*-------------------------------------------------------------------------------------------------------------------------*/
 
         public (bool, int) basic_value_insert(int[] vect)
         {
@@ -9191,6 +8883,399 @@ namespace WpfApp2
             return (act, fakerow.getmatrix());
         }
 
+        /*------------------------------------------------------------------------------------------------------------------------*/
+        /* Cheat Mode */
+        /*------------------------------------------------------------------------------------------------------------------------*/
+
+        public bool[][] possibilities(Rows fakerow, int row_num, Cols fakecol, Boxs fakebox)
+        {
+            bool[][] possy = new bool[9][];
+
+            int[] row_time_saver = fakerow.getrows(row_num);
+
+            int num_zeros = count_zeros(row_time_saver);
+            int[] zero_loc = where_zeros(row_time_saver);
+
+            // We now have the number and locations of each zero.
+            // Create and control the size of the possibility-tracking matrix.
+            bool[][] possibilities = new bool[9][];
+            possibilities[0] = new bool[9];
+            possibilities[1] = new bool[9];
+            possibilities[2] = new bool[9];
+            possibilities[3] = new bool[9];
+            possibilities[4] = new bool[9];
+            possibilities[5] = new bool[9];
+            possibilities[6] = new bool[9];
+            possibilities[7] = new bool[9];
+            possibilities[8] = new bool[9];
+
+            // We need to set if a zero can be a one, a two, etc.
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+            bool seven = false;
+            bool eight = false;
+            bool nine = false;
+
+            for (int w = 0; w < 9; w++)
+            {
+                if (zero_loc[w] != 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int[] col_time_saver = fakecol.getcols(w);
+                    int[] box_time_saver = new int[9];
+
+                    switch (row_num)
+                    {
+                        case 0:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 1:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 2:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(0);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(1);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(2);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 3:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 4:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 5:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(3);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(4);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(5);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 6:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 7:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                        case 8:
+                            switch (w)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                    box_time_saver = fakebox.getboxs(6);
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    box_time_saver = fakebox.getboxs(7);
+                                    break;
+                                case 6:
+                                case 7:
+                                case 8:
+                                    box_time_saver = fakebox.getboxs(8);
+                                    break;
+                                default:
+                                    MessageBox.Show("Something is very wrong with assinging box values.");
+                                    break;
+
+                            }
+                            break;
+                    }
+
+                    // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
+                    one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
+                    two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
+                    three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
+                    four = (fakerow.has_number(4, row_time_saver) || fakecol.has_number(4, col_time_saver) || fakebox.has_number(4, box_time_saver));
+                    five = (fakerow.has_number(5, row_time_saver) || fakecol.has_number(5, col_time_saver) || fakebox.has_number(5, box_time_saver));
+                    six = (fakerow.has_number(6, row_time_saver) || fakecol.has_number(6, col_time_saver) || fakebox.has_number(6, box_time_saver));
+                    seven = (fakerow.has_number(7, row_time_saver) || fakecol.has_number(7, col_time_saver) || fakebox.has_number(7, box_time_saver));
+                    eight = (fakerow.has_number(8, row_time_saver) || fakecol.has_number(8, col_time_saver) || fakebox.has_number(8, box_time_saver));
+                    nine = (fakerow.has_number(9, row_time_saver) || fakecol.has_number(9, col_time_saver) || fakebox.has_number(9, box_time_saver));
+
+                    // Set the matrix of possbilities for each zero in our box.
+                    possibilities[w] = [!one, !two, !three, !four, !five, !six, !seven, !eight, !nine];
+                }
+            }
+
+            possy = possibilities;
+
+            return possy;
+        }
+
+        public bool has_duplicates(int[] vect)
+        {
+            int count = 0;
+
+            for (int numb = 1; numb < 10; numb++)
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numb == vect[i])
+                    {
+                        count++;
+                    }
+                }
+
+                if (count > 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    count = 0;
+                }
+            }
+
+            return false;
+        }
+
+        public bool rule_enforcer(Rows try_row, Cols try_col, Boxs try_box)
+        {
+            bool kill_case = false;
+
+            // Check for any zeros and sum each row/column/box
+            bool a_row = has_zeros(try_row.getrows(0));
+            bool b_row = has_zeros(try_row.getrows(1));
+            bool c_row = has_zeros(try_row.getrows(2));
+            bool d_row = has_zeros(try_row.getrows(3));
+            bool e_row = has_zeros(try_row.getrows(4));
+            bool f_row = has_zeros(try_row.getrows(5));
+            bool g_row = has_zeros(try_row.getrows(6));
+            bool h_row = has_zeros(try_row.getrows(7));
+            bool i_row = has_zeros(try_row.getrows(8));
+
+            bool a_dup = has_duplicates(try_row.getrows(0));
+            bool b_dup = has_duplicates(try_row.getrows(1));
+            bool c_dup = has_duplicates(try_row.getrows(2));
+            bool d_dup = has_duplicates(try_row.getrows(3));
+            bool e_dup = has_duplicates(try_row.getrows(4));
+            bool f_dup = has_duplicates(try_row.getrows(5));
+            bool g_dup = has_duplicates(try_row.getrows(6));
+            bool h_dup = has_duplicates(try_row.getrows(7));
+            bool i_dup = has_duplicates(try_row.getrows(8));
+
+            bool a_dup2 = has_duplicates(try_col.getcols(0));
+            bool b_dup2 = has_duplicates(try_col.getcols(1));
+            bool c_dup2 = has_duplicates(try_col.getcols(2));
+            bool d_dup2 = has_duplicates(try_col.getcols(3));
+            bool e_dup2 = has_duplicates(try_col.getcols(4));
+            bool f_dup2 = has_duplicates(try_col.getcols(5));
+            bool g_dup2 = has_duplicates(try_col.getcols(6));
+            bool h_dup2 = has_duplicates(try_col.getcols(7));
+            bool i_dup2 = has_duplicates(try_col.getcols(8));
+
+            bool a_dup3 = has_duplicates(try_box.getboxs(0));
+            bool b_dup3 = has_duplicates(try_box.getboxs(1));
+            bool c_dup3 = has_duplicates(try_box.getboxs(2));
+            bool d_dup3 = has_duplicates(try_box.getboxs(3));
+            bool e_dup3 = has_duplicates(try_box.getboxs(4));
+            bool f_dup3 = has_duplicates(try_box.getboxs(5));
+            bool g_dup3 = has_duplicates(try_box.getboxs(6));
+            bool h_dup3 = has_duplicates(try_box.getboxs(7));
+            bool i_dup3 = has_duplicates(try_box.getboxs(8));
+
+            // If any number is duplicated across any set, it's wrong.
+            if (a_dup || b_dup || c_dup || d_dup || e_dup || f_dup || g_dup || h_dup || i_dup)
+            {
+                kill_case = true;
+            }
+
+            else if (a_dup2 || b_dup2 || c_dup2 || d_dup2 || e_dup2 || f_dup2 || g_dup2 || h_dup2 || i_dup2)
+            {
+                kill_case = true;
+            }
+
+            else if (a_dup3 || b_dup3 || c_dup3 || d_dup3 || e_dup3 || f_dup3 || g_dup3 || h_dup3 || i_dup3)
+            {
+                kill_case = true;
+
+            }
+
+            else
+            {
+                kill_case = false;
+            }
+
+            return kill_case;
+        }
+
+
+        /*---------------------------------------------------------------------------------------------------------------------*/
+
+
+
+        public int loop = -1;
+
         public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
         {
 
@@ -9201,11 +9286,18 @@ namespace WpfApp2
 
             bool done = false;
             bool act = false;
-            int loop = -1;
+
+            int choice = 0;
+            int[] choice_row = new int[9];
+            int choice_col = 0;
 
             do
             {
                 loop++;
+                if (loop > 1000)
+                {
+                    break;
+                }
 
                 /* First check where zeros exist still */
 
@@ -9231,9 +9323,11 @@ namespace WpfApp2
                 int skipcol = -1;
 
                 bool change = false;
+                int timer = 0;
 
-                while (change == false)
+                while ((change == false && timer < 2000))
                 {
+                    timer++;
                     important = find_important(try_row, try_col, try_box, skiprow, skipcol);
 
                     if (important[0] > skiprow)
@@ -9249,13 +9343,19 @@ namespace WpfApp2
 
                     possy = possibilities(try_row, important[0], try_col, try_box);
 
+                    choice_row = try_row.getrows(important[0]);
+                    choice_col = important[1];
+
                     for (int an = 0; an < 9; an++)
                     {
                         for (int bn = 0; bn < 9; bn++)
                         {
-                            if (possy[an][bn] == true)
+                            if ((possy[an][bn] == true) && ((bn != choice) || ((try_row.getrows(important[0]) != choice_row) || (an != choice_col))))
                             {
-                                try_row.setrows(an, try_row.getrows(bn));
+                                choice = bn;
+                                int[] toss_row = try_row.getrows(important[0]);
+                                toss_row[an] = bn+1;
+                                try_row.setrows(important[0], toss_row);    
                                 change = true;
                                 break;
                             }
@@ -9271,7 +9371,6 @@ namespace WpfApp2
                     }
                 }
 
-
                 // Solve it all out
                 int l = 0;
 
@@ -9284,7 +9383,7 @@ namespace WpfApp2
 
                 int[][] matrix = new int[9][];
 
-                while (l < 81)
+                while (l < 100)
                 {
                     l++;
 
@@ -9357,291 +9456,43 @@ namespace WpfApp2
 
                 // Convert what you have to the other sets
                 try_col = rows_to_cols(try_col, try_row.getmatrix());
-                try_box = rows_to_boxs(try_box, try_row.getmatrix());  
+                try_box = rows_to_boxs(try_box, try_row.getmatrix());
 
 
                 /* Double check that you haven't made an error by violating a rule */
+                bool kill = rule_enforcer(try_row, try_col, try_box);
 
-                // Check for any zeros and sum each row/column/box
-                bool a_row = has_zeros(try_row.getrows(0));
-                bool b_row = has_zeros(try_row.getrows(1));
-                bool c_row = has_zeros(try_row.getrows(2));
-                bool d_row = has_zeros(try_row.getrows(3));
-                bool e_row = has_zeros(try_row.getrows(4));
-                bool f_row = has_zeros(try_row.getrows(5));
-                bool g_row = has_zeros(try_row.getrows(6));
-                bool h_row = has_zeros(try_row.getrows(7));
-                bool i_row = has_zeros(try_row.getrows(8));
-
-                bool a_dup = has_duplicates(try_row.getrows(0));
-                bool b_dup = has_duplicates(try_row.getrows(1));
-                bool c_dup = has_duplicates(try_row.getrows(2));
-                bool d_dup = has_duplicates(try_row.getrows(3));
-                bool e_dup = has_duplicates(try_row.getrows(4));
-                bool f_dup = has_duplicates(try_row.getrows(5));
-                bool g_dup = has_duplicates(try_row.getrows(6));
-                bool h_dup = has_duplicates(try_row.getrows(7));
-                bool i_dup = has_duplicates(try_row.getrows(8));
-
-                bool a_dup2 = has_duplicates(try_col.getcols(0));
-                bool b_dup2 = has_duplicates(try_col.getcols(1));
-                bool c_dup2 = has_duplicates(try_col.getcols(2));
-                bool d_dup2 = has_duplicates(try_col.getcols(3));
-                bool e_dup2 = has_duplicates(try_col.getcols(4));
-                bool f_dup2 = has_duplicates(try_col.getcols(5));
-                bool g_dup2 = has_duplicates(try_col.getcols(6));
-                bool h_dup2 = has_duplicates(try_col.getcols(7));
-                bool i_dup2 = has_duplicates(try_col.getcols(8));
-
-                bool a_dup3 = has_duplicates(try_box.getboxs(0));
-                bool b_dup3 = has_duplicates(try_box.getboxs(1));
-                bool c_dup3 = has_duplicates(try_box.getboxs(2));
-                bool d_dup3 = has_duplicates(try_box.getboxs(3));
-                bool e_dup3 = has_duplicates(try_box.getboxs(4));
-                bool f_dup3 = has_duplicates(try_box.getboxs(5));
-                bool g_dup3 = has_duplicates(try_box.getboxs(6));
-                bool h_dup3 = has_duplicates(try_box.getboxs(7));
-                bool i_dup3 = has_duplicates(try_box.getboxs(8));
-
-                // If any number is duplicated across any set, it's wrong. Restart.
-                if (a_dup)
+                if (kill == true)
                 {
                     try_row = fakerow;
                     try_col = fakecol;
                     try_box = fakebox;
                     continue;
-                }
-
-                if (b_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (c_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (d_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (e_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (f_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (g_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (h_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (i_dup)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-
-                if (a_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (b_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (c_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (d_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (e_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (f_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (g_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (h_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (i_dup2)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-
-                if (a_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (b_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (c_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (d_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (e_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (f_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (g_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (h_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
-                if (i_dup3)
-                {
-                    try_row = fakerow;
-                    try_col = fakecol;
-                    try_box = fakebox;
-                    continue;
-                }
-
+                }           
 
                 // If zeros remain (and we don't know of any duplicates YET), keep guessing.
-                if (a_line || b_line || c_line || d_line || e_line || f_line || g_line || h_line || i_line)
+                if ((a_line || b_line || c_line || d_line || e_line || f_line || g_line || h_line || i_line) && (loop < 1000))
                 {
                     // This begins a recursive path, such that we are now guessing a second number.
                     // If it doesn't pan out, we will eventually get kicked back.
-                    try
-                    {
-                        Rows cont_row = try_row;
-                        Cols cont_col = rows_to_cols(try_col, try_row.getmatrix());
-                        Boxs cont_box = rows_to_boxs(try_box, try_row.getmatrix());
+                    Rows cont_row = try_row;
+                    Cols cont_col = rows_to_cols(try_col, try_row.getmatrix());
+                    Boxs cont_box = rows_to_boxs(try_box, try_row.getmatrix());
 
-                        (bool succ, Rows newRow) = cheat_mode_enabled(cont_row, cont_col, cont_box);
-                    }
-                    catch
-                    {
+                    (bool succ, Rows newRow) = cheat_mode_enabled(cont_row, cont_col, cont_box);
+                    
+                    if (succ == false)
+                    { 
                         try_row = fakerow;
                         try_col = fakecol;
                         try_box = fakebox;
                         continue;
+                    }
+                    else
+                    {
+                        try_row = newRow;
+                        try_col = rows_to_cols(try_col, try_row.getmatrix());
+                        try_box = rows_to_boxs(try_box, try_row.getmatrix());
                     }
                 }
 
@@ -9652,7 +9503,7 @@ namespace WpfApp2
                     act = true;
                     fakerow = try_row;
                 }
-                else if (loop > 81)
+                else if (loop >= 1000)
                 {
                     done = true;
                     act = false;
@@ -9663,7 +9514,7 @@ namespace WpfApp2
                 }
             } 
             while (done == false);
-            
+           
             return (act, fakerow);
         }
 

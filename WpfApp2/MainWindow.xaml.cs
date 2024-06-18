@@ -289,11 +289,21 @@ namespace WpfApp2
                                Machine.has_zeros(rowset.getrows(8)));
 
                     loop_counter++;
-                    
-                    /* MessageBox.Show(loop_counter.ToString()); */ 
-                    
+
+                    /* MessageBox.Show(loop_counter.ToString()); */
+
                     if (loop_counter > 100)
                     {
+                        rowset.printrows(rowset.getrows(0));
+                        rowset.printrows(rowset.getrows(1));
+                        rowset.printrows(rowset.getrows(2));
+                        rowset.printrows(rowset.getrows(3));
+                        rowset.printrows(rowset.getrows(4));
+                        rowset.printrows(rowset.getrows(5));
+                        rowset.printrows(rowset.getrows(6));
+                        rowset.printrows(rowset.getrows(7));
+                        rowset.printrows(rowset.getrows(8));
+
                         MessageBox.Show("Cheat Mode has been enabled.");
                         (act, rowset) = Machine.cheat_mode_enabled(rowset, colset, boxset);
 
@@ -310,16 +320,6 @@ namespace WpfApp2
                                Machine.has_zeros(rowset.getrows(8)));
                         }
                     }
-
-                    /*rowset.printrows(rowset.getrows(0));
-                    rowset.printrows(rowset.getrows(1));
-                    rowset.printrows(rowset.getrows(2));
-                    rowset.printrows(rowset.getrows(3));
-                    rowset.printrows(rowset.getrows(4));
-                    rowset.printrows(rowset.getrows(5));
-                    rowset.printrows(rowset.getrows(6));
-                    rowset.printrows(rowset.getrows(7));
-                    rowset.printrows(rowset.getrows(8));*/
                 }
                 while (checker);
 
