@@ -1,3 +1,5 @@
+# Sudoku Solver
+
 Currently this can do most puzzles of Expert level and a few from Master level on Sudoku.com.
 It also doesn't know how to brute force solutions, which is what I want to teach it next, because I personally have gotten to the point where it can solve everything that I can.
 Basically it knows all the tricks I do, so the only thing to teach it is how to guess numbers and know whether or not the guess was correct.
