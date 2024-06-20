@@ -98,7 +98,7 @@
         </Grid.Resources>
 
         <Image HorizontalAlignment="Left" Height="410" Margin="88,128,0,0" VerticalAlignment="Top" Width="440" Source="/blank-sudoku-grid.png"/>
-        <TextBlock x:Name="TitleMain" HorizontalAlignment="Left" Margin="184,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="222" FontWeight="Bold" FontSize="24" Panel.ZIndex="50"><Run Language="ja-jp" Text=" "/><Run Text="Insert Your Puzzle:"/></TextBlock>
+        <TextBlock x:Name="TitleMain" HorizontalAlignment="Left" Margin="184,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="222" FontWeight="Bold" FontSize="24" Panel.ZIndex="50"><Run Text=" "/><Run Text="Insert Your Puzzle:"/></TextBlock>
         <TextBox x:Name="R11" HorizontalAlignment="Left" Margin="93,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="1"/>
         <TextBox x:Name="R12" HorizontalAlignment="Left" Margin="138,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="2"/>
         <TextBox x:Name="R13" HorizontalAlignment="Left" Margin="182,133,0,0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" Height="40" MaxLines="1" MaxLength="1" TextAlignment="Center" FontSize="26" Panel.ZIndex="100" BorderBrush="{x:Null}" TabIndex="3"/>
