@@ -38,82 +38,82 @@ namespace WpfApp2
             private int[] row9 = new int[9];
 
             public void setrows(int row_num, int[] row_with_num)
-                    {          
-                        int i = 0;
-                        switch (row_num+1)
+            {
+                int i = 0;
+                switch (row_num + 1)
+                {
+                    case 1:
+                        while (i < 9)
                         {
-                            case 1:
-                                while (i < 9)
-                                {
-                                    row1[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 2:
-                                while (i < 9)
-                                {
-                                    row2[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 3:
-                                while (i < 9)
-                                {
-                                    row3[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 4:
-                                while (i < 9)
-                                {
-                                    row4[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 5:
-                                while (i < 9)
-                                {
-                                    row5[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 6:
-                                while (i < 9)
-                                {
-                                    row6[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 7:
-                                while (i < 9)
-                                {
-                                    row7[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 8:
-                                while (i < 9)
-                                {
-                                    row8[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            case 9:
-                                while (i < 9)
-                                {
-                                    row9[i] = row_with_num[i];
-                                    i += 1;
-                                }
-                                break;
-                            default:
-                                MessageBox.Show("Something went wrong in Rows.\n");
-                                break;
+                            row1[i] = row_with_num[i];
+                            i += 1;
                         }
+                        break;
+                    case 2:
+                        while (i < 9)
+                        {
+                            row2[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 3:
+                        while (i < 9)
+                        {
+                            row3[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 4:
+                        while (i < 9)
+                        {
+                            row4[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 5:
+                        while (i < 9)
+                        {
+                            row5[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 6:
+                        while (i < 9)
+                        {
+                            row6[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 7:
+                        while (i < 9)
+                        {
+                            row7[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 8:
+                        while (i < 9)
+                        {
+                            row8[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    case 9:
+                        while (i < 9)
+                        {
+                            row9[i] = row_with_num[i];
+                            i += 1;
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("Something went wrong in Rows.\n");
+                        break;
+                }
 
-                    }
+            }
             public int[] getrows(int row_num)
-            {                                 
-                switch (row_num+1)
+            {
+                switch (row_num + 1)
                 {
                     case 1:
                         return row1;
@@ -139,7 +139,7 @@ namespace WpfApp2
                 }
             }
             public void printrows(int[] row_to_print)
-            {                       
+            {
                 MessageBox.Show(row_to_print[0] + "\n" +
                                 row_to_print[1] + "\n" +
                                 row_to_print[2] + "\n" +
@@ -156,10 +156,10 @@ namespace WpfApp2
                 int[][] matrix = { row1, row2, row3, row4, row5, row6, row7, row8, row9 };
                 return matrix;
             }
-            public bool has_number(int number, int[] row_with_number) 
+            public bool has_number(int number, int[] row_with_number)
             {
-                for (int i = 0; i < 9; i++) 
-                { 
+                for (int i = 0; i < 9; i++)
+                {
                     if (number == row_with_number[i])
                     {
                         return true;
@@ -188,9 +188,9 @@ namespace WpfApp2
             private int[] col9 = new int[9];
 
             public void setcols(int col_num, int[] col_with_num)
-            {                                                           
+            {
                 int i = 0;
-                switch (col_num+1)
+                switch (col_num + 1)
                 {
                     case 1:
                         while (i < 9)
@@ -261,8 +261,8 @@ namespace WpfApp2
                 }
             }
             public int[] getcols(int col_num)
-            {                                 
-                switch (col_num+1)
+            {
+                switch (col_num + 1)
                 {
                     case 1:
                         return col1;
@@ -288,7 +288,7 @@ namespace WpfApp2
                 }
             }
             public void printcols(int[] col_to_print)
-            {                      
+            {
                 MessageBox.Show(col_to_print[0] + "\n" +
                                 col_to_print[1] + "\n" +
                                 col_to_print[2] + "\n" +
@@ -337,9 +337,9 @@ namespace WpfApp2
             private int[] box9 = new int[9];
 
             public void setboxs(int box_num, int[] box_with_num)
-            {           
+            {
                 int i = 0;
-                switch (box_num+1)
+                switch (box_num + 1)
                 {
                     case 1:
                         while (i < 9)
@@ -410,8 +410,8 @@ namespace WpfApp2
                 }
             }
             public int[] getboxs(int box_num)
-            {                                 
-                switch (box_num+1)
+            {
+                switch (box_num + 1)
                 {
                     case 1:
                         return box1;
@@ -1433,7 +1433,7 @@ namespace WpfApp2
              */
 
             // We need to know if a spot can be a one, a two, etc.
-            bool one = false;                   
+            bool one = false;
             bool two = false;
             bool three = false;
             bool four = false;
@@ -1445,10 +1445,10 @@ namespace WpfApp2
 
             // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Does it have a 2?, etc")
             // As named, these variables save time by reducing function calls dramatically.
-            int[] row_time_saver = fakerow.getrows(row_num);            
+            int[] row_time_saver = fakerow.getrows(row_num);
             int[] col_time_saver = fakecol.getcols(col_num);
             int[] box_time_saver = fakebox.getboxs(box_num);
-            
+
             one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
             two = (fakerow.has_number(2, row_time_saver) || fakecol.has_number(2, col_time_saver) || fakebox.has_number(2, box_time_saver));
             three = (fakerow.has_number(3, row_time_saver) || fakecol.has_number(3, col_time_saver) || fakebox.has_number(3, box_time_saver));
@@ -1476,7 +1476,7 @@ namespace WpfApp2
             bool[] exchange = { a, b, c, d, e, f, g, h, i };
 
             // Identify which number is possible. If only one is possible, return true and which number it is. Otherwise, false.
-            for (int check = 0; check < 9;  check++) 
+            for (int check = 0; check < 9; check++)
             {
                 switch (exchange[check])
                 {
@@ -1486,7 +1486,7 @@ namespace WpfApp2
                         continue;
                 }
             }
-                return (false, 0);
+            return (false, 0);
         }
 
         public (bool, int[][]) basic_value_solving(int[][] mat, int[][] mat2, int[][] mat3)
@@ -1650,7 +1650,7 @@ namespace WpfApp2
                                 default:
                                     MessageBox.Show("Something is very wrong with assinging box values.");
                                     break;
-                                
+
                             }
                             break;
                         case 1:
@@ -1845,7 +1845,7 @@ namespace WpfApp2
 
                             }
                             break;
-                    } 
+                    }
 
                     // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
                     one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
@@ -4956,23 +4956,23 @@ namespace WpfApp2
                     }
                 }
                 else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[2][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[5][8] == false && (possibilities[6][8] == true || possibilities[7][8] == true || possibilities[8][8] == true))
+                {
+                    if (possibilities[6][8])
                     {
-                        if (possibilities[6][8])
-                        {
-                            box_time_saver[6] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[7][8])
-                        {
-                            box_time_saver[7] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[6] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
+                    else if (possibilities[7][8])
+                    {
+                        box_time_saver[7] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
             }
 
             // Determine if any possibilities are restricted to a single column. If so, make the appropriate column assertion.
@@ -6123,23 +6123,23 @@ namespace WpfApp2
                     }
                 }
                 else if (possibilities[0][8] == false && possibilities[1][8] == false && possibilities[3][8] == false && possibilities[4][8] == false && possibilities[6][8] == false && possibilities[7][8] == false && (possibilities[2][8] == true || possibilities[5][8] == true || possibilities[8][8] == true))
+                {
+                    if (possibilities[2][8])
                     {
-                        if (possibilities[2][8])
-                        {
-                            box_time_saver[2] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else if (possibilities[5][8])
-                        {
-                            box_time_saver[5] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
-                        else
-                        {
-                            box_time_saver[8] = 0;
-                            throwawaybox.setboxs(box_num, box_time_saver);
-                        }
+                        box_time_saver[2] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
                     }
+                    else if (possibilities[5][8])
+                    {
+                        box_time_saver[5] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                    else
+                    {
+                        box_time_saver[8] = 0;
+                        throwawaybox.setboxs(box_num, box_time_saver);
+                    }
+                }
             }
 
             // If we changed something, return what we learned.
@@ -6181,7 +6181,7 @@ namespace WpfApp2
                 fakebox.setboxs(fake, mat3[fake]);
             }
 
-            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */           
+            /* Find the important row/column/box numbers (the first or next zero we find) and analyze them. */
             int[] important = new int[3];
             important = [-1, -1, -1];
             int skiprow = -1;
@@ -8181,7 +8181,7 @@ namespace WpfApp2
                 {
                     if (b[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (b[yi], col_num, 2));
+                        pair = advanced_overlap_col_checking(fakecol, (b[yi], col_num, 2));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8201,7 +8201,7 @@ namespace WpfApp2
                 {
                     if (c[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (c[yi], col_num, 3));
+                        pair = advanced_overlap_col_checking(fakecol, (c[yi], col_num, 3));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8221,7 +8221,7 @@ namespace WpfApp2
                 {
                     if (d[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (d[yi], col_num, 4));
+                        pair = advanced_overlap_col_checking(fakecol, (d[yi], col_num, 4));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8241,7 +8241,7 @@ namespace WpfApp2
                 {
                     if (e[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (e[yi], col_num, 5));
+                        pair = advanced_overlap_col_checking(fakecol, (e[yi], col_num, 5));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8261,7 +8261,7 @@ namespace WpfApp2
                 {
                     if (f[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (f[yi], col_num, 6));
+                        pair = advanced_overlap_col_checking(fakecol, (f[yi], col_num, 6));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8281,7 +8281,7 @@ namespace WpfApp2
                 {
                     if (g[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (g[yi], col_num, 7));
+                        pair = advanced_overlap_col_checking(fakecol, (g[yi], col_num, 7));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8301,7 +8301,7 @@ namespace WpfApp2
                 {
                     if (h[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (h[yi], col_num, 8));
+                        pair = advanced_overlap_col_checking(fakecol, (h[yi], col_num, 8));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8321,7 +8321,7 @@ namespace WpfApp2
                 {
                     if (i[yi] != 0)
                     {
-                        pair = advanced_overlap_row_checking(fakerow, (i[yi], col_num, 9));
+                        pair = advanced_overlap_col_checking(fakecol, (i[yi], col_num, 9));
                         (bool ma, int ro, int co, int nu) = pair;
                         if (ma)
                         {
@@ -8618,9 +8618,134 @@ namespace WpfApp2
                         nnine = (fakerow.has_number(9, nrow_time_saver) || fakecol.has_number(9, ncol_time_saver) || fakebox.has_number(9, nbox_time_saver));
 
                         // Set the matrix of possbilities for each zero in our box.
-                        possibilities[w] = [!none, !ntwo, !nthree, !nfour, !nfive, !nsix, !nseven, !neight, !nnine];
+                        npossibilities[w] = [!none, !ntwo, !nthree, !nfour, !nfive, !nsix, !nseven, !neight, !nnine];
                     }
                 }
+
+                switch (numm)
+                {
+                    case 1:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][0] = false;
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][1] = false;
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][2] = false;
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][3] = false;
+                            }
+                        }
+                        break;
+                    case 5:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][4] = false;
+                            }
+                        }
+                        break;
+                    case 6:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][5] = false;
+                            }
+                        }
+                        break;
+                    case 7:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][6] = false;
+                            }
+                        }
+                        break;
+                    case 8:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][7] = false;
+                            }
+                        }
+                        break;
+                    case 9:
+                        for (int x = 0; x < 9; x++)
+                        {
+                            if (x == coll || x == col_num)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                npossibilities[x][8] = false;
+                            }
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("Houston, we have a problem with removing Alternate pairs");
+                        break;
+                }
+
 
                 // Determine the number of zeros that can be a given number (3 zeros could be a 1, 1 zero could be a 4, etc).
                 int nalpha = 0;
@@ -8890,7 +9015,7 @@ namespace WpfApp2
         public bool[] possibilities(Rows fakerow, int row_num, Cols fakecol, int col_num, Boxs fakebox)
         {
             int[] row_time_saver = fakerow.getrows(row_num);
-            int[] col_time_saver = fakecol.getcols(col_num); 
+            int[] col_time_saver = fakecol.getcols(col_num);
 
             // Create and control the size of the possibility-tracking matrix.
             bool[] possibilities = new bool[9];
@@ -8909,224 +9034,224 @@ namespace WpfApp2
             int[] box_time_saver = new int[9];
 
             switch (row_num)
+            {
+                case 0:
+                    switch (col_num)
                     {
                         case 0:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 1:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 2:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(0);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(1);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(2);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
+                            box_time_saver = fakebox.getboxs(0);
                             break;
                         case 3:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 4:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 5:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(3);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(4);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(5);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
+                            box_time_saver = fakebox.getboxs(1);
                             break;
                         case 6:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 7:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
-                            break;
                         case 8:
-                            switch (col_num)
-                            {
-                                case 0:
-                                case 1:
-                                case 2:
-                                    box_time_saver = fakebox.getboxs(6);
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    box_time_saver = fakebox.getboxs(7);
-                                    break;
-                                case 6:
-                                case 7:
-                                case 8:
-                                    box_time_saver = fakebox.getboxs(8);
-                                    break;
-                                default:
-                                    MessageBox.Show("Something is very wrong with assinging box values.");
-                                    break;
-
-                            }
+                            box_time_saver = fakebox.getboxs(2);
                             break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
                     }
+                    break;
+                case 1:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(0);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(1);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(2);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 2:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(0);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(1);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(2);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 3:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(3);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(4);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(5);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 4:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(3);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(4);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(5);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 5:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(3);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(4);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(5);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 6:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(6);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(7);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(8);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 7:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(6);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(7);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(8);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+                case 8:
+                    switch (col_num)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                            box_time_saver = fakebox.getboxs(6);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            box_time_saver = fakebox.getboxs(7);
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            box_time_saver = fakebox.getboxs(8);
+                            break;
+                        default:
+                            MessageBox.Show("Something is very wrong with assinging box values.");
+                            break;
+
+                    }
+                    break;
+            }
 
             // Check if the row/column/box already has each number. ("Does this row/column/box already have a 1? Do they have a 2?", etc)
             one = (fakerow.has_number(1, row_time_saver) || fakecol.has_number(1, col_time_saver) || fakebox.has_number(1, box_time_saver));
@@ -9251,6 +9376,9 @@ namespace WpfApp2
 
         public int loop = -1;
 
+
+        /*----------------------------------------------------------------------------------------------------------------------*/
+
         public (bool, Rows) cheat_mode_enabled(Rows fakerow, Cols fakecol, Boxs fakebox)
         {
 
@@ -9307,7 +9435,7 @@ namespace WpfApp2
 
 
             /* Solve everything you can. */
-            
+
 
 
             /* Test for rule violations. */
@@ -9318,7 +9446,7 @@ namespace WpfApp2
 
             /* If all possibilities have violations, remove second most recent decision and try alternatives. */
 
-                    // This sort of recursion would be much easier with Prolog...
+            // This sort of recursion would be much easier with Prolog...
 
             /* If no violations, check for remaining zeros. */
 
@@ -9327,7 +9455,7 @@ namespace WpfApp2
             return (act, fakerow);
 
 
-            /* if zeros remain, make another guess, rinse and repeat. */ 
+            /* if zeros remain, make another guess, rinse and repeat. */
 
         }
 
@@ -9574,5 +9702,5 @@ namespace WpfApp2
             return (act, fakerow);
         }*/
 
-    } 
+    }
 }
